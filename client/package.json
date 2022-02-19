@@ -1,11 +1,34 @@
 {
   "name": "shopping-cart-client",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.jsx",
   "license": "MIT",
   "scripts": {
     "server:prepare": "cd ../server && yarn && cd ../client",
     "server": "cd ../server && yarn server && cd ../client",
-    "server:first": "yarn server:prepare && yarn server"
+    "server:first": "yarn server:prepare && yarn server",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-hooks": "^0.4.2",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
