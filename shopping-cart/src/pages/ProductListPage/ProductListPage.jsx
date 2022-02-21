@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MenuAPI from '../../API';
 import CartButton from '../CartButton/CartButton';
 import GNB from '../NavPage/GNB';
 import "./ProductListPage.sass"
@@ -29,11 +30,10 @@ const ProductListPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(async() => {
-    await fetch(`${BASE_URL}/products`)
-      .then(response => response.json())
-      .then(data => setProducts(data));
+    await MenuAPI.getList("products")
+      .then(data => setProducts(data))
   }, [])
-  //data까지 받아오기 ok
+
   return (
     <>
       <GNB />
