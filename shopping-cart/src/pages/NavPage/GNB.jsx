@@ -1,0 +1,33 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import CartButton from '../CartButton/CartButton';
+import "./GNB.sass"
+
+const GNB = () => {
+  const navigate = useNavigate();
+  const onClick = (e) => {
+    if (e.target.className === "logo") {
+      navigate("/");
+    } else if (e.target.className === "cart") {
+      navigate("cart");
+    } else if (e.target.className === "order-list") {
+      navigate("orderList");
+    }
+  }
+  return (
+    <header className="GNB" onClick={onClick}>
+      <div className="logo">
+        <CartButton />
+        CLEANCODE SHOP
+      </div>
+      <div className="cart">
+        장바구니
+      </div>
+      <div className="order-list">
+        주문목록
+      </div>
+    </header>
+  );
+};
+
+export default GNB;
