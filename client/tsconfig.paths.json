@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "Cart": ["./src/pages/Cart"],
+      "Pages": ["./src/pages"],
+      "@pages": ["./src/pages"],
+      "some/*": ["./src/*"]
+    }
+  }
+}
