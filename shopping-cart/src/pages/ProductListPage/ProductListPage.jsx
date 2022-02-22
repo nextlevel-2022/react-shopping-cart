@@ -5,7 +5,7 @@ import GNB from '../NavPage/GNB';
 import "./ProductListPage.sass"
 
 // ### 심화 요구사항
-// ​
+// ​- [ ] jset TDD
 // - [ ] 도출된 요구사항을 기반으로 `User Flow Diagram` 혹은 `Flow Chart` 작성
 // - [ ] UI/UX
 //     - [ ] 사용자를 위한 로딩 환경 개선

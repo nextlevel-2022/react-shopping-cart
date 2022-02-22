@@ -38,7 +38,7 @@
 ​
 ### 심화 요구사항
 ​
-- [ ] 도출된 요구사항을 기반으로 `User Flow Diagram` 혹은 `Flow Chart` 작성
+- [x] 도출된 요구사항을 기반으로 `User Flow Diagram` 혹은 `Flow Chart` 작성
 - [ ] UI/UX
     - [ ] 사용자를 위한 로딩 환경 개선
     - [ ] 페이징 혹은 인피니티 스크롤 적용 (별도의 API 없음)
