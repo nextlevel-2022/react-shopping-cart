@@ -1,20 +1,36 @@
 <p align="middle" >
   <img src="https://techcourse-storage.s3.ap-northeast-2.amazonaws.com/3e6c6f30b11d4b098b5a3e81be19ce3a" width="400">
 </p>
-<h2 align="middle">장바구니</h2>
+<h2 align="middle">장바구니 - 조기문</h2>
 <p align="middle">React & Redux 데스크탑 장바구니 애플리케이션</p>
 </p>
 
-## 🚀 Getting Started
 
-> 다수의 컴포넌트를 페이지로 구성하고 복잡해진 상태를 관리합니다.
+## 웹 VS CODE 환경 
+[바로가기](https://github.dev/guymoon/react-shopping-cart)
 
-✔️ `데스크탑 타겟`의 웹 앱을 구현하며 구매로 이어지는 것에 끊김이 없고 `재방문을 고려한 UI/UX`에 대해 고민해봅니다.  
-✔️ 상태 관리를 위해 `Flux Architecture` 기반의 `Redux`를 활용합니다.  
-✔️ `Router`를 활용해 여러 페이지 전환을 고려합니다.  
-✔️ [배민상회](https://mart.baemin.com) 서비스 참고
+# 고민 + 시도 이야기
+- [🎯 TDD 시도!](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/TDD%EC%8B%9C%EB%8F%84.md)
+- [🎯 redux-saga테스트 with redux-saga-test-plan](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/redux-saga-test-plan%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20redux-saga%20%ED%85%8C%EC%8A%A4%ED%8A%B8!.md)
+- [🎯 products 관련 action들을 다루며 은닉화 실패..
+](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/products%20%EA%B4%80%EB%A0%A8%20action%EB%93%A4%EC%9D%84%20%EB%8B%A4%EB%A3%A8%EB%A9%B0%20%EC%9D%80%EB%8B%89%ED%99%94%20%EC%8B%A4%ED%8C%A8...md)
+- [🎯 payload 타입 지정, 설계에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/payload%20%ED%83%80%EC%9E%85%20%EC%A7%80%EC%A0%95%2C%20%EC%84%A4%EA%B3%84%EC%97%90%20%EB%8C%80%ED%95%9C%20%EA%B3%A0%EB%AF%BC.md)
+- [🎯 test 할 때 주입 받는 값의 위치에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/test%20%ED%95%A0%20%EB%95%8C%20%EC%A3%BC%EC%9E%85%20%EB%B0%9B%EB%8A%94%20%EA%B0%92%EC%9D%98%20%EC%9C%84%EC%B9%98.md)
+- [🎯 리듀서에서 state와 action 구조 분해 할당이 가독성을 높힐 수 있을지에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EB%A6%AC%EB%93%80%EC%84%9C%EC%97%90%EC%84%9C%20state%EC%99%80%20action%20%EA%B5%AC%EC%A1%B0%20%EB%B6%84%ED%95%B4%20%ED%95%A0%EB%8B%B9%EC%9D%B4%20%EA%B0%80%EB%8F%85%EC%84%B1%EC%9D%84%20%EB%86%92%ED%9E%90%20%EC%88%98%20%EC%9E%88%EC%9D%84%EC%A7%80%3F.md)
+- [🎯 어떻게하면 request에 관련된 method, url 을 효율적으로 관리할 수 있을지에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EC%96%B4%EB%96%BB%EA%B2%8C%ED%95%98%EB%A9%B4%20request%EC%97%90%20%EA%B4%80%EB%A0%A8%EB%90%9C%20method%2C%20url%20%EC%9D%84%20%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EA%B4%80%EB%A6%AC%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%9D%84%EC%A7%80%3F.md)
+- [🎯 하나의 모델과 관련된 액션들을 하나로 관리하는 것이 좋을지? 아니면 비동기 액션은 따로 관리하는 것이 좋을지?](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%ED%95%98%EB%82%98%EC%9D%98%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20%EA%B4%80%EB%A0%A8%EB%90%9C%20%EC%95%A1%EC%85%98%EB%93%A4%EC%9D%84%20%ED%95%98%EB%82%98%EB%A1%9C%20%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%20%EC%A2%8B%EC%9D%84%EC%A7%80%3F%20%EC%95%84%EB%8B%88%EB%A9%B4%20%EB%B9%84%EB%8F%99%EA%B8%B0%20%EC%95%A1%EC%85%98%EC%9D%80%20%EB%94%B0%EB%A1%9C%20%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%20%EC%A2%8B%EC%9D%84%EC%A7%80%3F.md)
+- [🎯 함수라면 함수임을 알려주는 네이밍이어야 될까?](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%ED%95%A8%EC%88%98%EB%9D%BC%EB%A9%B4%20%ED%95%A8%EC%88%98%EC%9E%84%EC%9D%84%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94%20%EB%84%A4%EC%9D%B4%EB%B0%8D%EC%9D%B4%EC%96%B4%EC%95%BC%20%EB%90%A0%EA%B9%8C%3F.md)
 
-<br />
+# 미션 진행하며 배운 것 + 에러 + 팁 등 기록 
+- [🎯 TS 이것저것](https://www.notion.so/g1moon/43117d8c605b466eb7f3201ef0e1a65b#59102e64e7e84db49a76e38d870c340b)
+- [🎯 test 환경에서 redux-logger 없애기](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/test%20%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%20redux-logger%20%EC%97%86%EC%95%A0%EA%B8%B0.md)
+- [🎯 next.js + jest + testing-library 환경설정](https://www.notion.so/g1moon/jest-next-08c42b9b86034ccba3be8ca9f28025ec)
+- [🎯 useDispatch 과 useSelector 의 typed versions!](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/useDispatch%C2%A0%EA%B3%BC%C2%A0useSelector%20%20%EC%9D%98%20typed%20versions%20!.md)
+- [🎯 에러핸들링](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EC%97%90%EB%9F%AC%ED%95%B8%EB%93%A4%EB%A7%81.md)
+
+
+
+
 
 ## 🕋 Server 실행 방법
 
