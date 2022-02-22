@@ -15,11 +15,11 @@ type sizeType = {
 
 export const theme: ThemeInterface = {
   device: {
-    desktop: "1023px",
+    desktop: "1200px",
     tablet: "784px",
     mobile: "414px",
   },
   size: {
-    maxWidth: "1176px",
+    maxWidth: "1200px",
   },
 };

@@ -7,20 +7,22 @@ import {
   OrderListPage,
   OrderDetailPage,
 } from "./pages";
-import { Headers } from "./components";
+import { GlobalNavigationBar, Main } from "./components";
 
 function App() {
   return (
     <>
-      <Headers />
-      <Routes>
-        <Route path="/" element={<ProductListPage />} />
-        <Route path="/prductDetail" element={<ProductDetailPage />} />
-        <Route path="/cartList" element={<CartListPage />} />
-        <Route path="/orderPay" element={<OrderPayPage />} />
-        <Route path="/orderList" element={<OrderListPage />} />
-        <Route path="/orderDetail" element={<OrderDetailPage />} />
-      </Routes>
+      <GlobalNavigationBar />
+      <Main>
+        <Routes>
+          <Route path="/" element={<ProductListPage />} />
+          <Route path="/prduct/:id" element={<ProductDetailPage />} />
+          <Route path="/cartList" element={<CartListPage />} />
+          <Route path="/orderPay" element={<OrderPayPage />} />
+          <Route path="/orderList" element={<OrderListPage />} />
+          <Route path="/orderDetail" element={<OrderDetailPage />} />
+        </Routes>
+      </Main>
     </>
   );
 }

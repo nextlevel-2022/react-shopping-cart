@@ -1,3 +1,5 @@
-import Headers from "./Headers";
+import GlobalNavigationBar from "./GlobalNavigationBar";
+import Main from "./Main";
+import ProductComponent from "./ProductListCard";
 
-export { Headers };
+export { GlobalNavigationBar, Main, ProductComponent };
