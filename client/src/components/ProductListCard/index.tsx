@@ -1,7 +1,7 @@
-import { CartIcon } from "src/components/Icons";
-import Logo from "src/components/GlobalNavigationBar/Logo";
 import { replaceCurrencyFormat } from "src/utils";
 import { Link } from "react-router-dom";
+import Logo from "../../components/GlobalNavigationBar/Logo";
+import { CartIcon } from "../../components/Icons";
 import { Product } from "../../types/dto";
 import { Wrapper, Container } from "./style";
 

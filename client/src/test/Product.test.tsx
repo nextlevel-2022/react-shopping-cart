@@ -5,7 +5,7 @@ import ProductListCard from "../components/ProductListCard";
 import { theme } from "../assets/styles/theme";
 
 describe("ProductListCard", () => {
-  test("Product List Card", () => {
+  it("Product List Card", () => {
     const product = {
       id: 1645426258567,
       name: "냉면용기(대)",
