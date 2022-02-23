@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named
 import { debounce } from 'lodash';
 import { useEffect } from 'react';
 
