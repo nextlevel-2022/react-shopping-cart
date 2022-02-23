@@ -54,6 +54,7 @@ const NavContainer = styled.div`
 
 const NavLink = styled(Link)`
   color: #ffffff;
+  cursor: pointer;
 `;
 
 const LogoImg = styled.img`
@@ -62,6 +63,7 @@ const LogoImg = styled.img`
 `;
 
 const LogoTitle = styled.h1`
+  margin-left: 10px;
   font-size: 40px;
   font-weight: 900;
   text-align: center;
