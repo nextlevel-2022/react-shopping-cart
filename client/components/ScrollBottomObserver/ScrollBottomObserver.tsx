@@ -6,7 +6,7 @@ interface Props {
   msToDelayExecuteScrollHandler?: number;
 }
 
-const ScrollBottomObserver = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Props) => {
+const ScrollBottomObserver = ({ workToDoWhenArrivedBottom, msToDelayExecuteScrollHandler = 100 }: Props) => {
   const returnIsBottom = (): boolean => {
     const { innerHeight } = window;
     const {
