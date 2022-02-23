@@ -8,7 +8,7 @@ interface Props {
   isLastPage: boolean;
 }
 
-const InfiniteScroll = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Props) => {
+const ScrollBottomObserver = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Props) => {
   const returnIsBottom = (): boolean => {
     const { innerHeight } = window;
     const {
@@ -32,4 +32,4 @@ const InfiniteScroll = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Props) =
   return <></>;
 };
 
-export default InfiniteScroll;
+export default ScrollBottomObserver;

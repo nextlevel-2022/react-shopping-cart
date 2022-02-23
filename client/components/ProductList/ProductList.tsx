@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Product } from '../../shared/types';
-import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
+import ScrollBottomObserver from '../ScrollBottomObserver/ScrollBottomObserver';
 import ProductItem from './ProductItem';
 import Spinner from '../Spinner/Spinner';
 
@@ -46,7 +46,10 @@ const ProductList = ({ products, isLoadingProducts }: Props) => {
         })}
       </ProductListContainer>
       {!isLastPage && (
-        <InfiniteScroll workToDoWhenArrivedBottom={flipPage} isLastPage={isLastPage} />
+        <ScrollBottomObserver
+          workToDoWhenArrivedBottom={flipPage}
+          msToDelayExecuteScrollHandler={200}
+        />
       )}
     </Container>
   );
