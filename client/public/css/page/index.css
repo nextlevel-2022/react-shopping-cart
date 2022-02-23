@@ -1,3 +1,9 @@
-@import "./cart.css";
-@import "./order.css";
-@import "./product.css";
+@import './cart.css';
+@import './order.css';
+@import './product.css';
+
+.page {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1140px;
+}

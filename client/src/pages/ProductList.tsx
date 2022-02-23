@@ -1,132 +1,14 @@
 import React from 'react';
-import Cart from 'Cart';
+import ProductList from '@/components/product';
+import Header from '@/components/common/Header';
 
-const ProductList = () => {
+const ProductListPage = () => {
   return (
-    <section className="product-container">
-      <Cart />
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-      <div>
-        <img src="../assets/images/product.png" alt="PET보틀-정사각(420ml)" />
-        <div className="flex justify-between w-280 p-5">
-          <div className="product-info">
-            <span className="product-info__name">PET보틀-정사각(420ml)</span>
-            <span className="product-info__price">43,000원</span>
-          </div>
-          <img src="../assets/svgs/cart.svg" alt="장바구니" />
-        </div>
-      </div>
-    </section>
+    <div className="page">
+      <Header title="상품목록" />
+      <ProductList />;
+    </div>
   );
 };
 
-export default ProductList;
+export default ProductListPage;
