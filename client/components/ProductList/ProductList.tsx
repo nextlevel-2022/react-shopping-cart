@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import { Product } from '../../shared/types';
 import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
 import ProductItem from './ProductItem';
+import Spinner from '../Spinner/Spinner';
 
 interface Props {
   products: Product[];
+  isLoadingProducts: boolean;
 }
 
-const ProductList = ({ products }: Props) => {
+const ProductList = ({ products, isLoadingProducts }: Props) => {
   const [page, setPage] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
 
@@ -24,6 +26,13 @@ const ProductList = ({ products }: Props) => {
       setIsLastPage(true);
     }
   }, [page]);
+
+  if (isLoadingProducts)
+    return (
+      <Spinner>
+        <p>로딩중</p>
+      </Spinner>
+    );
 
   if (products.length === 0) {
     return <div>등록된 제품이 없습니다.</div>;
