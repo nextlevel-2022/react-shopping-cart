@@ -4,8 +4,7 @@ import { useEffect } from 'react';
 
 interface Props {
   workToDoWhenArrivedBottom: () => void;
-  msToDelay?: number;
-  isLastPage: boolean;
+  msToDelayExecuteScrollHandler?: number;
 }
 
 const ScrollBottomObserver = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Props) => {
@@ -23,7 +22,7 @@ const ScrollBottomObserver = ({ workToDoWhenArrivedBottom, msToDelay = 100 }: Pr
     if (returnIsBottom()) {
       workToDoWhenArrivedBottom();
     }
-  }, msToDelay);
+  }, msToDelayExecuteScrollHandler);
 
   useEffect(() => {
     window.addEventListener('scroll', debouncedOnScroll);
