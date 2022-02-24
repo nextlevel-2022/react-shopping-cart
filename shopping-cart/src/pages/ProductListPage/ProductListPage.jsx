@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MenuAPI from '../../API';
 import CartButton from '../CartButton/CartButton';
 import GNB from '../NavPage/GNB';
+import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
 import "./ProductListPage.sass"
 
 // ### 심화 요구사항
@@ -24,23 +25,33 @@ import "./ProductListPage.sass"
 // - [ ] 매출 증대 및 마케팅을 위한 별도의 도구 추가
 //     - [ ] Google Analytics
 //     - [ ] Google Tag Manager
+// 개인 상품 페이지 만들기
+// - [ ] 상품 클릭 시 개인 상품 페이지로 이동 (여기 구현중)
+// - [ ] 개별 상품 내용 표시, 이미지, 상품명, 금액, 장바구니 버튼
+// - [ ] 장바구니 버튼 클릭시 장바구니로 이동
 
-const BASE_URL = "http://localhost:3003";
 const ProductListPage = () => {
   const [products, setProducts] = useState([]);
-
+  const [product, setProduct] = useState(null);
   useEffect(async() => {
     await MenuAPI.getList("products")
       .then(data => setProducts(data))
   }, [])
 
+  const onClick = async (e) => {
+    const productId = e.currentTarget.className;
+    await MenuAPI.getList(`products/${productId}`)
+          .then(data => setProduct(data));
+          // redux 사용
+  }
+
   return (
     <>
       <GNB />
-      <ul className="product-container">
+      <div className="product-container" >
         {products.map(product => {
           return (
-            <li key={product.id}>
+            <li key={product.id} className={product.id} onClick={onClick}>
               <div className='product-img'>
                 <img src={product.imageUrl} alt={product.name} />
               </div>
@@ -55,7 +66,7 @@ const ProductListPage = () => {
             </li>
           )
         })}
-      </ul>
+      </div>
     </>
     
   )

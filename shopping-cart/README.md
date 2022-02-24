@@ -1,70 +1,63 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## �� Requirements
+​
+​
+### 필수 요구사항
+​
+- [ ] `React Testing Library` & `Jest`를 활용해 자유로운 단위의 테스트를 진행한다.
+- [ ] `Redux` 상태와 `Hooks`를 조합할 수 있는 패턴과 구조를 시도한다.
+​
+#### 장바구니
+​
+- [ ] 해당 상품의 수량을 변경할 수 있다.
+  - [ ] 상품의 수량은 항상 1이상, 20이하여야 한다
+    - [ ] 상품의 수량이 1이면 상품 수량 감소할 수 없다.
+    - [ ] 상품의 수량이 20이면 상품 수량 증가할 수 없다.
+  - [ ] 해당 상품의 총 금액이 변경된다.
+  - [ ] 해당 상품이 체크되어있으면, 결제예상금액도 변경된다.
+- [ ] 모두선택 버튼이 체크되면, 상품들이 모두 선택된다.
+  - [ ] 모두선택 버튼이 체크가 풀리면, 상품들의 선택이 모두 해제된다.
+- [ ] 상품 삭제 버튼을 누르면, confirm 메시지가 보여진다.
+  - [ ] 확인을 누르면, 선택된 상품이 모두 삭제된다.
+  - [ ] 결제예상금액이 0원이 된다.
+- [ ] �� 버튼을 누르면 confirm 메시지가 보여진다.
+  - [ ] 확인을 누르면, 해당 상품이 삭제된다.
+- [ ] 체크된 상품 개수에 따라 주문하기 버튼 내부에 수량이 변경된다.
+- [ ] 주문하기 버튼을 누르면, confirm 메시지가 보여진다.
+  - [ ] 확인을 누르면, 주문/결제 페이지로 이동한다.
+  - [ ] 확인을 누르면, 장바구니에서 선택된 상품들이 삭제된다.
+  - [ ] 확인을 누르면, 체크된 상품들을 데이터베이스에서 제거한다.
+- [ ] 주문할 상품이 0개이면 버튼이 비활성화된다.
+​
+#### 주문/결제
+​
+- [ ] 주문할 상품들의 정보가 보여진다.
+- [ ] 총 결제금액을 보여준다.
+- [ ] 결제하기 버튼을 클릭하면, confirm 메시지가 보여진다.
+  - [ ] 확인 버튼을 누르면, 주문 목록페이지로 이동한다.
+​
+#### 주문목록
+​
+- [ ] 주문 정보들이 보여진다.
+- [ ] 장바구니 버튼을 클릭하면, 해당 상품이 장바구니에 담기고 장바구니 이동 선택 모달이 보여진다.
+  - [ ] 장바구니 이동 버튼을 누르면 장바구니 페이지로 이동한다.
+​
+### 심화 요구사항
+​
+- [ ] 도출된 요구사항을 기반으로 `User Flow Diagram` 혹은 `Flow Chart` 작성
+- [ ] UI/UX
+    - [ ] 사용자를 위한 로딩 환경 개선
+    - [ ] 페이징 혹은 인피니티 스크롤 적용 (별도의 API 없음)
+        - [ ] 뒤로가기 및 페이지 전환시 기존 페이지 및 스크롤 위치 기억
+    - [ ] 상품이 없을 때와 같은 다양한 `Edge Case` 대응
+    - [ ] 반응형 레이아웃 구현
+    - [ ] 별도의 모바일 레이아웃 추가 제공
+    - [ ] [배민상회](https://mart.baemin.com)를 참고하여 추가 개선 사항 반영
+- [ ] 매출 증대 및 마케팅을 위해 별도의 기능 구현 (별도의 API 없음)
+    - [ ] 브라우저 새로고침시 모든 상태 유지
+    - [ ] 흐름을 고려한 맞춤 큐레이팅 **상품 추천** 기능
+    - [ ] 구매 유도를 위한 **상품 찜** 페이지
+- [ ] 매출 증대 및 마케팅을 위한 별도의 도구 추가
+    - [ ] Google Analytics
+    - [ ] Google Tag Manager
+​
+### 리뷰 포인트
