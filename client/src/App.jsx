@@ -1,10 +1,13 @@
 import React from 'react';
+import { QueryClientProvider, QueryClient } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const App = () => {
 	return (
-		<div>
-			<h1>My React App</h1>
-		</div>
+		<QueryClientProvider client={queryClient}>
+			<div className="App">My React App</div>
+		</QueryClientProvider>
 	);
 }
 
