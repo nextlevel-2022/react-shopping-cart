@@ -6,9 +6,18 @@ import productsService from '../../../../apis/products';
 import db from '../../../../shared/fixtures/db.json';
 import productsSaga from '../saga';
 import { productsActions, productsReducer } from '../slice';
-import { PRODUCTS, ProductsReducerInitialState } from '../types';
+import { PRODUCTS } from '../types';
 
 const { products: productsFixture } = db;
+
+const ProductsReducerInitialState = {
+  products: {
+    value: [],
+    isLoading: false,
+    hasError: false,
+    error: null,
+  },
+};
 
 describe('productsSaga', () => {
   it('store의 state는 초깃값을 가지고 있다.', () => {

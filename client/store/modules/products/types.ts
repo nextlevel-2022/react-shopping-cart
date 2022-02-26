@@ -12,15 +12,6 @@ export interface GetProductsErrorType {
   [error: string]: Error | unknown;
 }
 
-interface ProductsReducerState {
+export interface ProductsReducerState {
   products: BaseRequestReducerState<Products>;
 }
-
-export const ProductsReducerInitialState: ProductsReducerState = {
-  products: {
-    value: [],
-    isLoading: false,
-    hasError: false,
-    error: null,
-  },
-};

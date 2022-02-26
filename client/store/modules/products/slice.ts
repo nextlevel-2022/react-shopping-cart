@@ -6,7 +6,7 @@ import {
   GetProductsErrorType,
   GetProductsResponseType,
   PRODUCTS,
-  ProductsReducerInitialState,
+  ProductsReducerState,
 } from './types';
 
 const productsAsyncActions = {
@@ -19,7 +19,14 @@ const productsAsyncActions = {
 
 export const productsSlice = createSlice({
   name: PRODUCTS,
-  initialState: ProductsReducerInitialState,
+  initialState: {
+    products: {
+      value: [],
+      isLoading: false,
+      hasError: false,
+      error: null,
+    },
+  } as ProductsReducerState,
   reducers: {},
   extraReducers: (builder) => {
     const { getProductsAsyncAction } = productsActions;
