@@ -4,9 +4,9 @@ import { throwError } from 'redux-saga-test-plan/providers';
 
 import productsService from '../../../../apis/products';
 import db from '../../../../shared/fixtures/db.json';
-import { productsActions, productsReducer, ProductsReducerInitialState } from '../slice';
 import productsSaga from '../saga';
-import { PRODUCTS } from '../types';
+import { productsActions, productsReducer } from '../slice';
+import { PRODUCTS, ProductsReducerInitialState } from '../types';
 
 const { products: productsFixture } = db;
 

@@ -1,20 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncAction } from 'typesafe-actions';
 
-import { BaseRequestReducerState, Product } from '../../../shared/types';
-import { productsAsyncActions } from './asyncActions';
-import { PRODUCTS, Products } from './types';
+import { Product } from '../../../shared/types';
+import {
+  GetProductsErrorType,
+  GetProductsResponseType,
+  PRODUCTS,
+  ProductsReducerInitialState,
+} from './types';
 
-interface ProductsReducerState {
-  products: BaseRequestReducerState<Products>;
-}
-
-export const ProductsReducerInitialState: ProductsReducerState = {
-  products: {
-    value: [],
-    isLoading: false,
-    hasError: false,
-    error: null,
-  },
+const productsAsyncActions = {
+  getProductsAsyncAction: createAsyncAction(
+    `${PRODUCTS}/GET_${PRODUCTS}`,
+    `${PRODUCTS}/GET_${PRODUCTS}_SUCCESS`,
+    `${PRODUCTS}/GET_${PRODUCTS}_FAILURE`,
+  )<void, GetProductsResponseType, GetProductsErrorType>(),
 };
 
 export const productsSlice = createSlice({

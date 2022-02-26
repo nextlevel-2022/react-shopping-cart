@@ -1,4 +1,4 @@
-import { Product } from '../../../shared/types';
+import { BaseRequestReducerState, Product } from '../../../shared/types';
 
 export const PRODUCTS = 'products' as const;
 
@@ -11,3 +11,16 @@ export interface GetProductsResponseType {
 export interface GetProductsErrorType {
   [error: string]: Error | unknown;
 }
+
+interface ProductsReducerState {
+  products: BaseRequestReducerState<Products>;
+}
+
+export const ProductsReducerInitialState: ProductsReducerState = {
+  products: {
+    value: [],
+    isLoading: false,
+    hasError: false,
+    error: null,
+  },
+};
