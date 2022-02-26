@@ -10,7 +10,7 @@ import { PRODUCTS } from '../types';
 
 const { products: productsFixture } = db;
 
-describe('productsSaga, () => {
+describe('productsSaga', () => {
   it('store의 state는 초깃값을 가지고 있다.', () => {
     return expectSaga(productsSaga)
       .withReducer(productsReducer)
