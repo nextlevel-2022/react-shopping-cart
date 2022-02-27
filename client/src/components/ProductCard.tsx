@@ -13,7 +13,7 @@ export function ProductCard({
 }) {
   return (
     <li
-      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4  px-4 mb-10"
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-10"
       onClick={onClickItem}
     >
       <figure className="h-[282px] md:h-[220px] lg:h-[282px]">
