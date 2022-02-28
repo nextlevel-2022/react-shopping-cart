@@ -9,7 +9,7 @@
     "lowdb": "^1.0.0"
   },
   "scripts": {
-    "server": "node server.js"
+    "server": "nodemon server.js"
   },
   "dependencies": {}
 }
