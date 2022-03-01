@@ -8,6 +8,7 @@
     "lint": "next lint",
     "test": "jest",
     "watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 ./public",
     "build-storybook": "build-storybook  public"
   },
@@ -63,6 +64,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
     "jest-dom": "^4.0.0",
