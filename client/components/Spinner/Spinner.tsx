@@ -3,8 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import { Color } from '../../shared/types';
 import { COLOR } from '../../shared/constants/css';
 
-interface Props {
+export interface Props {
+  /**Spinner 아래 위치하는 children*/
   children?: ReactNode;
+  /**Spinner의 색상*/
   color?: Color;
 }
 
