@@ -12,7 +12,7 @@ export interface Product {
 export interface GetProdutResponse extends Product {}
 
 export interface PostProductRequest {
-  product: Omit<Product, "id">;
+  product: Omit<Product, 'id'>;
 }
 
 /*
