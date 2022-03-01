@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { URL } from '../../shared/constants/url';
 import { Product } from '../../shared/types';
 
-interface Props {
+export interface Props {
+  /** 상품을 나타냅니다 */
   product: Product;
 }
 

@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import { Product } from '../../shared/types';
 import ScrollBottomObserver from '../ScrollBottomObserver/ScrollBottomObserver';
-import ProductItem from './ProductItem';
 import Spinner from '../Spinner/Spinner';
+import ProductItem from './ProductItem';
 
-interface Props {
+export interface Props {
+  /**상품들의 리스트(Product[])*/
   products: Product[];
+  /**Products가 로딩인중인지 알려주는 값*/
   isLoadingProducts: boolean;
 }
 
