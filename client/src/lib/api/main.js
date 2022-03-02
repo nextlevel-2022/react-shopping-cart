@@ -4,7 +4,7 @@ const apiHandler = {
   getProduct: async ({ id }) => {
     try {
       const response = await API.get(`/products/${id}`)
-      return response
+      return response.data
     } catch {
       console.log(error);
     }
@@ -12,7 +12,7 @@ const apiHandler = {
   getProducts: async () => { 
     try {
       const response = await API.get(`/products/`)
-      return response
+      return response.data
     } catch {
       console.log(error);
     }

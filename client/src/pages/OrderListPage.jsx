@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OrderList = () => {
+const OrderListPage = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const OrderList = () => {
   )
 }
 
-export default OrderList
+export default OrderListPage
