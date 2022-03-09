@@ -136,6 +136,15 @@ const Container = styled.div`
             letter-spacing: -0.5px;
             color: #333;
           }
+
+          .select-box {
+            &::before {
+              content: "";
+            }
+            &::after {
+              content: "";
+            }
+          }
         }
       }
     }
