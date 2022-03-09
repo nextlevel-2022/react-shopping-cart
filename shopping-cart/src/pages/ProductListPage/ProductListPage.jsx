@@ -1,57 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import MenuAPI from '../../API';
-import CartButton from '../CartButton/CartButton';
-import GNB from '../NavPage/GNB';
-import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
+import { Link } from 'react-router-dom';
+import API from '../../API';
+import CartButton from '../../common/CartButton/CartButton';
 import "./ProductListPage.sass"
-
-// ### 심화 요구사항
-// ​- [ ] jset TDD
-// - [ ] 도출된 요구사항을 기반으로 `User Flow Diagram` 혹은 `Flow Chart` 작성
-// - [ ] UI/UX
-//     - [ ] 사용자를 위한 로딩 환경 개선
-//     - [ ] 페이징 혹은 인피니티 스크롤 적용 (별도의 API 없음)
-//         - [ ] 뒤로가기 기존 페이지 및 스크롤 위치 기억 
-//         - [ ] 페이지 전환시 기존 페이지 및 스크롤 위치 기억
-//     - [ ] 상품이 없을 때와 같은 다양한 `Edge Case` 대응
-//     - [ ] 반응형 레이아웃 구현
-//     - [ ] 별도의 모바일 레이아웃 추가 제공
-//     - [ ] [배민상회](https://mart.baemin.com)를 참고하여 추가 개선 사항 반영
-
-// - [ ] 매출 증대 및 마케팅을 위해 별도의 기능 구현 (별도의 API 없음)
-//     - [ ] 브라우저 새로고침시 모든 상태 유지
-//     - [ ] 흐름을 고려한 맞춤 큐레이팅 **상품 추천** 기능
-//     - [ ] 구매 유도를 위한 **상품 찜** 페이지
-// - [ ] 매출 증대 및 마케팅을 위한 별도의 도구 추가
-//     - [ ] Google Analytics
-//     - [ ] Google Tag Manager
-// 개인 상품 페이지 만들기
-// - [ ] 상품 클릭 시 개인 상품 페이지로 이동 (여기 구현중)
-// - [ ] 개별 상품 내용 표시, 이미지, 상품명, 금액, 장바구니 버튼
-// - [ ] 장바구니 버튼 클릭시 장바구니로 이동
 
 const ProductListPage = () => {
   const [products, setProducts] = useState([]);
-  const [product, setProduct] = useState(null);
-  useEffect(async() => {
-    await MenuAPI.getList("products")
-      .then(data => setProducts(data))
-  }, [])
 
-  const onClick = async (e) => {
-    const productId = e.currentTarget.className;
-    await MenuAPI.getList(`products/${productId}`)
-          .then(data => setProduct(data));
-          // redux 사용
-  }
+  useEffect(async() => {
+    API.getProduct("/products")
+      .then(res => setProducts(res.data))
+      .catch(err => console.log(err));
+  }, [])
 
   return (
     <>
-      <GNB />
+      
       <div className="product-container" >
         {products.map(product => {
           return (
-            <li key={product.id} className={product.id} onClick={onClick}>
+            <Link key={product.id} to={`/products/${product.id}`}>
+            <li key={product.id} className={product.id}>
               <div className='product-img'>
                 <img src={product.imageUrl} alt={product.name} />
               </div>
@@ -64,6 +33,7 @@ const ProductListPage = () => {
               </div>
               
             </li>
+            </Link>
           )
         })}
       </div>

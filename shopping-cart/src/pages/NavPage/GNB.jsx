@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CartButton from '../CartButton/CartButton';
 import "./GNB.sass"
 
 const GNB = () => {
@@ -17,7 +16,6 @@ const GNB = () => {
   return (
     <header className="GNB" onClick={onClick}>
       <div className="logo">
-        <CartButton />
         CLEANCODE SHOP
       </div>
       <div className="cart">
