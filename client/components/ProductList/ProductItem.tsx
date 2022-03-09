@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import useCarts from '../../hooks/service/useCarts';
 import { URL } from '../../shared/constants/url';
 import { Product } from '../../shared/types';
 
@@ -11,6 +12,11 @@ export interface Props {
 
 const ProductItem = ({ product }: Props) => {
   const { id, name, price, imageUrl } = product;
+  const { addCarts } = useCarts();
+
+  const addCartItem = () => {
+    addCarts(product);
+  };
 
   return (
     <Container>
