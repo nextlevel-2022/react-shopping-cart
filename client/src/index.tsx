@@ -7,7 +7,7 @@ import logger from "redux-logger";
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "@redux-saga/core";
-import rootReducer, { rootSaga } from "./modules";
+import rootReducer, { rootSaga } from "./sagas";
 import GlobalStyles from "./assets/styles/GlobalStyles";
 import { theme } from "./assets/styles/theme";
 import App from "./App";

@@ -9,14 +9,14 @@ const payOrder = async () => {
 
 const getOrderList = async () => {
   const data = await fetch(`${BASE_URL}/orders`, {
-    headers: { "Content-type": "applicaiton/json" },
+    headers: { "Content-type": "application/json" },
   }).then((resp) => resp.json());
   return data;
 };
 
 const getOrder = async (orderId: number) => {
   const data = await fetch(`${BASE_URL}/orders/${orderId}`, {
-    headers: { "Content-type": "applicaiton/json" },
+    headers: { "Content-type": "application/json" },
   }).then((resp) => resp.json());
   return data;
 };

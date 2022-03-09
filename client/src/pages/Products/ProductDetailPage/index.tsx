@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { RootState } from "src/modules";
+import { addCart } from "src/apis";
+import { RootState } from "src/sagas";
 import { replaceCurrencyFormat } from "src/utils";
 import { Product } from "../../../types/dto";
 import { Wrapper, Container } from "./style";
@@ -18,6 +19,10 @@ const ProductDetailPage = () => {
   );
 
   const product = data.find((d) => d.id === Number(id));
+
+  const cartButtonHandler = async () => {
+    if (product) await addCart({ product });
+  };
 
   return (
     <Wrapper>
@@ -38,7 +43,9 @@ const ProductDetailPage = () => {
                 </span>
               </div>
             </div>
-            <button className="add-cart-button">장바구니</button>
+            <button className="add-cart-button" onClick={cartButtonHandler}>
+              장바구니
+            </button>
           </>
         )}
       </Container>

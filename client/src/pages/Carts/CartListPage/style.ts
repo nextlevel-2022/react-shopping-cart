@@ -95,39 +95,46 @@ const Container = styled.div`
             height: 28px;
             margin-right: 1rem;
           }
+        }
 
-          .item-info {
-            display: flex;
-            .img-container {
-              flex: 2;
-              margin-right: 1rem;
-              img {
-                width: 100%;
-                height: 100%;
-              }
-            }
-            .item-title {
-              flex: 3;
+        .item-info {
+          display: flex;
+          flex: 5;
+          .img-container {
+            flex: 2;
+            margin-right: 1rem;
+            img {
+              width: 100%;
+              height: 100%;
             }
           }
-          .item-control {
+          .item-title {
+            flex: 3;
+          }
+        }
+
+        .item-control {
+          flex: 1;
+          flex-shrink: 0;
+          text-align: right;
+          display: flex;
+          flex-direction: column;
+
+          * {
             flex: 1;
-            flex-shrink: 0;
+            float: right;
+          }
+
+          .icon-container {
+            width: 100%;
+            height: 100%;
+          }
+
+          .price {
             text-align: right;
-            display: flex;
-            flex-direction: column;
-
-            * {
-              flex: 1;
-              float: right;
-            }
-
-            .price {
-              text-align: right;
-              font-size: 1rem;
-              letter-spacing: -0.5px;
-              color: #333;
-            }
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+            color: #333;
           }
         }
       }

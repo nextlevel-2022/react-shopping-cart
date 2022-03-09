@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "src/modules/products";
-import { RootState } from "src/modules";
+import { getProducts } from "src/sagas/products";
+import { RootState } from "src/sagas";
 import { Product } from "../../../types/dto";
 import { ProductComponent } from "../../../components";
 import { Wrapper, Container } from "./style";
