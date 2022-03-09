@@ -30,3 +30,27 @@ export interface BaseRequestReducerState<T> {
   hasError: boolean;
   error: Error | null;
 }
+
+export interface BaseRequestFailure {
+  error: Error;
+}
+
+// redux-carts
+type CartItemProduct = Omit<Product, 'id'>;
+
+export interface CartItem {
+  id: number;
+  quantity: number;
+  product: CartItemProduct;
+}
+
+// redux-orders
+export interface OrderItem {
+  id: number;
+  orderDetails: OrderDetail[];
+}
+
+export interface OrderDetail {
+  product: Product;
+  quantity: number;
+}
