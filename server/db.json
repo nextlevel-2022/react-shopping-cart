@@ -73,35 +73,7 @@
       "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/5297837f-5ecd-4945-be2f-4a75854cd06e.jpg"
     }
   ],
-  "carts": [
-    {
-      "id": 1646829823543,
-      "product": {
-        "id": 2,
-        "name": "생새우살 (71/90) 500g 4개",
-        "price": 29000,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/6b95c66a-c13d-4ccd-9df5-b1af1428a225.jpg"
-      }
-    },
-    {
-      "id": 1646829826610,
-      "product": {
-        "id": 3,
-        "name": "펩시 콜라 355ml 24캔",
-        "price": 83700,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/84fc0238-0239-4d0e-870b-a9daa6f2c42c.jpg"
-      }
-    },
-    {
-      "id": 1646829826992,
-      "product": {
-        "id": 3,
-        "name": "펩시 콜라 355ml 24캔",
-        "price": 83700,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/84fc0238-0239-4d0e-870b-a9daa6f2c42c.jpg"
-      }
-    }
-  ],
+  "carts": [],
   "orders": [
     {
       "id": 1,
@@ -694,6 +666,32 @@
     {
       "id": 1646829274267,
       "orderDetails": []
+    },
+    {
+      "id": 1647234237095,
+      "orderDetails": [
+        {
+          "id": 1646829823543,
+          "price": 29000,
+          "name": "생새우살 (71/90) 500g 4개",
+          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/6b95c66a-c13d-4ccd-9df5-b1af1428a225.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 1646829826610,
+          "price": 83700,
+          "name": "펩시 콜라 355ml 24캔",
+          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/84fc0238-0239-4d0e-870b-a9daa6f2c42c.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 1646829826992,
+          "price": 83700,
+          "name": "펩시 콜라 355ml 24캔",
+          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/84fc0238-0239-4d0e-870b-a9daa6f2c42c.jpg",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }

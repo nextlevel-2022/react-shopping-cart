@@ -116,7 +116,8 @@ const CartPage = () => {
     })
 
     if (!count) {
-      //deactive button
+      const btn = document.querySelector(".primary-button");
+      //deactive button color change
     }
     return count;
   }
@@ -160,7 +161,7 @@ const CartPage = () => {
     updateCart();
   }
   const orderHandler = async (e) => {
-    if (!totalCount()) return;
+    if (!totalCount()) return; // click deactive
     const result = window.confirm("선택된 상품들을 구매하시겟습니까?");
     if (result) {
       const modifiedCart = cart.map(product => {
@@ -203,7 +204,7 @@ const CartPage = () => {
                   defaultChecked
                   onChange={combineToggleCheckBox}
                 />
-                <label className="checkbox-label" for="checkbox">선택해제</label>
+                <label className="checkbox-label" htmlFor="checkbox">선택해제</label>
               </div>
               <button className="delete-button" onClick={totalDeleteHandler}>상품삭제</button>
             </div>
@@ -212,7 +213,7 @@ const CartPage = () => {
             <hr className="divide-line-gray mt-10" />
             {cart.map(product => {
               return (
-                <>
+                <li key={product.id}>
                   <div className="cart-container" key={product.id}>
                     <div className="cart-container-left">
                       <input
@@ -238,7 +239,7 @@ const CartPage = () => {
                         onClick={deleteHandler}
                       />
                       <div className="number-input-container">
-                        <input type="number" className="number-input" min="1" max="20" value={product.quantity}/>
+                        <input type="number" className="number-input" min="1" max="20" value={product.quantity} readOnly/>
                         <div onClick={quantityHandler} id={product.name}>
                           <button className="number-input-button increase">▲</button>
                           <button className="number-input-button decrease">▼</button>
@@ -248,7 +249,7 @@ const CartPage = () => {
                     </div>
                   </div>
                   <hr className="divide-line-thin mt-10" />
-                </>
+                </li>
               )
             })}
         </section>
@@ -264,7 +265,7 @@ const CartPage = () => {
                 <span className="highlight-text">{totalPrice()} 원</span>
               </div>
               <div className="cart-right-section-bottom-button">
-                <button className="primary-button flex-center" onClick={orderHandler}>
+                <button className={`primary-button flex-center ${!totalCount() && "deactive"}`} onClick={orderHandler}>
                   주문하기({totalCount()}개)
                 </button>
               </div>

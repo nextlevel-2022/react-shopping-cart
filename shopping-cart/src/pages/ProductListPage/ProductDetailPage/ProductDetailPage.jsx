@@ -6,7 +6,7 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(async () => {
-    API.getProduct(window.location.pathname)
+    await API.getProduct(window.location.pathname)
       .then(res => setProduct(res.data))
       .catch(err => console.log(err));
   }, []);
