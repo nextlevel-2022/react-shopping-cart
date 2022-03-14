@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { BaseRequestReducerState, RootState } from '../../shared/types';
+import { BaseRequestReducerState, OrderItem, RootState } from '../../shared/types';
 import { createModelAttributeObject, createModelAttributeSelector } from '../../shared/utils/redux';
 import { useAppDispatch } from '../../store';
 import { ordersActions } from '../../store/modules/orders/slice';
@@ -22,7 +22,7 @@ const useOrders = () => {
     isLoading: isLoadingOrders,
     hasError: hasErrorOrders,
     error: errorOrders,
-  } = createModelAttributeObject<OrderItemFromServer[]>(ordersAttributeSelector);
+  } = createModelAttributeObject<OrderItem[]>(ordersAttributeSelector);
 
   const getOrders = () => {
     dispatch(ordersActions.getOrders.request());
