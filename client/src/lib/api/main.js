@@ -54,6 +54,17 @@ const apiHandler = {
       console.log(error);
     }
   },
+  // patchCart: async ({ }) => {
+  //   try {
+  //     await API.patch({
+  //       method: "patch",
+  //       url: "/carts",
+  //       data: product,
+  //     });
+  //   } catch {
+  //     console.log(error);
+  //   }
+  // },
   deleteCart: async ({ id }) => {
     try {
       await API.delete(`/carts/${id}`);
