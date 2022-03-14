@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 
+import { Product } from '../../../shared/types';
 import ProductItem from '../ProductItem';
 
 const product = {
@@ -19,7 +20,7 @@ describe('<ProductItem />', () => {
   });
 });
 
-const renderProductItem = (product) => {
+const renderProductItem = (product: Product) => {
   const result = render(<ProductItem product={product} />);
 
   const ProductItemTitle = () => result.getByText('냉면용기(대)');

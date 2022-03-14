@@ -26,6 +26,7 @@ const ProductItem = ({ product }: Props) => {
       <InformationContainer>
         <Name>{name}</Name>
         <Price>{price} 원</Price>
+        <AddCartButton onClick={addCartItem}>담기</AddCartButton>
       </InformationContainer>
     </Container>
   );
@@ -43,6 +44,10 @@ const InformationContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+`;
+
+const AddCartButton = styled.div`
+  cursor: pointer;
 `;
 
 const Name = styled.span`

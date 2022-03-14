@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import { Product } from '../../../shared/types';
 import ProductList from '../ProductList';
 
-const emptyProducts = [];
 const notEmptyProducts = [
   {
     id: 1,
@@ -46,16 +45,16 @@ const renderProductList = ({ products, isLoadingProducts }: RenderProductListPar
 
 describe('<ProductList/> 제품들이 보이는 컴포넌트가 렌더링 된다', () => {
   describe('로딩중일때', () => {
-    it('products 배열이 빈 배열인 경우에도 isLoadingProducts true이면 로딩중임을 보인다.', () => {
+    it('products 배열이 빈 배열인 경우에도 isLoadingProducts true 이면 로딩중임을 보인다.', () => {
       const { loadingText } = renderProductList({
-        products: emptyProducts,
+        products: [],
         isLoadingProducts: true,
       });
 
       expect(loadingText()).toBeInTheDocument();
     });
 
-    it('products 빈 배열이 아닌 경우에도 isLoadingProducts true이면 로딩중임을 보인다.', () => {
+    it('products 빈 배열이 아닌 경우에도 isLoadingProducts true 이면 로딩중임을 보인다.', () => {
       const { loadingText } = renderProductList({
         products: notEmptyProducts,
         isLoadingProducts: true,
@@ -77,10 +76,10 @@ describe('<ProductList/> 제품들이 보이는 컴포넌트가 렌더링 된다
     });
   });
 
-  describe('products가 존재하지 않을 때 ', () => {
-    it('products가 존재하지 않을 때 "등록된 제품이 없습니다" 가 나타난다.', () => {
+  describe('products 가 존재하지 않을 때 ', () => {
+    it('products 가 존재하지 않을 때 "등록된 제품이 없습니다" 가 나타난다.', () => {
       const { productsIsEmptyText } = renderProductList({
-        products: emptyProducts,
+        products: [],
         isLoadingProducts: false,
       });
 

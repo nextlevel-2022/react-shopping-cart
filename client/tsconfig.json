@@ -15,8 +15,17 @@
     "jsx": "preserve",
     "incremental": true,
     "strictNullChecks": true,
-    "types": ["node", "jest"]
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ]
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,10 +1,11 @@
 import { CartItem } from '../types';
 
 /**utils*/
-export const createCartItem = (id: CartItem['id'] = 1, quantity: CartItem['quantity'] = 1) => ({
+export const createCartItem = (id: CartItem['id'] = 1, quantity: CartItem['quantity'] = 1): CartItem => ({
   id,
   quantity,
   product: {
+    id,
     name: '호떡',
     price: 21800,
     imageUrl: 'https://cdn-mart.baemin.com/sellergoods/main/1b6e926b-52a3-4a92-8db5-fddaccdb2583.jpg',
