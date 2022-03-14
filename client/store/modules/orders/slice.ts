@@ -1,14 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
-import { BaseRequestFailure, OrderDetail, OrderItem } from '../../../shared/types';
-import {
-  GetOrdersSuccessPayload,
-  OrderDetailFromServer,
-  OrderItemFromServer,
-  ORDERS,
-  OrdersReducerState,
-} from './types';
+import { BaseRequestFailure } from '../../../shared/types';
+import { GetOrdersSuccessPayload, ORDERS, OrdersReducerState } from './types';
 
 const ordersAsyncActions = {
   getOrders: createAsyncAction(
@@ -38,7 +32,7 @@ export const ordersSlice = createSlice({
       })
       .addCase(`${getOrders.success}`, (state, { payload: { orders } }: PayloadAction<GetOrdersSuccessPayload>) => {
         state.orders.isLoading = false;
-        state.orders.value = createRefinedOrders(orders);
+        state.orders.value = orders;
       })
       .addCase(`${getOrders.failure}`, (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
         state.orders.isLoading = false;
@@ -50,21 +44,3 @@ export const ordersSlice = createSlice({
 
 export const ordersActions = { ...ordersSlice.actions, ...ordersAsyncActions };
 export const ordersReducer = ordersSlice.reducer;
-
-/** utils */
-const createRefinedOrders = (originalOrders: OrderItemFromServer[]): OrderItem[] =>
-  originalOrders.map(({ id, orderDetails }) => ({
-    id,
-    orderDetails: divideProductAndQuantity(orderDetails),
-  }));
-
-const divideProductAndQuantity = (originalOrderDetail: OrderDetailFromServer[]): OrderDetail[] => {
-  return originalOrderDetail.map((orderItem) => {
-    const { id, name, price, imageUrl, quantity } = orderItem;
-
-    return {
-      product: { id, name, price, imageUrl },
-      quantity,
-    };
-  });
-};

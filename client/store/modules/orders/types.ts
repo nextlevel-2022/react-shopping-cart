@@ -3,7 +3,7 @@ import { BaseRequestReducerState, OrderItem, Product } from '../../../shared/typ
 export const ORDERS = 'orders';
 
 export interface GetOrdersSuccessPayload {
-  orders: OrderItemFromServer[];
+  orders: OrderItem[];
 }
 
 export interface OrdersReducerState {
