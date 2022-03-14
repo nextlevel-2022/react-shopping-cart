@@ -35,13 +35,10 @@ export interface BaseRequestFailure {
   error: Error;
 }
 
-// redux-carts
-type CartItemProduct = Omit<Product, 'id'>;
-
 export interface CartItem {
   id: number;
   quantity: number;
-  product: CartItemProduct;
+  product: Product;
 }
 
 // redux-orders
