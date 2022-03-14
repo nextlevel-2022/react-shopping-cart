@@ -1,14 +1,14 @@
 import { call, put, takeEvery, takeLatest } from '@redux-saga/core/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import cartsService from '../../../apis/carts';
+import cartsRequest from '../../../apis/carts';
 import { CartItem } from '../../../shared/types';
 import { cartsActions } from './slice';
 import { AddCartItemRequestPayload, DeleteCartItemRequestPayload } from './types';
 
 export function* getCartsSaga() {
   try {
-    const carts: Omit<CartItem, 'quantity'>[] = yield call(cartsService.getCarts);
+    const carts: Omit<CartItem, 'quantity'>[] = yield call(cartsRequest.getCarts);
 
     yield put(cartsActions.getCarts.success({ carts }));
   } catch (error) {
@@ -22,7 +22,7 @@ export function* deleteCartItemByIdSaga({
   payload: { idToDeleteCartItem },
 }: PayloadAction<DeleteCartItemRequestPayload>) {
   try {
-    yield call(cartsService.deleteCartItemById, idToDeleteCartItem);
+    yield call(cartsRequest.deleteCartItemById, idToDeleteCartItem);
     yield put(cartsActions.deleteCartItemById.success({ deletedCartItemId: idToDeleteCartItem }));
   } catch (error) {
     if (error instanceof Error) {
@@ -33,7 +33,7 @@ export function* deleteCartItemByIdSaga({
 
 export function* addNewCartItemSaga({ payload: { product } }: PayloadAction<AddCartItemRequestPayload>) {
   try {
-    yield call(cartsService.addCartItem, product);
+    yield call(cartsRequest.addCartItem, product);
     yield put(cartsActions.addCartItem.success({ newCartItemProduct: product }));
   } catch (error) {
     if (error instanceof Error) {

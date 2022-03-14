@@ -3,7 +3,7 @@ import { OrderDetail, OrderItem } from '../shared/types';
 import { fetcher } from '../shared/utils/fetcher';
 import { OrderDetailFromServer, OrderItemFromServer } from '../store/modules/orders/types';
 
-const ordersService = {
+const ordersRequest = {
   getOrders: async () => {
     const { method, url } = REQUEST.GET_ORDERS();
 
@@ -13,7 +13,7 @@ const ordersService = {
   },
 };
 
-export default ordersService;
+export default ordersRequest;
 
 /** utils */
 const createRefinedOrders = (originalOrders: OrderItemFromServer[]): OrderItem[] =>

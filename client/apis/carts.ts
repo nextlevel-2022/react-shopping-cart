@@ -2,7 +2,7 @@ import { REQUEST } from '../shared/constants/url';
 import { CartItem, Product } from '../shared/types';
 import { fetcher } from '../shared/utils/fetcher';
 
-const cartsService = {
+const cartsRequest = {
   getCarts: async () => {
     const { method, url } = REQUEST.GET_CARTS();
 
@@ -22,4 +22,4 @@ const cartsService = {
   },
 };
 
-export default cartsService;
+export default cartsRequest;

@@ -1,4 +1,4 @@
-import productsService from '../../apis/products';
+import productsRequest from '../../apis/products';
 import { Product } from '../../shared/types';
 
 export interface ServerSideProps {
@@ -21,7 +21,7 @@ const ProductDetailPage = ({ product }: ServerSideProps) => {
 
 export async function getServerSideProps(context) {
   const id = context.params.productId;
-  const product = await productsService.getProductById(id);
+  const product = await productsRequest.getProductById(id);
 
   return {
     props: {

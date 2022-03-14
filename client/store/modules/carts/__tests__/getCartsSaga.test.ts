@@ -2,7 +2,7 @@ import { call } from '@redux-saga/core/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import cartsService from '../../../../apis/carts';
+import cartsRequest from '../../../../apis/carts';
 import { cartsFromServerDB } from '../../../../shared/fixtures/cartsFromServer';
 import { cartsReducerInitialState } from '../../../../shared/fixtures/cartsReducerInitialState';
 import { cartsWithQuantity } from '../../../../shared/fixtures/cartsWithQuantity';
@@ -12,10 +12,7 @@ import { CARTS } from '../types';
 
 describe('getCartsSaga', () => {
   it('store의 state는 초깃값을 가지고 있다.', () => {
-    return expectSaga(cartsSaga)
-      .withReducer(cartsReducer)
-      .hasFinalState(cartsReducerInitialState)
-      .silentRun();
+    return expectSaga(cartsSaga).withReducer(cartsReducer).hasFinalState(cartsReducerInitialState).silentRun();
   });
 
   it('getCarts success 시 carts 상태를 저장 할 수 있다.', () => {
@@ -27,7 +24,7 @@ describe('getCartsSaga', () => {
     return expectSaga(cartsSaga)
       .withReducer(cartsReducer)
       .dispatch(cartsActions.getCarts.request())
-      .provide([[call(cartsService.getCarts), cartsFromServerDB]])
+      .provide([[call(cartsRequest.getCarts), cartsFromServerDB]])
       .put(cartsActions.getCarts.success({ [CARTS]: cartsFromServerDB }))
       .hasFinalState(expectedResult)
       .silentRun();
@@ -39,7 +36,7 @@ describe('getCartsSaga', () => {
     return expectSaga(cartsSaga)
       .withReducer(cartsReducer)
       .dispatch(cartsActions.getCarts.request())
-      .provide([[call(cartsService.getCarts), throwError(error)]])
+      .provide([[call(cartsRequest.getCarts), throwError(error)]])
       .put(cartsActions.getCarts.failure({ error }))
       .silentRun();
   });

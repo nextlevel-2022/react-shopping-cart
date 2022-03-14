@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from '@redux-saga/core/effects';
 
-import productsService from '../../../apis/products';
+import productsRequest from '../../../apis/products';
 import { Product } from '../../../shared/types';
 import { productsActions } from './slice';
 
 function* getProductsSaga(_: ReturnType<typeof productsActions.getProductsAsyncAction.request>) {
   try {
-    const products: Product[] = yield call(productsService.getProducts);
+    const products: Product[] = yield call(productsRequest.getProducts);
 
     yield put(productsActions.getProductsAsyncAction.success({ products }));
   } catch (error) {

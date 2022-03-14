@@ -2,7 +2,7 @@ import { call } from '@redux-saga/core/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import cartsService from '../../../../apis/carts';
+import cartsRequest from '../../../../apis/carts';
 import { cartsReducerInitialState } from '../../../../shared/fixtures/cartsReducerInitialState';
 import cartsSaga from '../saga';
 import { cartsActions, cartsReducer } from '../slice';
@@ -18,7 +18,7 @@ describe('deleteCartItemByIdSaga', () => {
     return expectSaga(cartsSaga)
       .withReducer(cartsReducer)
       .dispatch(cartsActions.deleteCartItemById.request({ idToDeleteCartItem: ID_TO_DELETE_CART_ITEM }))
-      .provide([[call(cartsService.deleteCartItemById, ID_TO_DELETE_CART_ITEM), {}]])
+      .provide([[call(cartsRequest.deleteCartItemById, ID_TO_DELETE_CART_ITEM), {}]])
       .put(cartsActions.deleteCartItemById.success({ deletedCartItemId: ID_TO_DELETE_CART_ITEM }))
       .silentRun();
   });
@@ -31,7 +31,7 @@ describe('deleteCartItemByIdSaga', () => {
     return expectSaga(cartsSaga)
       .withReducer(cartsReducer)
       .dispatch(cartsActions.deleteCartItemById.request({ idToDeleteCartItem: ID_TO_DELETE_CART_ITEM }))
-      .provide([[call(cartsService.deleteCartItemById, ID_TO_DELETE_CART_ITEM), throwError(error)]])
+      .provide([[call(cartsRequest.deleteCartItemById, ID_TO_DELETE_CART_ITEM), throwError(error)]])
       .put(cartsActions.deleteCartItemById.failure({ error }))
       .silentRun();
   });
