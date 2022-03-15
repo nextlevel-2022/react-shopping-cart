@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+
+import { getTotalOrderAmount, getTotalOrderItemNumber } from '../../service/ordersService';
 import { OrderItem } from '../../shared/types';
 import Spinner from '../Spinner/Spinner';
 import OrderListItem from './OrderListItem';
@@ -16,13 +19,24 @@ const OrderList = ({ orders, isLoading }: Props) => {
       </>
     );
 
+  if (orders.length === 0) return <div>주문 내역이 존재하지 않습니다.</div>;
+
   return (
-    <div>
+    <Container>
+      <div>총 주문 상품 개수: {getTotalOrderItemNumber(orders)}</div>
+      <div>총 주문 액수: {getTotalOrderAmount(orders)}</div>
       {orders.map((orderItem) => (
-        <OrderListItem orderItem={orderItem} />
+        <OrderListItem key={`order-item-${orderItem.id}`} orderItem={orderItem} />
       ))}
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default OrderList;
