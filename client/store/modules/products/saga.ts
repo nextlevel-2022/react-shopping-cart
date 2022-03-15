@@ -10,7 +10,9 @@ function* getProductsSaga(_: ReturnType<typeof productsActions.getProductsAsyncA
 
     yield put(productsActions.getProductsAsyncAction.success({ products }));
   } catch (error) {
-    yield put(productsActions.getProductsAsyncAction.failure({ error }));
+    if (error instanceof Error) {
+      yield put(productsActions.getProductsAsyncAction.failure({ error }));
+    }
   }
 }
 
