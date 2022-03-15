@@ -1,22 +1,18 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import useCarts from '../../hooks/service/useCarts';
 import { URL } from '../../shared/constants/url';
 import { Product } from '../../shared/types';
 
 export interface Props {
   /** 상품을 나타냅니다 */
   product: Product;
+  /** 담기버튼을 클릭했을 때 실행 될 함수 */
+  onClickAddCartButton: any;
 }
 
-const ProductItem = ({ product }: Props) => {
+const ProductItem = ({ product, onClickAddCartButton }: Props) => {
   const { id, name, price, imageUrl } = product;
-  const { addCarts } = useCarts();
-
-  const addCartItem = () => {
-    addCarts(product);
-  };
 
   return (
     <Container>
@@ -26,7 +22,7 @@ const ProductItem = ({ product }: Props) => {
       <InformationContainer>
         <Name>{name}</Name>
         <Price>{price} 원</Price>
-        <AddCartButton onClick={addCartItem}>담기</AddCartButton>
+        <AddCartButton onClick={onClickAddCartButton}>담기</AddCartButton>
       </InformationContainer>
     </Container>
   );
