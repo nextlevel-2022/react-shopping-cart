@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 
-import { BaseRequestReducerState, OrderItem, RootState } from '../../shared/types';
+import { transformOrderDetailFromCartItem } from '../../service/cartsService';
+import { BaseRequestReducerState, CartItem, OrderItem, RootState } from '../../shared/types';
 import { createModelAttributeObject, createModelAttributeSelector } from '../../shared/utils/redux';
 import { useAppDispatch } from '../../store';
 import { ordersActions } from '../../store/modules/orders/slice';

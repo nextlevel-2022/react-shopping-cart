@@ -1,6 +1,6 @@
-import { REQUEST } from '../shared/constants/url';
-import { CartItem, Product } from '../shared/types';
-import { fetcher } from '../shared/utils/fetcher';
+import { REQUEST } from '../../shared/constants/url';
+import { CartItem, Product } from '../../shared/types';
+import { fetcher } from '../../shared/utils/fetcher';
 
 const cartsRequest = {
   getCarts: async () => {

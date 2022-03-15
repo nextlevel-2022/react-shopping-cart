@@ -1,6 +1,6 @@
-import { REQUEST } from '../shared/constants/url';
-import { Product } from '../shared/types';
-import { fetcher } from '../shared/utils/fetcher';
+import { REQUEST } from '../../shared/constants/url';
+import { Product } from '../../shared/types';
+import { fetcher } from '../../shared/utils/fetcher';
 
 const productsRequest = {
   getProducts: async () => {

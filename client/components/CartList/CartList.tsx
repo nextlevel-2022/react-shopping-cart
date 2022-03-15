@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { MouseEvent, useState } from 'react';
 
 import useCarts from '../../hooks/service/useCarts';
+import useOrders from '../../hooks/service/useOrders';
+import ordersRequest from '../../service/apis/orders';
 import { URL } from '../../shared/constants/url';
 import { CartItem } from '../../shared/types';
 import Spinner from '../Spinner/Spinner';

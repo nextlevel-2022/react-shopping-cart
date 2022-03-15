@@ -1,7 +1,7 @@
 import { call, put, takeEvery, takeLatest } from '@redux-saga/core/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import cartsRequest from '../../../apis/carts';
+import cartsRequest from '../../../service/apis/carts';
 import { CartItem } from '../../../shared/types';
 import { cartsActions } from './slice';
 import { AddCartItemRequestPayload, DeleteCartItemRequestPayload } from './types';

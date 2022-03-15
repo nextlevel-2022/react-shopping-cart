@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 
+import { hasSameProductInCarts, isMaxCartItemQuantity, isMinCartItemQuantity } from '../../service/cartsService';
 import { BaseRequestReducerState, CartItem, Product, RootState } from '../../shared/types';
 import { createModelAttributeObject, createModelAttributeSelector } from '../../shared/utils/redux';
 import { useAppDispatch } from '../../store';
@@ -22,25 +23,30 @@ const useCarts = () => {
   } = createModelAttributeObject<CartItem[]>(cartsAttributeSelector);
 
   const getCarts = () => {
+    carts.values();
     dispatch(cartsActions.getCarts.request());
   };
 
   const addCarts = (product: Product) => {
+    if (hasSameProductInCarts(carts, product)) {
+      return alert('이미 장바구니에 같은 상품이 존재합니다.');
+    }
+
     dispatch(cartsActions.addCartItem.request({ product }));
   };
 
   const increaseCartItemQuantityById = (cartItemId: CartItem['id'], currentQuantity: CartItem['quantity']) => {
-    const MAX_CART_ITEM_QUANTITY = 20;
-
-    if (MAX_CART_ITEM_QUANTITY === currentQuantity) return alert('최대 수량입니다.');
+    if (isMaxCartItemQuantity(currentQuantity)) {
+      return alert('최대 수량입니다.');
+    }
 
     dispatch(cartsActions.increaseCartItemQuantityById({ cartItemId }));
   };
 
   const decreaseCartItemQuantityById = (cartItemId: CartItem['id'], currentQuantity: CartItem['quantity']) => {
-    const MIN_CART_ITEM_QUANTITY = 1;
-
-    if (MIN_CART_ITEM_QUANTITY === currentQuantity) return alert('최소 수량입니다.');
+    if (isMinCartItemQuantity(currentQuantity)) {
+      return alert('최소 수량입니다.');
+    }
 
     dispatch(cartsActions.decreaseCartItemQuantityById({ cartItemId }));
   };
