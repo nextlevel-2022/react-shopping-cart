@@ -31,7 +31,7 @@ const CartListItem = ({ cartItem, onClickCartItemSelectButton, selectedCartItems
       <Image src={imageUrl} alt="" />
       <div>{name}</div>
       <RightAsideContainer>
-        <div>{cartItemId}</div>
+        <div>cartId: {cartItemId}</div>
         <div>{price}</div>
         <div>{quantity}개</div>
         <div>

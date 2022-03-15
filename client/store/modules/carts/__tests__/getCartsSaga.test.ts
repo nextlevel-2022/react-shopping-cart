@@ -2,7 +2,7 @@ import { call } from '@redux-saga/core/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import cartsRequest from '../../../../apis/carts';
+import cartsRequest from '../../../../service/apis/carts';
 import { cartsFromServerDB } from '../../../../shared/fixtures/cartsFromServer';
 import { cartsReducerInitialState } from '../../../../shared/fixtures/cartsReducerInitialState';
 import { cartsWithQuantity } from '../../../../shared/fixtures/cartsWithQuantity';

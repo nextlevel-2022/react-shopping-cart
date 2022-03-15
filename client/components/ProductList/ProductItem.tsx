@@ -28,7 +28,12 @@ const ProductItem = ({ product, onClickAddCartButton }: Props) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 const Image = styled.img`
   width: 17.625rem;
   height: 17.625rem;
@@ -49,6 +54,8 @@ const AddCartButton = styled.div`
 const Name = styled.span`
   font-size: 1rem;
 `;
-const Price = styled.span``;
+const Price = styled.span`
+  font-size: 1.25rem;
+`;
 
 export default ProductItem;

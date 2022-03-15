@@ -1,4 +1,4 @@
-import productsRequest from '../../apis/products';
+import productsRequest from '../../service/apis/products';
 import { Product } from '../../shared/types';
 
 export interface ServerSideProps {
@@ -19,7 +19,7 @@ const ProductDetailPage = ({ product }: ServerSideProps) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const id = context.params.productId;
   const product = await productsRequest.getProductById(id);
 

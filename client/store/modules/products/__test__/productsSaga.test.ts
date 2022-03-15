@@ -2,7 +2,7 @@ import { call } from '@redux-saga/core/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import productsRequest from '../../../../apis/products';
+import productsRequest from '../../../../service/apis/products';
 import db from '../../../../shared/fixtures/db.json';
 import productsSaga from '../saga';
 import { productsActions, productsReducer } from '../slice';

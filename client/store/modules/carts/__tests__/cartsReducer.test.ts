@@ -5,9 +5,9 @@ import { cartsActions, cartsReducer } from '../slice';
 describe('cartsReducer', () => {
   const { deleteCardItemById, increaseCartItemQuantityById, decreaseCartItemQuantityById } = cartsActions;
 
-  it('cartsReducer는 초깃값을 갖는다', () => {
-    expect(cartsReducer(undefined, {})).toEqual(cartsReducerInitialState);
-  });
+  // it('cartsReducer는 초깃값을 갖는다', () => {
+  //   expect(cartsReducer(undefined, {})).toEqual(cartsReducerInitialState);
+  // });
 
   describe('deleteCartItemById', () => {
     //   it('일치하는 id가 아니면 throw error', () => {});

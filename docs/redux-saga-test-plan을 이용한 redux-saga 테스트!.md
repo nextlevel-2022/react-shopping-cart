@@ -1,4 +1,5 @@
 # redux-saga 테스트!
+
 redux-saga-test-plan 을 이용하는 체이닝을 통해 가독성도 얻을 수 있고, 선언적인 테스트 작성이 가능한 것 같다
 
 ## .provide 메서드
@@ -7,13 +8,13 @@ redux-saga-test-plan 을 이용하는 체이닝을 통해 가독성도 얻을 �
 
 ```tsx
 it('getProducts success', () => {
-    return expectSaga(productsSaga)
-      .withReducer(productsReducer)
-      .dispatch(productsAsyncActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), products]])
-      .put(productsAsyncActions.getProductsAsyncAction.success({ products }))
-      .run();
-  });
+  return expectSaga(productsSaga)
+    .withReducer(productsReducer)
+    .dispatch(productsAsyncActions.getProductsAsyncAction.request())
+    .provide([[call(productsRequest.getProducts), products]])
+    .put(productsAsyncActions.getProductsAsyncAction.success({ products }))
+    .run();
+});
 ```
 
 - `provide` 메서드는 matcher-key 쌍을 배열로 받는다.
@@ -21,14 +22,13 @@ it('getProducts success', () => {
 
   위 예에서는
 
-    - 매칭할 이펙트: `call(productsService.getProducts)`
+    - 매칭할 이펙트: `call(productsRequest.getProducts)`
     - 반환할 가짝 값:  `products` (값 확인은 아래 토글 버튼 클릭)
-      
+
 - 매칭을 확인하고, `redux-saga`에 이펙트 처리를 넘기지 않고, 바로 가짜 값을 반환하도록 한다.
-- 위 예시에서는 모든 `call 이펙트` 에 대해 `productsService.getProducts` 를 처리하는지 확인하고
+- 위 예시에서는 모든 `call 이펙트` 에 대해 `productsRequest.getProducts` 를 처리하는지 확인하고
 
   → 처리한다면 가짜 유저 목록 `products`  을 리턴하도록 한다.
-
 
 ## 이펙트 dispatching 과 fork 된 saga
 
@@ -37,7 +37,7 @@ function* getProductsSaga(
   action: ReturnType<typeof productsAsyncActions.getProductsAsyncAction.request>,
 ) {
   try {
-    const products: Product[] = yield call(productsService.getProducts);
+    const products: Product[] = yield call(productsRequest.getProducts);
 
     yield put(productsAsyncActions.getProductsAsyncAction.success({ products }));
   } catch (error) {
@@ -59,17 +59,18 @@ export default function* productsSaga() {
 
 ```tsx
 it('getProducts success', () => {
-    return expectSaga(productsSaga)
-      .withReducer(productsReducer)
-      .dispatch(productsAsyncActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), products]])
-      .put(productsAsyncActions.getProductsAsyncAction.success({ products }))
-      .run();
-  });
+  return expectSaga(productsSaga)
+    .withReducer(productsReducer)
+    .dispatch(productsAsyncActions.getProductsAsyncAction.request())
+    .provide([[call(productsRequest.getProducts), products]])
+    .put(productsAsyncActions.getProductsAsyncAction.success({ products }))
+    .run();
+});
 ```
 
 - `redux-saga-test-plan` 은 fork 된 `saga`의 이펙트들도 모두 추적
-- 위 예에서는 `expectSaga` 는 단지 `productsSaga` 만을 받았지만, `getProductsSaga`(`productsSaga`에서 `yield takeLatest(actoin, getProductsSaga)` 되는)가  `yield` 하는 `put` 이펙트도 테스트 한다는 것을
+- 위 예에서는 `expectSaga` 는 단지 `productsSaga` 만을 받았지만, `getProductsSaga`(`productsSaga`
+  에서 `yield takeLatest(actoin, getProductsSaga)` 되는)가  `yield` 하는 `put` 이펙트도 테스트 한다는 것을
 - `dispatch` 메서드를 통해 `getProductsAsyncAction.request` 액션을 `productsSaga`에 `dispatch` 했다
 - action 에는 payload에 `id(42)` 를 지정했다
 - `redux-saga` 는 이 action을 받아서 `productsSaga` 를 포크하고 실행했다
@@ -81,14 +82,12 @@ it('getProducts success', () => {
 
 ## 에러처리
 
-
-
 ```tsx
 function* getProductsSaga(
   action: ReturnType<typeof productsAsyncActions.getProductsAsyncAction.request>,
 ) {
   try {
-    const products: Product[] = yield call(productsService.getProducts);
+    const products: Product[] = yield call(productsRequest.getProducts);
 
     yield put(productsAsyncActions.getProductsAsyncAction.success({ products }));
   } catch (error) {
@@ -101,15 +100,15 @@ providers 를 사가의 에러 처리 테스트를 위해 사용 할 수도 있�
 
 ```tsx
 it('getProducts failure', () => {
-    const error = new Error('something error');
+  const error = new Error('something error');
 
-    return expectSaga(productsSaga)
-      .withReducer(productsReducer)
-      .dispatch(productsAsyncActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), throwError(error)]])
-      .put(productsAsyncActions.getProductsAsyncAction.failure({ error }))
-      .run();
-  });
+  return expectSaga(productsSaga)
+    .withReducer(productsReducer)
+    .dispatch(productsAsyncActions.getProductsAsyncAction.request())
+    .provide([[call(productsRequest.getProducts), throwError(error)]])
+    .put(productsAsyncActions.getProductsAsyncAction.failure({ error }))
+    .run();
+});
 ```
 
 ## Redux의 상태(state) 테스트
@@ -134,14 +133,15 @@ function reducer(state = INITIAL_STATE, action) {
 
 ```tsx
 const expectedResult = {
-      [PRODUCTS]: { ...ProductsReducerInitialState.products, value: productsFixture },
-    };
+  [PRODUCTS]: { ...ProductsReducerInitialState.products, value: productsFixture },
+};
 
-    return expectSaga(productsSaga)
-      .withReducer(productsReducer)
-      .dispatch(productsAsyncActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), productsFixture]])
-      .hasFinalState(expectedResult)
-      .run();
-  });
+return expectSaga(productsSaga)
+  .withReducer(productsReducer)
+  .dispatch(productsAsyncActions.getProductsAsyncAction.request())
+  .provide([[call(productsRequest.getProducts), productsFixture]])
+  .hasFinalState(expectedResult)
+  .run();
+})
+;
 ```
