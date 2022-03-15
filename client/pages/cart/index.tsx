@@ -1,5 +1,12 @@
-const Cart = () => {
-  return <div>Cart</div>;
+import CartListContainer from '../../components/CartList/CartListContainer';
+
+const CartPage = () => {
+  return (
+    <div>
+      <span>CartPage</span>
+      <CartListContainer />
+    </div>
+  );
 };
 
-export default Cart;
+export default CartPage;

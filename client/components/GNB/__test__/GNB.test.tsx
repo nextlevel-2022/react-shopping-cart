@@ -6,7 +6,7 @@ import { URL } from '../../../shared/constants/url';
 import { createMockRouter } from '../../../shared/utils/createMockRouter';
 import { GNB } from '../GNB';
 
-const renderGNB = (mockedRouter) => {
+const renderGNB = (mockedRouter: any) => {
   const result = render(
     <RouterContext.Provider value={mockedRouter}>
       <GNB />;

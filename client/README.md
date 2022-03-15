@@ -1,11 +1,13 @@
-## 웹 VS CODE 환경 
+## 웹 VS CODE 환경
+
 [바로가기](https://github.dev/guymoon/react-shopping-cart)
 
 # 고민 + 시도 이야기
+
 - [🎯 TDD 시도!](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/TDD%EC%8B%9C%EB%8F%84.md)
 - [🎯 redux-saga테스트 with redux-saga-test-plan](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/redux-saga-test-plan%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20redux-saga%20%ED%85%8C%EC%8A%A4%ED%8A%B8!.md)
 - [🎯 products 관련 action들을 다루며 은닉화 실패..
-](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/products%20%EA%B4%80%EB%A0%A8%20action%EB%93%A4%EC%9D%84%20%EB%8B%A4%EB%A3%A8%EB%A9%B0%20%EC%9D%80%EB%8B%89%ED%99%94%20%EC%8B%A4%ED%8C%A8...md)
+  ](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/products%20%EA%B4%80%EB%A0%A8%20action%EB%93%A4%EC%9D%84%20%EB%8B%A4%EB%A3%A8%EB%A9%B0%20%EC%9D%80%EB%8B%89%ED%99%94%20%EC%8B%A4%ED%8C%A8...md)
 - [🎯 payload 타입 지정, 설계에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/payload%20%ED%83%80%EC%9E%85%20%EC%A7%80%EC%A0%95%2C%20%EC%84%A4%EA%B3%84%EC%97%90%20%EB%8C%80%ED%95%9C%20%EA%B3%A0%EB%AF%BC.md)
 - [🎯 test 할 때 주입 받는 값의 위치에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/test%20%ED%95%A0%20%EB%95%8C%20%EC%A3%BC%EC%9E%85%20%EB%B0%9B%EB%8A%94%20%EA%B0%92%EC%9D%98%20%EC%9C%84%EC%B9%98.md)
 - [🎯 리듀서에서 state와 action 구조 분해 할당이 가독성을 높힐 수 있을지에 대한 고민](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EB%A6%AC%EB%93%80%EC%84%9C%EC%97%90%EC%84%9C%20state%EC%99%80%20action%20%EA%B5%AC%EC%A1%B0%20%EB%B6%84%ED%95%B4%20%ED%95%A0%EB%8B%B9%EC%9D%B4%20%EA%B0%80%EB%8F%85%EC%84%B1%EC%9D%84%20%EB%86%92%ED%9E%90%20%EC%88%98%20%EC%9E%88%EC%9D%84%EC%A7%80%3F.md)
@@ -13,13 +15,13 @@
 - [🎯 하나의 모델과 관련된 액션들을 하나로 관리하는 것이 좋을지? 아니면 비동기 액션은 따로 관리하는 것이 좋을지?](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%ED%95%98%EB%82%98%EC%9D%98%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20%EA%B4%80%EB%A0%A8%EB%90%9C%20%EC%95%A1%EC%85%98%EB%93%A4%EC%9D%84%20%ED%95%98%EB%82%98%EB%A1%9C%20%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%20%EC%A2%8B%EC%9D%84%EC%A7%80%3F%20%EC%95%84%EB%8B%88%EB%A9%B4%20%EB%B9%84%EB%8F%99%EA%B8%B0%20%EC%95%A1%EC%85%98%EC%9D%80%20%EB%94%B0%EB%A1%9C%20%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%20%EC%A2%8B%EC%9D%84%EC%A7%80%3F.md)
 - [🎯 함수라면 함수임을 알려주는 네이밍이어야 될까?](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%ED%95%A8%EC%88%98%EB%9D%BC%EB%A9%B4%20%ED%95%A8%EC%88%98%EC%9E%84%EC%9D%84%20%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94%20%EB%84%A4%EC%9D%B4%EB%B0%8D%EC%9D%B4%EC%96%B4%EC%95%BC%20%EB%90%A0%EA%B9%8C%3F.md)
 
-# 미션 진행하며 배운 것 + 에러 + 팁 등 기록 
+# 미션 진행하며 배운 것 + 에러 + 팁 등 기록
+
 - [🎯 TS 이것저것](https://www.notion.so/g1moon/43117d8c605b466eb7f3201ef0e1a65b#59102e64e7e84db49a76e38d870c340b)
 - [🎯 test 환경에서 redux-logger 없애기](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/test%20%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C%20redux-logger%20%EC%97%86%EC%95%A0%EA%B8%B0.md)
 - [🎯 next.js + jest + testing-library 환경설정](https://www.notion.so/g1moon/jest-next-08c42b9b86034ccba3be8ca9f28025ec)
 - [🎯 useDispatch 과 useSelector 의 typed versions!](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/useDispatch%C2%A0%EA%B3%BC%C2%A0useSelector%20%20%EC%9D%98%20typed%20versions%20!.md)
 - [🎯 에러핸들링](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EC%97%90%EB%9F%AC%ED%95%B8%EB%93%A4%EB%A7%81.md)
-
 
 # 장바구니 미션
 
@@ -74,11 +76,12 @@ yarn add -D @types/next-redux-wrapper @types/react-redux @types/redux
 
 ![Screen Shot 2022-02-22 at 7.01.19 PM.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/69d29b6b-32d0-4b48-8125-9b4febb4292a/Screen_Shot_2022-02-22_at_7.01.19_PM.jpg)
 
-redux와 관련된 대부분의 것들은 위와 같은 디렉토리 구조로 관리했다(redux 관련 유틸, 타입은 shared 디렉토리에 있음). 위에 보면 알 수 있듯이 RTK를 사용해서 `createSlice` 를 통해 reducer 작업을 해줬다. 우선 여기서 1차적인 고민이 나타났다. action 타입에 관련된 작업을 slice와 같은 부분에 둬야할까?
+redux와 관련된 대부분의 것들은 위와 같은 디렉토리 구조로 관리했다(redux 관련 유틸, 타입은 shared 디렉토리에 있음). 위에 보면 알 수 있듯이 RTK를 사용해서 `createSlice` 를 통해
+reducer 작업을 해줬다. 우선 여기서 1차적인 고민이 나타났다. action 타입에 관련된 작업을 slice와 같은 부분에 둬야할까?
 
 ```tsx
 // client/modules/products/asyncActions.ts 
- 
+
 const GetProductsActionType = {
   GET_PRODUCTS: `${PRODUCTS}/GET_${PRODUCTS}`,
   GET_PRODUCTS_SUCCESS: `${PRODUCTS}/GET_${PRODUCTS}_SUCCESS`,
@@ -94,7 +97,9 @@ const getProductsAsyncAction = createAsyncAction(
 export const productsAsyncActions = { getProductsAsyncAction };
 ```
 
-하나의 request에 관한 action 작업인데 나름 방대하다. 유틸로 분리해보려고 했으나 뭔가 복잡하고, 더 사용하기 어려워지는 느낌이 있어 우선 보류했는데 그렇다보니 양이 적지 않다. 그래서 slice에 두니 코드 라인이 너무 길어지고, 역할 분리가 잘 되어있는 것 같지 않아 비동기와 관련된 액션들은 `asyncActions.ts` 에 따로 관리하기 시작했다. 그런데 여기서 매우 큰 문제가 나타났다. **비동기 관련 액션인 `productsAsyncActions` 를 export 하고 있다는 것.**
+하나의 request에 관한 action 작업인데 나름 방대하다. 유틸로 분리해보려고 했으나 뭔가 복잡하고, 더 사용하기 어려워지는 느낌이 있어 우선 보류했는데 그렇다보니 양이 적지 않다. 그래서 slice에 두니
+코드 라인이 너무 길어지고, 역할 분리가 잘 되어있는 것 같지 않아 비동기와 관련된 액션들은 `asyncActions.ts` 에 따로 관리하기 시작했다. 그런데 여기서 매우 큰 문제가 나타났다. **비동기 관련
+액션인 `productsAsyncActions` 를 export 하고 있다는 것.**
 
 ```tsx
 export const productsSlice = createSlice({
@@ -102,19 +107,21 @@ export const productsSlice = createSlice({
   initialState: ProductsReducerInitialState,
   reducers: {},
   extraReducers: (builder) => {
-			// something code ...
+    // something code ...
   },
 });
 
 export const productsActions = { ...productsSlice.actions, ...productsAsyncActions };
 ```
 
-그리고 export 해준 것을 slice에서 import 해와 `const productsActions = { ...productsSlice.actions, ...productsAsyncActions };` 로 묶고 있다. 그리고 또  `productsActions` 를 export 하고 있다는 것.. 이말은즉슨
+그리고 export 해준 것을 slice에서 import 해와 `const productsActions = { ...productsSlice.actions, ...productsAsyncActions };` 로 묶고
+있다. 그리고 또  `productsActions` 를 export 하고 있다는 것.. 이말은즉슨
 
 1. `productsAsyncActions.getProductsAsyncAction.request`
 2. `productsActions.getProductsAsyncAction.request`
 
-이렇게 두 방법 모두 `getProductsAsyncAction.request` 에 접근 할 수 있다. IDE의 자동완성, 실수 등으로 어떨 때는 1번, 어떨 때는 2번으로 `getProductsAsyncAction.request` 에 접근한다면 나중에 수정이 일어나거나 했을 때 큰 문제가 생길 수 있다고 생각한다.
+이렇게 두 방법 모두 `getProductsAsyncAction.request` 에 접근 할 수 있다. IDE의 자동완성, 실수 등으로 어떨 때는 1번, 어떨 때는
+2번으로 `getProductsAsyncAction.request` 에 접근한다면 나중에 수정이 일어나거나 했을 때 큰 문제가 생길 수 있다고 생각한다.
 
 그래도 action 들을 slice에 같이 두기에는 너무 양이 많아질 것 같아 분리한 상태로 유지하기로 했다. 그러나 이건 꼭 해결해야할 것 같다.
 
@@ -145,7 +152,8 @@ it('처음에는 로딩중인 상태이므로 로딩중임을 보인다.',  () =
   });
 ```
 
-이 부분을 추가했는데 이 부분은 해결할 수 없었다. 처음에 당연히 `<ProductListContainer />` 를 렌더링하면서 ProductListContainer 텍스트를 확인함을 통해 렌더링 결과를 보려고 했다. 그러나 로딩중인 경우
+이 부분을 추가했는데 이 부분은 해결할 수 없었다. 처음에 당연히 `<ProductListContainer />` 를 렌더링하면서 ProductListContainer 텍스트를 확인함을 통해 렌더링 결과를 보려고
+했다. 그러나 로딩중인 경우
 
 ```tsx
 if (isLoading) return <div>로딩중</div>;
@@ -210,8 +218,8 @@ const ProductList = ({ products }: Props) => {
 
 ```tsx
 if (products.length === 0) {
-    return <div>등록된 제품이 없습니다.</div>;
-  }
+  return <div>등록된 제품이 없습니다.</div>;
+}
 ```
 
 이 부분을 추가해 `it('products가 존재하지 않을 때 "등록된 제품이 없습니다" 가 나타난다.')` 을 통과시킬 수 있었다.
@@ -226,8 +234,8 @@ if (products.length === 0) {
 
 ```tsx
 export const URL = {
-	GET_PRODUCTS: '/products',
-	GET_PRODUCT_BY_ID: (id) => `/products/${id}`
+  GET_PRODUCTS: '/products',
+  GET_PRODUCT_BY_ID: (id) => `/products/${id}`
 }
 ```
 
@@ -256,17 +264,22 @@ export const REQUEST: Request = {
 } as const;
 ```
 
-제가 개인적으로 상수화를 시키는 이유는 실수를 방지하고, 사용 할 때 편리하기 위함이었습니다. get 할거를 post 하는 등의 사고를 방지하고자 했는데, 1번처럼 URL만 따로 관리하니 요청 작업을 할 때마다 API 명세서를 보게 되더라구요. 그래서 하나의 객체에 method 와 url을 하나의 객체로 묶어뒀습니다. 개인적으로 어차피 거의 같이 사용하니까 함께 두니 더 편리했던 것 같습니다.
-어떻게하면 더 효과적으로 request에 관련된 값을 정리해둘 수 있을지 궁금합니다!
+제가 개인적으로 상수화를 시키는 이유는 실수를 방지하고, 사용 할 때 편리하기 위함이었습니다. get 할거를 post 하는 등의 사고를 방지하고자 했는데, 1번처럼 URL만 따로 관리하니 요청 작업을 할 때마다
+API 명세서를 보게 되더라구요. 그래서 하나의 객체에 method 와 url을 하나의 객체로 묶어뒀습니다. 개인적으로 어차피 거의 같이 사용하니까 함께 두니 더 편리했던 것 같습니다. 어떻게하면 더 효과적으로
+request에 관련된 값을 정리해둘 수 있을지 궁금합니다!
 
 ## 🔹 하나의 모델과 관련된 액션들을 하나로 관리하는 것이 좋을지? 아니면 비동기 액션은 따로 관리하는 것이 좋을지?
 
 ```tsx
 function* getProductsSaga(
-  **action: ReturnType<typeof getProductsAsyncAction.request>,**
-) {
+
+**
+action: ReturnType < typeof getProductsAsyncAction.request >,
+**
+)
+{
   try {
-    const products: GetProductsResponseType = yield call(productsService.getProducts);
+    const products: GetProductsResponseType = yield call(productsRequest.getProducts);
 
     yield put(productsActions.getProductsAsyncAction.success(products));
   } catch (error: any) {
@@ -283,37 +296,41 @@ function* getProductsSaga(
 ## 🔹 리듀서에서 state와 action 구조 분해 할당이 가독성을 높힐 수 있을지?
 
 ```tsx
-.addCase(
-        `${getProductsAsyncAction.success}`,
-        (state, action: PayloadAction<{ products: Product[] }>) => {
-          state.products.isLoading = false;
-          state.products.value = action.payload.products;
-        },
-      )
+.
+addCase(
+  `${getProductsAsyncAction.success}`,
+  (state, action: PayloadAction<{ products: Product[] }>) => {
+    state.products.isLoading = false;
+    state.products.value = action.payload.products;
+  },
+)
 ```
 
-reducer 만들어 주실 때 state와 action을 구조분해 할당해주시는지 궁금합니다! 제가 많은 코드를 보지 않아 그럴 수 있겠지만 생각보다 많은 분들이 state와 action은 구조 분해 할당 없이 그냥 쓰시더라구요. 그런데 둘다 그렇게 쓰니까 계속 `state.products.` 이 반복되고, `action.payload.` 이 프리픽스로 붙어있으니 정말 보고 싶은 부분이 뒤에인데 계속 방해받는 느낌이 들더라구요.
+reducer 만들어 주실 때 state와 action을 구조분해 할당해주시는지 궁금합니다! 제가 많은 코드를 보지 않아 그럴 수 있겠지만 생각보다 많은 분들이 state와 action은 구조 분해 할당 없이 그냥
+쓰시더라구요. 그런데 둘다 그렇게 쓰니까 계속 `state.products.` 이 반복되고, `action.payload.` 이 프리픽스로 붙어있으니 정말 보고 싶은 부분이 뒤에인데 계속 방해받는 느낌이 들더라구요.
 
 ```tsx
-.addCase(
-        `${getProductsAsyncAction.success}`,
-        ({ products }, { payload }: PayloadAction<{ products: Product[] }>) => {
-          products.isLoading = false;
-          products.value = payload.products;
-        },
-      )
+.
+addCase(
+  `${getProductsAsyncAction.success}`,
+  ({ products }, { payload }: PayloadAction<{ products: Product[] }>) => {
+    products.isLoading = false;
+    products.value = payload.products;
+  },
+)
 ```
 
 그래서 이렇게 풀어줬는데 뭐가 state 값인지 뭐가 payload 값인지 더 보기 어려워져서
 
 ```tsx
-.addCase(
-        `${getProductsAsyncAction.success}`,
-        ( state, { payload }: PayloadAction<{ products: Product[] }>) => {
-          state.products.isLoading = false;
-          state.products.value = payload.products;
-        },
-      )
+.
+addCase(
+  `${getProductsAsyncAction.success}`,
+  (state, { payload }: PayloadAction<{ products: Product[] }>) => {
+    state.products.isLoading = false;
+    state.products.value = payload.products;
+  },
+)
 ```
 
 이렇게 state의 값이다 payload로 온 값이다 만 보여주도록 타협했습니다..! 이거에 대한 의견도 궁금합니다!
@@ -355,7 +372,7 @@ function* getProductsSaga(
   action: ReturnType<typeof productsAsyncActions.getProductsAsyncAction.request>,
 ) {
   try {
-    const products: Product[] = yield call(productsService.getProducts);
+    const products: Product[] = yield call(productsRequest.getProducts);
 
     yield put(productsAsyncActions.getProductsAsyncAction.success(products));
   } catch (error: any) {
@@ -365,7 +382,8 @@ function* getProductsSaga(
 }
 ```
 
-`yield put(productsAsyncActions.getProductsAsyncAction.success(products));` 와 같이 작업했다. payload에 products 단일로만 넣어줄 수 있었던 것. 만약 다른 걸 추가로 넣어주는 상황이 발생하면 대응하기 힘들 것 같다고 생각해, 2번처럼 변경하고 →
+`yield put(productsAsyncActions.getProductsAsyncAction.success(products));` 와 같이 작업했다. payload에 products 단일로만 넣어줄 수 있었던
+것. 만약 다른 걸 추가로 넣어주는 상황이 발생하면 대응하기 힘들 것 같다고 생각해, 2번처럼 변경하고 →
 
 `yield put(productsAsyncActions.getProductsAsyncAction.success({ products }));`
 
@@ -390,7 +408,8 @@ describe('productList', () => {
 });
 ```
 
-처음에는 `db.json` 에서 products 값을 가져와 테스트 해줬습니다. 그런데 이렇게 하다 보니 계속해서 `db.json`  파일을 열어보고 어떤 값들이 있는지 살펴보게 되더라구요(`getByText` 를 하려고 하는데 어떤 값을 가져와야하는지 확인). 그래서 아래의 이유들로 `(2)` 번 코드 처럼 변경했습니다.
+처음에는 `db.json` 에서 products 값을 가져와 테스트 해줬습니다. 그런데 이렇게 하다 보니 계속해서 `db.json`  파일을 열어보고 어떤 값들이 있는지 살펴보게 되더라구요(`getByText` 를
+하려고 하는데 어떤 값을 가져와야하는지 확인). 그래서 아래의 이유들로 `(2)` 번 코드 처럼 변경했습니다.
 
 - `db.json` 의  `products` 에 있는 모든 아이템들이 잘 렌더링 되는지 테스트 할 필요는 없음
 - (아직까지는) 다른 곳에서 테스트하는데 계속 products 값을 사용하지 않아도 됨
@@ -427,14 +446,15 @@ describe('productList', () => {
 
 ```tsx
 it('render products', () => {
-    const result = render(<ProductList products={products} />);
+  const result = render(<ProductList products={products} />);
 
-    expect(result.getByText(products[0].name));
-    expect(result.getByText(products[1].name));
-  });
+  expect(result.getByText(products[0].name));
+  expect(result.getByText(products[1].name));
+});
 ```
 
-이런 식으로 작성 할 수도 있겠네요... 근데 이렇게 해도 다른 값을 테스트하려고 하면 계속해서 다른 파일을 열어봐야 할 것 같아 귀찮을 수 잇을 것 같습니다. 테스트가 문서의 역활을 할 수 있다고 해서 이런 고민을 해봤습니다. 이 내용에 대한 개인적인 생각 공유해주시면 감사하겠습니다!!
+이런 식으로 작성 할 수도 있겠네요... 근데 이렇게 해도 다른 값을 테스트하려고 하면 계속해서 다른 파일을 열어봐야 할 것 같아 귀찮을 수 잇을 것 같습니다. 테스트가 문서의 역활을 할 수 있다고 해서 이런 고민을
+해봤습니다. 이 내용에 대한 개인적인 생각 공유해주시면 감사하겠습니다!!
 
 ## 🔷 함수라면 함수임을 알려주는 네이밍이어야 될까?
 
@@ -454,7 +474,9 @@ const returnIsBottom = (): boolean => {
   }, msToDelay);
 ```
 
-인피니티 스크롤 컴포넌트를 구현하며 bottom에 도달했는지 확인해야 했습니다. 그래서 bottom에 도달 여부를 `boolean` 값으로 반환하는 `isBottom` 이라는 함수를 만들었습니다. 그런데 뭔가 `boolean`인 척 하는 함수 느낌이 있어  `return` 한다는 의미를 포함시켜 함수임을 보여주고 싶었습니다.  그래서 `isBottom` 함수를  위코드 처럼 `returnIsBottom`으로 변경했습니다. 그냥 `isBottom` 으로 해도 충분할까요? 억지로 함수임을 보여줄 필요는 크게 없을까요?
+인피니티 스크롤 컴포넌트를 구현하며 bottom에 도달했는지 확인해야 했습니다. 그래서 bottom에 도달 여부를 `boolean` 값으로 반환하는 `isBottom` 이라는 함수를 만들었습니다. 그런데
+뭔가 `boolean`인 척 하는 함수 느낌이 있어  `return` 한다는 의미를 포함시켜 함수임을 보여주고 싶었습니다. 그래서 `isBottom` 함수를 위코드 처럼 `returnIsBottom`으로
+변경했습니다. 그냥 `isBottom` 으로 해도 충분할까요? 억지로 함수임을 보여줄 필요는 크게 없을까요?
 
 그리고 불리언 값을 리턴하는 `returnIsBottom` 를  `if` 조건부에서 그냥 실행시켰습니다. 좀 더 명확하게 보여주려면 아래 방법이 더 맞는 것 같은데 괜한 임시변수를 만드는 느낌또한 있네요.
 
@@ -488,8 +510,7 @@ function logSomethingName<T>(sth: T){
 }
 ```
 
-- 위와 같이 작성 할 경우 `tmp`의 `.length` 을 하고 싶지만
-  → Property ‘name’ does not exist on type ‘Type’
+- 위와 같이 작성 할 경우 `tmp`의 `.length` 을 하고 싶지만 → Property ‘name’ does not exist on type ‘Type’
 
 ```tsx
 interface HasNameType {
@@ -534,7 +555,7 @@ export interface DataType {
 export interface FormProps<Data extends DataType = DataType> { }
 ```
 
-- If you don't provide a type `Data` (which *must* extend `DataType`), it will default to `DataType`.
+- If you don't provide a type `Data` (which *must* extend `DataType`), it will default to `DataType`.
 
 ```tsx
 const obj: Tmp<string> = {
@@ -574,24 +595,27 @@ export const makeStore = () => {
 };
 ```
 
-## 🔹  **`useDispatch` 과 `useSelector`  의 typed versions !**
+## 🔹  **`useDispatch` 과 `useSelector`  의 typed versions !**
 
-**better to create typed versions of the `useDispatch` and `useSelector` hooks for usage in your application**
+**better to create typed versions of the `useDispatch` and `useSelector` hooks for usage in your application**
 
 공식 문서에서는 useDispatch 와 useSelector 의 **typed versions 을 만들어두고 사용하기를 권장한다 . 이유로는 아래와 같다**
 
 - useSelector 에서, (state: RootStat) 를 매번 타이핑해줄 필요가 없음
-- useDispatch 에서, 디폴트 Dispatch 타입은 비동기 타입에 대해 알지를 못함. 그래서 매번 커스텀된 AppDispatch 타입을 타이핑해줘야 함. 그런데 이렇게 **typed** version 을 만들어두면 그럴 필요가 없음
+- useDispatch 에서, 디폴트 Dispatch 타입은 비동기 타입에 대해 알지를 못함. 그래서 매번 커스텀된 AppDispatch 타입을 타이핑해줘야 함. 그런데 이렇게 **typed** version 을
+  만들어두면 그럴 필요가 없음
 
 ```tsx
-export typeRootState=ReturnType<typeofstore.getState>;
-export typeAppDispatch=typeofstore.dispatch;
+export
+typeRootState = ReturnType<typeofstore.getState>;
+export
+typeAppDispatch = typeofstore.dispatch;
 
-export const useAppDispatch= () =>useDispatch<AppDispatch>();
-export const useAppSelector:TypedUseSelectorHook<RootState> =useSelector;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
 
-## 🔹`next/link` mocking 실패하고 절망 →  next/router mocking 으로 갈아타기..
+## 🔹`next/link` mocking 실패하고 절망 → next/router mocking 으로 갈아타기..
 
 next/router를 모킹해 `<GNB />` 컴포넌트를 테스트하려고 했다. 테스트하고자 한 내용은 아래와 같다.
 
@@ -673,7 +697,8 @@ const renderGNB = (mockedRouter) => {
 
 그리고 render하려는 컴포넌트(위 예시에서는 GNB)를
 
-*`import* { RouterContext } *from* 'next/dist/shared/lib/router-context';` 를 통해 감싸줘야 한다. 그리고 모킹된 router를 value로 주입해준다. 이렇게해서 라우팅 부분을 테스트 할 수 있었다.
+*`import* { RouterContext } *from* 'next/dist/shared/lib/router-context';` 를 통해 감싸줘야 한다. 그리고 모킹된 router를 value로 주입해준다.
+이렇게해서 라우팅 부분을 테스트 할 수 있었다.
 
 ```tsx
 describe('버튼을 클릭하면 다른 페이지로 이동한다.', () => {
@@ -753,11 +778,11 @@ export const createModelAttributeObject = (attributeSelector: any) => ({
 
 ```tsx
 const {
-    value: products,
-    isLoading: isLoadingProducts,
-    hasError: hasErrorProducts,
-    error: errorProducts,
-  } = createModelAttributeObject(productsAttributeSelector);
+  value: products,
+  isLoading: isLoadingProducts,
+  hasError: hasErrorProducts,
+  error: errorProducts,
+} = createModelAttributeObject(productsAttributeSelector);
 
 // 아래와 같이 사용!! 
 const { products, getProducts, isLoadingProducts } = useProducts();

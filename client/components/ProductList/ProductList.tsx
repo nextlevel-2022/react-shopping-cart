@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import useCarts from '../../hooks/service/useCarts';
 import { Product } from '../../shared/types';
 import ScrollBottomObserver from '../ScrollBottomObserver/ScrollBottomObserver';
 import Spinner from '../Spinner/Spinner';
@@ -16,6 +17,8 @@ export interface Props {
 const ProductList = ({ products, isLoadingProducts }: Props) => {
   const [page, setPage] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
+
+  const { addCarts } = useCarts();
 
   const NUMBER_OF_PRODUCTS_ON_ONE_PAGE = 12;
 
@@ -44,15 +47,16 @@ const ProductList = ({ products, isLoadingProducts }: Props) => {
     <Container>
       <ProductListContainer>
         {products.slice(0, page * NUMBER_OF_PRODUCTS_ON_ONE_PAGE).map((product) => {
-          return <ProductItem key={`product-${product.id}`} product={product} />;
+          return (
+            <ProductItem
+              key={`product-${product.id}`}
+              product={product}
+              onClickAddCartButton={() => addCarts(product)}
+            />
+          );
         })}
       </ProductListContainer>
-      {!isLastPage && (
-        <ScrollBottomObserver
-          workToDoWhenArrivedBottom={flipPage}
-          msToDelayExecuteScrollHandler={200}
-        />
-      )}
+      {!isLastPage && <ScrollBottomObserver workToDoWhenArrivedBottom={flipPage} msToDelayExecuteScrollHandler={200} />}
     </Container>
   );
 };

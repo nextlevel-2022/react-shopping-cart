@@ -1,10 +1,33 @@
-import { useRouter } from 'next/router';
+import productsRequest from '../../service/apis/products';
+import { Product } from '../../shared/types';
 
-const ProductDetail = () => {
-  const router = useRouter();
-  const { productId } = router.query;
+export interface ServerSideProps {
+  /**보여줄 상품의 정보*/
+  product: Product;
+}
 
-  return <div>{productId}</div>;
+const ProductDetailPage = ({ product }: ServerSideProps) => {
+  const { id, price, name, imageUrl } = product;
+
+  return (
+    <>
+      <div>{id}</div>
+      <div>{price}</div>
+      <div>{name}</div>
+      <img src={imageUrl} alt={'product image'} />
+    </>
+  );
 };
 
-export default ProductDetail;
+export async function getServerSideProps(context: any) {
+  const id = context.params.productId;
+  const product = await productsRequest.getProductById(id);
+
+  return {
+    props: {
+      product,
+    },
+  };
+}
+
+export default ProductDetailPage;

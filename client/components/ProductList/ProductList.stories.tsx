@@ -10,7 +10,9 @@ export default {
   title: 'ProductList',
 } as Meta;
 
-const Template: Story<Props> = (args) => <ProductList products={products} {...args} />;
+const Template: Story<Props> = (args) => <ProductList {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  products,
+};
