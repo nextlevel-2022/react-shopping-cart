@@ -7,7 +7,7 @@
 
 ## 웹 VS CODE 환경
 
-[바로가기](https://github.dev/guymoon/react-shopping-cart)
+[바로가기](https://github.dev/guymoon/react-shopping-cart/tree/guymoon-step3)
 
 # 고민 + 시도 이야기
 
