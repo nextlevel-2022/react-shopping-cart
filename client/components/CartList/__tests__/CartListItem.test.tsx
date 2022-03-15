@@ -10,8 +10,13 @@ describe('<CartListItem />', () => {
   const cartItem = createCartItem();
   const carts = [createCartItem(0), createCartItem(1)];
 
-  const useAppDispatch = jest.fn();
-  const useAppSelector = jest.fn();
+  const VALID_CART_ITEM_QUANTITY = 10;
+  const MIN_CART_ITEM_QUANTITY = 1;
+  const MAX_CART_ITEM_QUANTITY = 20;
+
+  const cartItemHasValidQuantity = createCartItem(1, VALID_CART_ITEM_QUANTITY);
+  const cartItemHasMinQuantity = createCartItem(1, MIN_CART_ITEM_QUANTITY);
+  const cartItemHasMaxQuantity = createCartItem(1, MAX_CART_ITEM_QUANTITY);
 
   beforeEach(() => {
     useDispatch.mockImplementation(() => useAppDispatch);
@@ -37,19 +42,36 @@ describe('<CartListItem />', () => {
     expect(onClickCartItemSelectButton).toHaveBeenCalled();
   });
 
-  it('장바구니 수량 버튼(+)을 누르면 액션이 dispatch 된다.', async () => {
-    const { result, clickIncreaseQuantityButton } = renderCartListItem(cartItem, carts);
+  it('장바구니 수량이 20개 미만 일때 버튼(+)을 누르면 액션이 dispatch 된다.', async () => {
+    const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickIncreaseQuantityButton();
 
     expect(useAppDispatch).toHaveBeenCalled();
   });
 
+  it('장바구니 수량이 20개인 경우 버튼(+)을 누르면 액션이 dispatch 되지 않는다.', async () => {
+    const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasMaxQuantity, carts);
+
+    clickIncreaseQuantityButton();
+
+    expect(useAppDispatch).not.toHaveBeenCalled();
+  });
+
   it('장바구니 수량 버튼(-)을 누르면 액션이 dispatch 된다.', () => {
-    const { result, clickDecreaseQuantityButton } = renderCartListItem(cartItem, carts);
+    const { clickDecreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickDecreaseQuantityButton();
+
     expect(useAppDispatch).toHaveBeenCalled();
+  });
+
+  it('장바구니 수량이 1개인 경우 버튼(-)을 누르면 액션이 dispatch 되지 않는다.', async () => {
+    const { clickDecreaseQuantityButton } = renderCartListItem(cartItemHasMinQuantity, carts);
+
+    clickDecreaseQuantityButton();
+
+    expect(useAppDispatch).not.toHaveBeenCalled();
   });
 });
 
