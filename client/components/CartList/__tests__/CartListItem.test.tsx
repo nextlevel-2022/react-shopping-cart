@@ -1,7 +1,8 @@
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
+import { useAppDispatch, useAppSelector } from '../../../__mocks__/react-redux';
 import { CartItem } from '../../../shared/types';
 import { createCartItem } from '../../../shared/utils/test-utils';
 import CartListItem from '../CartListItem';
@@ -19,8 +20,10 @@ describe('<CartListItem />', () => {
   const cartItemHasMaxQuantity = createCartItem(1, MAX_CART_ITEM_QUANTITY);
 
   beforeEach(() => {
-    useDispatch.mockImplementation(() => useAppDispatch);
-    useSelector.mockImplementation(() => useAppSelector);
+    jest.clearAllMocks();
+
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
   });
 
   it('장바구니에 담긴 아이템 정보를 보여준다.', () => {
