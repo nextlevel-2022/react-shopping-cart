@@ -73,9 +73,8 @@ const CartList = ({ carts, isLoading }: Props) => {
 
     if (!isPaymentConfirmTrue) return;
 
-    console.log('--', selectedCartItems);
-
     deleteSelectedCartItem();
+    ordersRequest.addOrderItem(selectedCartItems);
 
     router.push(URL.ORDER());
   };
