@@ -29,12 +29,19 @@ const useOrders = () => {
     dispatch(ordersActions.getOrders.request());
   };
 
+  const postOrdersFromCarts = (selectedCartItems: CartItem[]) => {
+    dispatch(
+      ordersActions.postOrders.request({ newOrderDetails: transformOrderDetailFromCartItem(selectedCartItems) }),
+    );
+  };
+
   return {
     orders,
     isLoadingOrders,
     hasErrorOrders,
     errorOrders,
     getOrders,
+    postOrdersFromCarts,
   };
 };
 
