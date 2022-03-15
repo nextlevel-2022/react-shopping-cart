@@ -24,6 +24,8 @@
       font-size: 20px
       background: #f6f6f6
       border: 1px solid #aaaaaa
+      .order-list__header-detail
+        cursor: pointer
     .order-list-item 
       display: flex
       justify-content: space-between
@@ -46,16 +48,16 @@
             color: rgba(0, 0, 0, 0.5)
     .order-list-button
       background: #2ac1bc
-      font-size: 20px
+      font-size: 15px
       color: white
       padding: 14px 28px
       border-style: none
       margin-top: 1rem
-
-
-
-
-
+      cursor: pointer
+      transition: all .5s
+      &:hover
+        transform: scale(1.1)
+      
 
 .order-detail-container 
   display: flex
