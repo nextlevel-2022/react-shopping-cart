@@ -61,7 +61,7 @@ describe('<CartListItem />', () => {
     expect(useAppDispatch).not.toHaveBeenCalled();
   });
 
-  it('장바구니 수량 버튼(-)을 누르면 액션이 dispatch 된다.', () => {
+  it('장바구니 수량이 1개를 초과하는 경우 버튼(-)을 누르면 액션이 dispatch 된다.', () => {
     const { clickDecreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickDecreaseQuantityButton();
