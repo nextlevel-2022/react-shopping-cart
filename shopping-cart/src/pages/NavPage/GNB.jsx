@@ -9,8 +9,8 @@ const GNB = () => {
       navigate("/");
     } else if (e.target.className === "cart") {
       navigate("cart");
-    } else if (e.target.className === "order-list") {
-      navigate("orderList");
+    } else if (e.target.className === "order") {
+      navigate("orders");
     }
   }
   return (
@@ -21,7 +21,7 @@ const GNB = () => {
       <div className="cart">
         장바구니
       </div>
-      <div className="order-list">
+      <div className="order">
         주문목록
       </div>
     </header>

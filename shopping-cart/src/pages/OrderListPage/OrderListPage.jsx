@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import API from '../../API';
 import CartModal from '../../common/Modal/CartModal';
 import "./OrderListPage.sass";
-// #### 주문목록
-// ​
-// - [x] 주문 정보들이 보여진다.
-// - [x] 장바구니 버튼을 클릭하면, 해당 상품이 장바구니에 담기고 장바구니 이동 선택 모달이 보여진다.
-//   - [x] 장바구니 이동 버튼을 누르면 장바구니 페이지로 이동한다.
 
 const OrderListPage = () => {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [active, setActive] = useState(false)
   useEffect(async() => {
@@ -23,6 +20,10 @@ const OrderListPage = () => {
     API.postProduct("/carts",{product})
       .then(res => console.log(res))
       .catch(err => console.error(err))
+  }
+
+  const clickDetail = (id) => {
+    navigate(`/orders/${id}`)
   }
 
   return (
@@ -41,7 +42,7 @@ const OrderListPage = () => {
           <div className="order-list" key={index}>
             <div className="order-list__header">
               <span>주문번호: {index + 1}</span>
-              <span className="order-list__header-detail">상세보기 </span>
+              <span className="order-list__header-detail" onClick={() => clickDetail(order.id)}>상세보기 </span>
             </div>
             {details.map(detail => {
               return (

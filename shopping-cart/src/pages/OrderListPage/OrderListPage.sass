@@ -57,14 +57,39 @@
       transition: all .5s
       &:hover
         transform: scale(1.1)
-      
+  .order-footer
+    display: flex
+    justify-content: flex-end
+    margin: 50px 0
+    .order-detail
+      width: 480px
+      .order-detail-title
+        font-size: 24px
+      .order-detail-text
+        display: flex
+        justify-content: space-between
+        margin-top: 2rem
+        .highlight-text
+          position: relative
+          font-weight: 700
+          display: inline-block
+          text-align: center
+          padding: 0 2px
+          font-size: 20px
+        .highlight-text::after
+          content: ""
+          display: block
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 100%
+          height: 8px
+          background-color: #2ac1bc
+          opacity: 0.5
+          z-index: -1
 
-.order-detail-container 
-  display: flex
-  justify-content: flex-end
-  margin: 50px 0
 
 
-.order-detail-title 
-  font-size: 24px
+
+
 
