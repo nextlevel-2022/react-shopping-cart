@@ -18,12 +18,12 @@ export const divideProductAndQuantity = (originalOrderDetail: OrderDetailFromSer
   });
 };
 
-export const getTotalOrderItemNumber = (orders: OrderItem[]) =>
+export const getTotalOrderItemNumber = (orders: OrderItem[]): number =>
   orders.reduce((acc, orderItem) => {
     return orderItem.orderDetails.length + acc;
   }, 0);
 
-export const getTotalOrderAmount = (orders: OrderItem[]) => {
+export const getTotalOrderAmount = (orders: OrderItem[]): number => {
   return orders
     .map((orderItem) => orderItem.orderDetails)
     .reduce(
