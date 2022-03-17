@@ -129,6 +129,21 @@ const CartListBlock = styled.div`
   .number-input-button:focus {
     outline: none;
   }
+
+  .primary-button {
+    background: #2ac1bc;
+    font-size: 24px;
+    color: white;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .primary-button-small {
+    background: #2ac1bc;
+    font-size: 20px;
+    color: white;
+    padding: 14px 28px;
+  }
 `;
 
 // const CartItem = ({item:{ id: cartId, product }}) => {
@@ -159,7 +174,7 @@ const CartListBlock = styled.div`
 //   );
 // };
 
-const CartList = ({ isError, isLoading, data, error }) => {
+const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease }) => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -170,10 +185,9 @@ const CartList = ({ isError, isLoading, data, error }) => {
 
   let totalCount = 0;
   const totalPrice = data.reduce((acc, { id, product: { price } }, idx) => {
-    totalCount++
-    return acc + price
-  }, 0)
-  
+    totalCount++;
+    return acc + price;
+  }, 0);
 
   return (
     <CartListBlock>
@@ -187,17 +201,23 @@ const CartList = ({ isError, isLoading, data, error }) => {
           <section className="cart-left-section">
             <div className="flex justify-between items-center">
               <div className="checkbox-container">
-                <input className="checkbox" name="checkbox" type="checkbox" checked="true" />
-                <label className="checkbox-label" for="checkbox">
-                  선택해제
-                </label>
+                <input className="checkbox" name="checkbox" type="checkbox" />
+                <label className="checkbox-label">모두선택</label>
               </div>
               <button className="delete-button">상품삭제</button>
             </div>
             <h3 className="cart-title">든든배송 상품({totalCount}개)</h3>
             <hr className="divide-line-gray mt-10" />
-            {data.map((item, idx) => {
-              return <CartItem key={idx} item={item} />;
+            {data.map((item) => {
+              return (
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  cartItem={cartState[String(item.id)]}
+                  onIncrease={onIncrease}
+                  onDecrease={onDecrease}
+                />
+              );
             })}
           </section>
           <section className="cart-right-section">
