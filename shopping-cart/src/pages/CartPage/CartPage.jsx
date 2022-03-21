@@ -131,7 +131,7 @@ const CartPage = () => {
     if (!totalCount()) return; // click deactive
     const result = window.confirm("선택된 상품들을 구매하시겟습니까?");
     if (result) {
-      const modifiedCart = cart.map(product => {
+      const modifiedCart = cart.filter(product => {
         if (product.checked) {
           const modified = {
             id: product.id,
@@ -145,7 +145,14 @@ const CartPage = () => {
         }
       })
       addCart(modifiedCart);
-      navigate("/payment")
+      totalDeleteHandler();
+      API.getProduct("/carts")
+        .then(res => {
+          if (res.data.length === 0) {
+            navigate("/payment")
+          }
+        })
+      
     }
   }
 

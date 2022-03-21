@@ -73,44 +73,7 @@
       "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/5297837f-5ecd-4945-be2f-4a75854cd06e.jpg"
     }
   ],
-  "carts": [
-    {
-      "id": 1647842429141,
-      "product": {
-        "id": 4,
-        "name": "리치스 스위트콘 대 2.95kg",
-        "price": 4780,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/ff297e50-7d6b-4a87-8509-b387442ff877.jpg"
-      }
-    },
-    {
-      "id": 1647842431571,
-      "product": {
-        "id": 6,
-        "name": "야채고로케 (60g*18입) 1080g",
-        "price": 11170,
-        "imageUrl": "https://cdn-mart.baemin.com/goods/custom/20200427/9751-main-01.png"
-      }
-    },
-    {
-      "id": 1647842529206,
-      "product": {
-        "id": 7,
-        "name": "식자재왕 김말이튀김 야채맛 1kg",
-        "price": 6580,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/bulk/20211210-155432/9416-main-01.jpg"
-      }
-    },
-    {
-      "id": 1647842532971,
-      "product": {
-        "id": 11,
-        "name": "젓가락(종이)-웬만해선 이 맛을 막을 수 없다",
-        "price": 21800,
-        "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/1b6e926b-52a3-4a92-8db5-fddaccdb2583.jpg"
-      }
-    }
-  ],
+  "carts": [],
   "orders": [
     {
       "id": 1,
@@ -196,96 +159,65 @@
       ]
     },
     {
-      "id": 1647847518804,
+      "id": 1647848229238,
       "orderDetails": [
         {
-          "id": 1647842429141,
-          "price": 4780,
-          "name": "리치스 스위트콘 대 2.95kg",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/ff297e50-7d6b-4a87-8509-b387442ff877.jpg",
-          "quantity": 1
-        },
-        {
-          "id": 1647842431571,
-          "price": 11170,
-          "name": "야채고로케 (60g*18입) 1080g",
-          "imageUrl": "https://cdn-mart.baemin.com/goods/custom/20200427/9751-main-01.png",
-          "quantity": 1
-        },
-        {
-          "id": 1647842529206,
+          "id": 1647848195672,
           "price": 6580,
           "name": "식자재왕 김말이튀김 야채맛 1kg",
           "imageUrl": "https://cdn-mart.baemin.com/sellergoods/bulk/20211210-155432/9416-main-01.jpg",
-          "quantity": 1
-        },
-        {
-          "id": 1647842532971,
-          "price": 21800,
-          "name": "젓가락(종이)-웬만해선 이 맛을 막을 수 없다",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/1b6e926b-52a3-4a92-8db5-fddaccdb2583.jpg",
-          "quantity": 1
+          "quantity": 1,
+          "checked": true
         }
       ]
     },
     {
-      "id": 1647847572034,
+      "id": 1647848502863,
       "orderDetails": [
         {
-          "id": 1647842429141,
-          "price": 4780,
-          "name": "리치스 스위트콘 대 2.95kg",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/ff297e50-7d6b-4a87-8509-b387442ff877.jpg",
-          "quantity": 1
+          "id": 1647848430250,
+          "price": 83700,
+          "name": "펩시 콜라 355ml 24캔",
+          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/84fc0238-0239-4d0e-870b-a9daa6f2c42c.jpg",
+          "quantity": 1,
+          "checked": true
         },
         {
-          "id": 1647842431571,
-          "price": 11170,
-          "name": "야채고로케 (60g*18입) 1080g",
-          "imageUrl": "https://cdn-mart.baemin.com/goods/custom/20200427/9751-main-01.png",
-          "quantity": 1
-        },
-        {
-          "id": 1647842529206,
+          "id": 1647848432765,
           "price": 6580,
           "name": "식자재왕 김말이튀김 야채맛 1kg",
           "imageUrl": "https://cdn-mart.baemin.com/sellergoods/bulk/20211210-155432/9416-main-01.jpg",
-          "quantity": 1
+          "quantity": 1,
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": 1647849795142,
+      "orderDetails": [
+        {
+          "id": 1647849776117,
+          "price": 83700,
+          "name": "냉면용기(대)",
+          "imageUrl": "https://cdn-mart.baemin.com/goods/2/1556008840639m0.jpg",
+          "quantity": 1,
+          "checked": true
         },
         {
-          "id": 1647842532971,
-          "price": 21800,
-          "name": "젓가락(종이)-웬만해선 이 맛을 막을 수 없다",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/1b6e926b-52a3-4a92-8db5-fddaccdb2583.jpg",
-          "quantity": 1
-        },
-        {
-          "id": 1647842429141,
-          "price": 4780,
-          "name": "리치스 스위트콘 대 2.95kg",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/ff297e50-7d6b-4a87-8509-b387442ff877.jpg",
-          "quantity": 1
-        },
-        {
-          "id": 1647842431571,
+          "id": 1647849778332,
           "price": 11170,
           "name": "야채고로케 (60g*18입) 1080g",
           "imageUrl": "https://cdn-mart.baemin.com/goods/custom/20200427/9751-main-01.png",
-          "quantity": 1
+          "quantity": 1,
+          "checked": true
         },
         {
-          "id": 1647842529206,
+          "id": 1647849781416,
           "price": 6580,
           "name": "식자재왕 김말이튀김 야채맛 1kg",
           "imageUrl": "https://cdn-mart.baemin.com/sellergoods/bulk/20211210-155432/9416-main-01.jpg",
-          "quantity": 1
-        },
-        {
-          "id": 1647842532971,
-          "price": 21800,
-          "name": "젓가락(종이)-웬만해선 이 맛을 막을 수 없다",
-          "imageUrl": "https://cdn-mart.baemin.com/sellergoods/main/1b6e926b-52a3-4a92-8db5-fddaccdb2583.jpg",
-          "quantity": 1
+          "quantity": 1,
+          "checked": true
         }
       ]
     }
