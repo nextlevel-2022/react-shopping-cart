@@ -9,12 +9,25 @@ const OrderListDetailPage = () => {
     await API.getProduct(window.location.pathname)
       .then(res => res.data)
       .then(data => setOrders([data]));
-      console.log(orders)
   }, [])
 
   const price = () => {
-    const result = orders[0].orderDetails.reduce((acc, cur) => acc.price + cur.price);
-    return result;
+    if (orders.length) {
+      //const result = orders[0].orderDetails.reduce((acc, cur) => acc.price + cur.price, 0); NaN나오는 이유 모르겠음
+      let sum = 0;
+      orders[0].orderDetails.forEach(detail => {
+        sum += detail.price;
+      })
+      sum = sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");;
+      return sum;
+    }
+    return 0;
+  }
+
+  const clickCart = async (product) => {
+    API.postProduct("/carts",{product})
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
   }
 
   // 주문 번호 리덕스 전체 orderlist에서 아이디로 번호 받으면 될 것 같음
@@ -43,7 +56,7 @@ const OrderListDetailPage = () => {
                     <span className="order-info">{detail.price}원 / 수량: {detail.quantity}개</span>
                   </div>
                 </div>
-                <button className="order-list-button">
+                <button className="order-list-button" onClick={() => clickCart(detail)}>
                   장바구니
                 </button>
               </div>

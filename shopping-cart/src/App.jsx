@@ -4,6 +4,7 @@ import CartPage from './pages/CartPage/CartPage';
 import GNB from './pages/NavPage/GNB';
 import OrderListDetailPage from './pages/OrderListPage/OrderListDetailPage/OrderListDetailPage';
 import OrderListPage from './pages/OrderListPage/OrderListPage';
+import OrderPaymentPage from './pages/OrderPaymentPage/OrderPaymentPage';
 import ProductDetailPage from './pages/ProductListPage/ProductDetailPage/ProductDetailPage';
 import ProductListPage from './pages/ProductListPage/ProductListPage';
 
@@ -13,8 +14,8 @@ export const routePaths = {
   '/cart': CartPage,
   '/orders': OrderListPage,
   '/orders/:id': OrderListDetailPage,
+  '/payment': OrderPaymentPage
 }
-
 function App() {
   return (
     <>

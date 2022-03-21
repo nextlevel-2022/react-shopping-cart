@@ -13,7 +13,9 @@ const ProductDetailPage = () => {
 
   const onClick = async() => {
     await API.postProduct("/carts", {product})
+      .then(res => console.log(res))
       .catch(error => console.log(error));
+    // cartmodal use
   }
 
   return (

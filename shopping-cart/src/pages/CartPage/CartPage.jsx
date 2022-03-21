@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import API from '../../API';
 import './CartPage.sass'
-
+import { addToCart } from '../../redux/cartSlicer';
+// 카트페이지 담긴것들만 이동해서 payment로 이동시키도록, redux를 이용해보자
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch()
+  const addCart = (products) => dispatch(addToCart(products));
   const updateCart = async() => {
-    await API.getProduct("/carts")
+    API.getProduct("/carts")
       .then(res => res.data)
-      .then(datas => datas.map(data => {
-        const {id, product} = data;
+      .then(datas => datas.map(({id, product}) => {
         const information = {
           id,
           price: product.price,
@@ -68,7 +70,7 @@ const CartPage = () => {
         sum += product.price * product.quantity
       }
     })
-    
+    sum = sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     return sum;
   }
 
@@ -142,13 +144,8 @@ const CartPage = () => {
           return modified;
         }
       })
-      await API.postProduct("/orders", {
-        orderDetails: modifiedCart
-      })
-        .then(data => console.log(data))
-      
-      await totalDeleteHandler();
-      navigate("/orders")
+      addCart(modifiedCart);
+      navigate("/payment")
     }
   }
 
