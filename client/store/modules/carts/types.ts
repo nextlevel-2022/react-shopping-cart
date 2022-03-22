@@ -26,3 +26,11 @@ export interface AddCartItemRequestPayload {
 export interface AddCartItemSuccessPayload {
   newCartItemProduct: Product;
 }
+
+export interface PostOrdersRequestPayload {
+  newOrderDetails: OrderDetail[];
+}
+
+export interface PostOrdersSuccessPayload {
+  newOrderDetails: OrderDetail[];
+}
