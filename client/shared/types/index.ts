@@ -24,8 +24,8 @@ export interface Product {
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-export interface BaseRequestReducerState<T> {
-  value: T;
+export interface BaseRequestReducerState<Value> {
+  value: Value;
   isLoading: boolean;
   hasError: boolean;
   error: Error | null;
