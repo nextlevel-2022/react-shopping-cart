@@ -1,5 +1,8 @@
 import { store } from '../../store';
-import { COLOR } from '../constants/css';
+import { CARTS } from '../../store/modules/carts/types';
+import { ORDERS } from '../../store/modules/orders/types';
+import { PRODUCTS } from '../../store/modules/products/types';
+import { BUTTON_SIZE, COLOR } from '../constants/css';
 import { REQUEST } from '../constants/url';
 
 export type Color = typeof COLOR[keyof typeof COLOR];
@@ -52,3 +55,5 @@ export interface OrderDetail {
   product: Product;
   quantity: number;
 }
+
+export type MODELS = typeof PRODUCTS | typeof CARTS | typeof ORDERS;
