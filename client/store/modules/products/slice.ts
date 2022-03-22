@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
 import { BaseRequestFailure } from '../../../shared/types';
+import { createFailureReducer, createRequestReducer } from '../../../shared/utils/redux';
 import { GetProductsResponseType, PRODUCTS, ProductsReducerState } from './types';
 
 const productsAsyncActions = {
@@ -27,22 +28,13 @@ export const productsSlice = createSlice({
     const { getProductsAsyncAction } = productsActions;
 
     builder
-      .addCase(`${getProductsAsyncAction.request}`, (state, _) => {
-        state.products.isLoading = true;
-      })
+      .addCase(`${getProductsAsyncAction.request}`, createRequestReducer(PRODUCTS))
+      .addCase(`${getProductsAsyncAction.failure}`, createFailureReducer(PRODUCTS))
       .addCase(
         `${getProductsAsyncAction.success}`,
         (state, { payload: { products } }: PayloadAction<GetProductsResponseType>) => {
           state.products.isLoading = false;
           state.products.value = products;
-        },
-      )
-      .addCase(
-        `${getProductsAsyncAction.failure}`,
-        (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
-          state.products.isLoading = false;
-          state.products.hasError = true;
-          state.products.error = error;
         },
       );
   },

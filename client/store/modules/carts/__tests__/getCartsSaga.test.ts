@@ -2,15 +2,24 @@ import { call } from '@redux-saga/core/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
+import { useDispatch, useSelector } from '../../../../__mocks__/react-redux';
 import cartsRequest from '../../../../service/apis/carts';
 import { cartsFromServerDB } from '../../../../shared/fixtures/cartsFromServer';
 import { cartsReducerInitialState } from '../../../../shared/fixtures/cartsReducerInitialState';
 import { cartsWithQuantity } from '../../../../shared/fixtures/cartsWithQuantity';
+import { useAppDispatch, useAppSelector } from '../../../index';
 import cartsSaga from '../saga';
 import { cartsActions, cartsReducer } from '../slice';
 import { CARTS } from '../types';
 
 describe('getCartsSaga', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
+  });
+
   it('store의 state는 초깃값을 가지고 있다.', () => {
     return expectSaga(cartsSaga).withReducer(cartsReducer).hasFinalState(cartsReducerInitialState).silentRun();
   });

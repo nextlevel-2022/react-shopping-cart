@@ -27,9 +27,8 @@ export const ordersSlice = createSlice({
     const { getOrders } = ordersAsyncActions;
 
     builder
-      .addCase(`${getOrders.request}`, (state, _) => {
-        state.orders.isLoading = true;
-      })
+      .addCase(`${getOrders.request}`, createRequestReducer(ORDERS))
+      .addCase(`${getOrders.failure}`, createFailureReducer(ORDERS))
       .addCase(`${getOrders.success}`, (state, { payload: { orders } }: PayloadAction<GetOrdersSuccessPayload>) => {
         state.orders.isLoading = false;
         state.orders.value = orders;

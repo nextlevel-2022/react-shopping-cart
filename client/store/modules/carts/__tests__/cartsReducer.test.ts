@@ -1,8 +1,21 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+
+import { useDispatch, useSelector } from '../../../../__mocks__/react-redux';
 import { cartsReducerInitialState } from '../../../../shared/fixtures/cartsReducerInitialState';
+import { RootState } from '../../../../shared/types';
+import * as hello from '../../../../shared/utils/redux';
 import { createCartItem, createCartsReducerStateHasValue } from '../../../../shared/utils/test-utils';
+import { useAppDispatch, useAppSelector } from '../../../index';
 import { cartsActions, cartsReducer } from '../slice';
 
 describe('cartsReducer', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
+  });
+
   const { deleteCardItemById, increaseCartItemQuantityById, decreaseCartItemQuantityById } = cartsActions;
 
   // it('cartsReducer는 초깃값을 갖는다', () => {

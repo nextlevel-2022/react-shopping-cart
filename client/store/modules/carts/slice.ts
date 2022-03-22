@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
 import { BaseRequestFailure, CartItem } from '../../../shared/types';
+import { createFailureReducer, createRequestReducer } from '../../../shared/utils/redux';
 import {
   AddCartItemRequestPayload,
   AddCartItemSuccessPayload,
@@ -72,24 +73,15 @@ export const cartsSlice = createSlice({
     const { getCarts, deleteCartItemById, addCartItem } = cartsAsyncActions;
 
     builder
-      /** getCarts */
-      .addCase(`${getCarts.request}`, (state, _) => {
-        state.carts.isLoading = true;
-      })
+      .addCase(`${getCarts.request}`, createRequestReducer<DeleteCartItemRequestPayload>(CARTS))
+      .addCase(`${getCarts.failure}`, createFailureReducer(CARTS))
       .addCase(`${getCarts.success}`, (state, { payload: { carts } }: PayloadAction<GetCartsSuccessPayload>) => {
         state.carts.isLoading = false;
         state.carts.value = setDefaultQuantityAllCartItem(carts);
       })
-      .addCase(`${getCarts.failure}`, (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
-        state.carts.isLoading = false;
-        state.carts.hasError = true;
-        state.carts.error = error;
-      })
 
-      /** deleteCartItemById */
-      .addCase(`${deleteCartItemById.request}`, (state, _) => {
-        state.carts.isLoading = true;
-      })
+      .addCase(`${deleteCartItemById.request}`, createRequestReducer(CARTS))
+      .addCase(`${deleteCartItemById.failure}`, createFailureReducer(CARTS))
       .addCase(
         `${deleteCartItemById.success}`,
         (state, { payload: { deletedCartItemId } }: PayloadAction<DeleteCartItemSuccessPayload>) => {
@@ -97,16 +89,9 @@ export const cartsSlice = createSlice({
           state.carts.value = [...state.carts.value].filter((cartItem) => deletedCartItemId !== cartItem.id);
         },
       )
-      .addCase(`${deleteCartItemById.failure}`, (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
-        state.carts.isLoading = false;
-        state.carts.hasError = true;
-        state.carts.error = error;
-      })
 
-      /** addCartItem */
-      .addCase(`${addCartItem.request}`, (state, _) => {
-        state.carts.isLoading = true;
-      })
+      .addCase(`${addCartItem.request}`, createRequestReducer<AddCartItemRequestPayload>(CARTS))
+      .addCase(`${addCartItem.failure}`, createFailureReducer(CARTS))
       .addCase(
         `${addCartItem.success}`,
         (state, { payload: { newCartItemProduct } }: PayloadAction<AddCartItemSuccessPayload>) => {
@@ -121,12 +106,7 @@ export const cartsSlice = createSlice({
 
           state.carts.value.push(newCartItem);
         },
-      )
-      .addCase(`${addCartItem.failure}`, (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
-        state.carts.isLoading = false;
-        state.carts.hasError = true;
-        state.carts.error = error;
-      });
+      );
   },
 });
 
