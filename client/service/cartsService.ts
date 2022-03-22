@@ -19,3 +19,12 @@ export const hasSameProductInCarts = (carts: CartItem[], newProduct: Product): b
 export const transformOrderDetailFromCartItem = (cartItems: CartItem[]): OrderDetail[] => {
   return cartItems.map(({ product, quantity }) => ({ product, quantity }));
 };
+
+export const calculateExpectedPrice = (selectedCartItems: CartItem[]) => {
+  const PRICE_WHEN_SELECTED_NOTHING = 0;
+
+  return selectedCartItems.reduce(
+    (acc, { product, quantity }) => acc + product.price * quantity,
+    PRICE_WHEN_SELECTED_NOTHING,
+  );
+};
