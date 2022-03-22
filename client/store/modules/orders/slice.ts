@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
-import { BaseRequestFailure } from '../../../shared/types';
+import { BaseRequestFailure, OrderItem, RootState } from '../../../shared/types';
+import { createFailureReducer, createRequestReducer } from '../../../shared/utils/redux';
+import { PostOrdersRequestPayload, PostOrdersSuccessPayload } from '../carts/types';
 import { GetOrdersSuccessPayload, ORDERS, OrdersReducerState } from './types';
 
 const ordersAsyncActions = {
@@ -10,6 +12,12 @@ const ordersAsyncActions = {
     `${ORDERS}/GET_${ORDERS}_SUCCESS`,
     `${ORDERS}/GET_${ORDERS}_FAILURE`,
   )<void, GetOrdersSuccessPayload, BaseRequestFailure>(),
+
+  postOrders: createAsyncAction(
+    `${ORDERS}/POST_${ORDERS}`,
+    `${ORDERS}/POST_${ORDERS}_SUCCESS`,
+    `${ORDERS}/POST_${ORDERS}_FAILURE`,
+  )<PostOrdersRequestPayload, PostOrdersSuccessPayload, BaseRequestFailure>(),
 };
 
 export const ordersSlice = createSlice({
@@ -24,7 +32,7 @@ export const ordersSlice = createSlice({
   } as OrdersReducerState,
   reducers: {},
   extraReducers: (builder) => {
-    const { getOrders } = ordersAsyncActions;
+    const { getOrders, postOrders } = ordersAsyncActions;
 
     builder
       .addCase(`${getOrders.request}`, createRequestReducer(ORDERS))
@@ -33,11 +41,20 @@ export const ordersSlice = createSlice({
         state.orders.isLoading = false;
         state.orders.value = orders;
       })
-      .addCase(`${getOrders.failure}`, (state, { payload: { error } }: PayloadAction<BaseRequestFailure>) => {
-        state.orders.isLoading = false;
-        state.orders.hasError = true;
-        state.orders.error = error;
-      });
+
+      .addCase(`${postOrders.request}`, createRequestReducer<PostOrdersRequestPayload>(ORDERS))
+      .addCase(`${postOrders.failure}`, createFailureReducer(ORDERS))
+      .addCase(
+        `${postOrders.success}`,
+        (state, { payload: { newOrderDetails } }: PayloadAction<PostOrdersSuccessPayload>) => {
+          state.orders.isLoading = false;
+
+          state.orders.value.push({
+            id: 1,
+            orderDetails: newOrderDetails,
+          });
+        },
+      );
   },
 });
 
