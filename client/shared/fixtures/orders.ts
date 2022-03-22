@@ -1,4 +1,4 @@
-import { OrderItem } from '../types';
+import { OrderDetail, OrderItem } from '../types';
 import { product } from './product';
 
 export const orders: OrderItem[] = [
