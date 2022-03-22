@@ -1,4 +1,4 @@
-import { BaseRequestReducerState, CartItem, Product } from '../../../shared/types';
+import { BaseRequestReducerState, CartItem, OrderDetail, Product } from '../../../shared/types';
 
 export const CARTS = 'carts';
 

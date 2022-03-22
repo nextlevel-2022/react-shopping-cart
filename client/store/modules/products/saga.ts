@@ -4,7 +4,7 @@ import productsRequest from '../../../service/apis/products';
 import { Product } from '../../../shared/types';
 import { productsActions } from './slice';
 
-function* getProductsSaga(_: ReturnType<typeof productsActions.getProductsAsyncAction.request>) {
+function* getProductsSaga() {
   try {
     const products: Product[] = yield call(productsRequest.getProducts);
 

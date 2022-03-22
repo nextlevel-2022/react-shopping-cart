@@ -23,7 +23,6 @@ const useCarts = () => {
   } = createModelAttributeObject<CartItem[]>(cartsAttributeSelector);
 
   const getCarts = () => {
-    carts.values();
     dispatch(cartsActions.getCarts.request());
   };
 
