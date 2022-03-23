@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { COLOR } from '../../shared/constants/css';
 import { OrderItem } from '../../shared/types';
-import ProductItem from '../ProductList/ProductItem';
+import OrderedProduct from './OrderedProduct';
 
 export interface Props {
   orderItem: OrderItem;
@@ -14,14 +14,11 @@ const OrderListItem = ({ orderItem: { id, orderDetails } }: Props) => {
       <OrderIdContainer>
         <h1>주문 번호: {id}</h1>
       </OrderIdContainer>
-      {orderDetails.map(({ product, quantity }) => {
-        return (
-          <ProductItemContainer>
-            <ProductItem product={product} onClickAddCartButton={() => alert('hello')} />
-            <span>수량: {quantity}</span>
-          </ProductItemContainer>
-        );
-      })}
+      <ProductItemContainer>
+        {orderDetails.map(({ product, quantity }) => (
+          <OrderedProduct product={product} quantity={quantity} />
+        ))}
+      </ProductItemContainer>
     </Container>
   );
 };
@@ -29,7 +26,7 @@ const OrderListItem = ({ orderItem: { id, orderDetails } }: Props) => {
 const Container = styled.div`
   margin: 2rem;
   background-color: ${COLOR.WHITE};
-  width: 60%;
+  width: 50%;
   border: 1px solid ${COLOR.GRAY_150};
 `;
 
@@ -51,6 +48,3 @@ const ProductItemContainer = styled.div`
 `;
 
 export default OrderListItem;
-
-// feat: OrderListItem(주문 항목 정보를 보여주는 컴포넌트) 추가
-//   -
