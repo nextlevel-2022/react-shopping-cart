@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
-import { BaseRequestFailure, OrderItem, RootState } from '../../../shared/types';
+import { BaseRequestFailure } from '../../../shared/types';
 import { createFailureReducer, createRequestReducer } from '../../../shared/utils/redux';
 import { PostOrdersRequestPayload, PostOrdersSuccessPayload } from '../carts/types';
 import { GetOrdersSuccessPayload, ORDERS, OrdersReducerState } from './types';
