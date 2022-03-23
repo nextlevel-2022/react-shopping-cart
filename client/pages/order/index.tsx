@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import OrderListContainer from '../../components/Orders/OrderListContainer';
-import { COLOR } from '../../shared/constants/css';
 
 const Order = () => {
   return (
@@ -12,14 +11,15 @@ const Order = () => {
   );
 };
 
-const Container = styled.div`
-  background-color: ${COLOR.GRAY_50};
-`;
+const Container = styled.div``;
 
 const Header = styled.div`
-  font-size: 2rem;
-  line-height: 2rem;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem;
 `;
 
 export default Order;
