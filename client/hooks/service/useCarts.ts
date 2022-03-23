@@ -30,8 +30,9 @@ const useCarts = () => {
     if (hasSameProductInCarts(carts, product)) {
       return alert('이미 장바구니에 같은 상품이 존재합니다.');
     }
-
     dispatch(cartsActions.addCartItem.request({ product }));
+
+    alert('장바구니에 상품이 추가되었습니다.');
   };
 
   const increaseCartItemQuantityById = (cartItemId: CartItem['id'], currentQuantity: CartItem['quantity']) => {
