@@ -2,7 +2,9 @@ import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 import useCarts from '../../hooks/service/useCarts';
+import { BUTTON_SIZE } from '../../shared/constants/css';
 import { CartItem } from '../../shared/types';
+import Button from '../@atom/Button/Button';
 
 interface Props {
   cartItem: CartItem;
@@ -21,23 +23,26 @@ const CartListItem = ({ cartItem, onClickCartItemSelectButton, selectedCartItems
 
   return (
     <Container>
-      <label htmlFor="SelectCartItemButton">선택</label>
+      <label htmlFor="SelectCartItemButton" />
       <input
         id={'SelectCartItemButton'}
         type={'checkbox'}
         onClick={(event: MouseEvent<HTMLInputElement>) => onClickCartItemSelectButton(event, cartItem)}
         checked={isSelectedCartItem()}
       />
-      <Image src={imageUrl} alt="" />
-      <div>{name}</div>
+      <Image src={imageUrl} alt="product image" />
+      <ProductTitle>{name}</ProductTitle>
       <RightAsideContainer>
-        <div>cartId: {cartItemId}</div>
-        <div>{price}</div>
+        <div>{price}원</div>
         <div>{quantity}개</div>
-        <div>
-          <button onClick={() => increaseCartItemQuantityById(cartItemId, quantity)}>+</button>
-          <button onClick={() => decreaseCartItemQuantityById(cartItemId, quantity)}>-</button>
-        </div>
+        <TMP>
+          <Button onClick={() => increaseCartItemQuantityById(cartItemId, quantity)} size={BUTTON_SIZE.SMALL}>
+            +
+          </Button>
+          <Button onClick={() => decreaseCartItemQuantityById(cartItemId, quantity)} size={BUTTON_SIZE.SMALL}>
+            -
+          </Button>
+        </TMP>
       </RightAsideContainer>
     </Container>
   );
@@ -46,11 +51,24 @@ const CartListItem = ({ cartItem, onClickCartItemSelectButton, selectedCartItems
 const Container = styled.div`
   margin: 2rem;
   display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid;
+`;
+
+const TMP = styled.div`
+  display: flex;
+  gap: 0.1rem;
 `;
 
 const Image = styled.img`
   width: 9rem;
   height: 9rem;
+`;
+
+const ProductTitle = styled.span`
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 0;
 `;
 
 const RightAsideContainer = styled.div`
@@ -59,6 +77,7 @@ const RightAsideContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  padding: 0 2rem;
 `;
 
 export default CartListItem;
