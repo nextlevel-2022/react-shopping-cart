@@ -2,9 +2,9 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
-import { URL } from '../../../shared/constants/url';
-import { createMockRouter } from '../../../shared/utils/createMockRouter';
-import { GNB } from '../GNB';
+import { URL } from '../../shared/constants/url';
+import { createMockRouter } from '../../shared/utils/createMockRouter';
+import { GNB } from './GNB';
 
 const renderGNB = (mockedRouter: any) => {
   const result = render(

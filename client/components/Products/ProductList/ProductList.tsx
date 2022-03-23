@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import useCarts from '../../hooks/service/useCarts';
-import { Product } from '../../shared/types';
-import ScrollBottomObserver from '../ScrollBottomObserver/ScrollBottomObserver';
-import Spinner from '../Spinner/Spinner';
-import ProductItem from './ProductItem';
+import useCarts from '../../../hooks/service/useCarts';
+import { Product } from '../../../shared/types';
+import ScrollBottomObserver from '../../ScrollBottomObserver/ScrollBottomObserver';
+import Spinner from '../../Spinner/Spinner';
+import ProductItem from '../ProductItem/ProductItem';
 
 export interface Props {
   /**상품들의 리스트(Product[])*/

@@ -2,10 +2,12 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
 import { useAppDispatch, useAppSelector } from '../../../store';
-import ProductsListContainer from '../ProductListContainer';
+import ProductsListContainer from './ProductListContainer';
 
 describe('<ProductsListContainer />', () => {
   beforeEach(() => {
+    jest.clearAllMocks();
+
     useDispatch.mockImplementation(() => useAppDispatch);
     useSelector.mockImplementation(() => useAppSelector);
   });

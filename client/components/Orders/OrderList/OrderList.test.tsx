@@ -1,10 +1,17 @@
 import { render } from '@testing-library/react';
 
+import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
 import { getTotalOrderAmount, getTotalOrderItemNumber } from '../../../service/ordersService';
 import { orders } from '../../../shared/fixtures/orders';
-import OrderList, { Props } from '../OrderList';
+import { useAppDispatch, useAppSelector } from '../../../store';
+import OrderList, { Props } from './OrderList';
 
 describe('<OrderList />', () => {
+  beforeEach(() => {
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
+  });
+
   it('로딩중인 경우 로딩임을 보여준다.', () => {
     const { LoadingText } = renderOrderList({
       orders,

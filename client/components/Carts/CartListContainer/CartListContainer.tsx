@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import useCarts from '../../hooks/service/useCarts';
-import CartList from './CartList';
+import useCarts from '../../../hooks/service/useCarts';
+import CartList from '../CartList/CartList';
 
 const CartListContainer = () => {
   const { carts, isLoadingCarts, getCarts } = useCarts();

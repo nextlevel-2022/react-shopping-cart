@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { useAppDispatch, useAppSelector } from '../../../__mocks__/react-redux';
+import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
 import { CartItem } from '../../../shared/types';
 import { createCartItem } from '../../../shared/utils/test-utils';
-import CartListItem from '../CartListItem';
+import { useAppDispatch, useAppSelector } from '../../../store';
+import CartListItem from './CartListItem';
 
 describe('<CartListItem />', () => {
   const cartItem = createCartItem();
@@ -37,28 +37,22 @@ describe('<CartListItem />', () => {
     expect(DecreaseQuantityButton()).toBeInTheDocument();
   });
 
-  it('선택 checkbox input을 누르면 props로 전달 받은 핸들러가 호출된다.', () => {
-    const { clickSelectCartItemButton, onClickCartItemSelectButton } = renderCartListItem(cartItem, carts);
-
-    clickSelectCartItemButton();
-
-    expect(onClickCartItemSelectButton).toHaveBeenCalled();
-  });
-
   it('장바구니 수량이 20개 미만 일때 버튼(+)을 누르면 액션이 dispatch 된다.', async () => {
     const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickIncreaseQuantityButton();
 
-    expect(useAppDispatch).toHaveBeenCalled();
+    expect(useDispatch).toHaveBeenCalledTimes(2);
   });
 
   it('장바구니 수량이 20개인 경우 버튼(+)을 누르면 액션이 dispatch 되지 않는다.', async () => {
     const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasMaxQuantity, carts);
 
+    console.log(cartItemHasMaxQuantity);
+
     clickIncreaseQuantityButton();
 
-    expect(useAppDispatch).not.toHaveBeenCalled();
+    expect(useDispatch).toHaveBeenCalledTimes(1);
   });
 
   it('장바구니 수량이 1개를 초과하는 경우 버튼(-)을 누르면 액션이 dispatch 된다.', () => {
@@ -66,7 +60,7 @@ describe('<CartListItem />', () => {
 
     clickDecreaseQuantityButton();
 
-    expect(useAppDispatch).toHaveBeenCalled();
+    expect(useDispatch).toHaveBeenCalledTimes(2);
   });
 
   it('장바구니 수량이 1개인 경우 버튼(-)을 누르면 액션이 dispatch 되지 않는다.', async () => {
@@ -74,7 +68,7 @@ describe('<CartListItem />', () => {
 
     clickDecreaseQuantityButton();
 
-    expect(useAppDispatch).not.toHaveBeenCalled();
+    expect(useDispatch).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -91,7 +85,7 @@ const renderCartListItem = (cartItem: CartItem, selectedCartItems: CartItem[]) =
   );
 
   const ProductName = () => result.getByText(cartItem.product.name);
-  const ProductPrice = () => result.getByText(`${cartItem.product.price}`);
+  const ProductPrice = () => result.getByText(`${cartItem.product.price}원`);
   const CartItemQuantity = () => result.getByText(`${cartItem.quantity}개`);
 
   const selectCartItemButton = () => screen.getByRole('checkbox');

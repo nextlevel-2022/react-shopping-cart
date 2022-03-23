@@ -1,10 +1,10 @@
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
-import useCarts from '../../hooks/service/useCarts';
-import { BUTTON_SIZE } from '../../shared/constants/css';
-import { CartItem } from '../../shared/types';
-import Button from '../@atom/Button/Button';
+import useCarts from '../../../hooks/service/useCarts';
+import { BUTTON_SIZE } from '../../../shared/constants/css';
+import { CartItem } from '../../../shared/types';
+import Button from '../../@atom/Button/Button';
 
 interface Props {
   cartItem: CartItem;

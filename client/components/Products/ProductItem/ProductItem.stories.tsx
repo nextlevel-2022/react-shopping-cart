@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+
 import ProductItem, { Props } from './ProductItem';
 
 export default {

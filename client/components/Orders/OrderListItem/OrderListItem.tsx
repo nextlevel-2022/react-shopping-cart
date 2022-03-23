@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { COLOR } from '../../shared/constants/css';
-import { OrderItem } from '../../shared/types';
-import OrderedProduct from './OrderedProduct';
+import { COLOR } from '../../../shared/constants/css';
+import { OrderItem } from '../../../shared/types';
+import OrderedProduct from '../OrderedProduct/OrderedProduct';
 
 export interface Props {
   orderItem: OrderItem;

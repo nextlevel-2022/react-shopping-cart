@@ -1,4 +1,4 @@
-import CartListContainer from '../../components/CartList/CartListContainer';
+import CartListContainer from '../../components/Carts/CartListContainer/CartListContainer';
 
 const CartPage = () => {
   return (

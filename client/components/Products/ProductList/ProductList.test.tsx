@@ -1,7 +1,9 @@
 import { render } from '@testing-library/react';
 
+import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
 import { Product } from '../../../shared/types';
-import ProductList from '../ProductList';
+import { useAppDispatch, useAppSelector } from '../../../store';
+import ProductList from './ProductList';
 
 const notEmptyProducts = [
   {
@@ -14,8 +16,7 @@ const notEmptyProducts = [
     id: 2,
     name: '생새우살 (71/90) 500g 4개',
     price: 29000,
-    imageUrl:
-      'https://cdn-mart.baemin.com/sellergoods/main/6b95c66a-c13d-4ccd-9df5-b1af1428a225.jpg',
+    imageUrl: 'https://cdn-mart.baemin.com/sellergoods/main/6b95c66a-c13d-4ccd-9df5-b1af1428a225.jpg',
   },
 ];
 
@@ -43,7 +44,14 @@ const renderProductList = ({ products, isLoadingProducts }: RenderProductListPar
   };
 };
 
-describe('<ProductList/> 제품들이 보이는 컴포넌트가 렌더링 된다', () => {
+describe('<Products/> 제품들이 보이는 컴포넌트가 렌더링 된다', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
+  });
+
   describe('로딩중일때', () => {
     it('products 배열이 빈 배열인 경우에도 isLoadingProducts true 이면 로딩중임을 보인다.', () => {
       const { loadingText } = renderProductList({

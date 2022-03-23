@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { products } from '../../shared/fixtures/db.json';
+import { products } from '../../../shared/fixtures/db.json';
 import ProductList, { Props } from './ProductList';
 
 export default {

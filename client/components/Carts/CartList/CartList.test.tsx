@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
 import { CartItem } from '../../../shared/types';
 import { useAppDispatch, useAppSelector } from '../../../store';
-import CartList from '../CartList';
+import CartList from './CartList';
 
 const cartItem: CartItem = {
   id: 1,
@@ -34,7 +34,6 @@ describe('render', () => {
       productName,
       productPrice,
       productQuantity,
-      selectCartItemButton,
       deleteCartItemButton,
       selectAllCartItemButton,
       orderButtonWithQuantity,
@@ -46,7 +45,6 @@ describe('render', () => {
     expect(productName()).toBeInTheDocument();
     expect(productPrice()).toBeInTheDocument();
     expect(productQuantity()).toBeInTheDocument();
-    expect(selectCartItemButton()).toBeInTheDocument();
     expect(deleteCartItemButton()).toBeInTheDocument();
     expect(selectAllCartItemButton()).toBeInTheDocument();
     expect(orderButtonWithQuantity()).toBeInTheDocument();
@@ -89,11 +87,11 @@ const renderCartList = ({ carts, isLoading }: { carts: CartItem[]; isLoading: bo
   const onClickSelectCartItemButton = jest.fn();
 
   const ProductName = () => getByText('[리뉴얼]젓가락(종이)-정성을 담아');
-  const ProductPrice = () => getByText('21800');
+  const ProductPrice = () => getByText('21800원');
   const ProductQuantity = () => getByText('20개');
   const LoadingText = () => getByText('로딩중');
 
-  const DeleteCartItemButton = () => getByText('상품삭제');
+  const DeleteCartItemButton = () => getByText('선택된 상품 삭제');
   const OrderButtonWithQuantity = () => screen.getByText('주문하기(0)');
 
   const SelectAllCartItemButton = () => getByLabelText('전체선택');

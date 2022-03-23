@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 import { Product } from '../../../shared/types';
-import ProductItem from '../ProductItem';
+import ProductItem from './ProductItem';
 
 const product = {
   id: 1,

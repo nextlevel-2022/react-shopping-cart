@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import OrderListContainer from '../../components/Orders/OrderListContainer';
+import OrderListContainer from '../../components/Orders/OrderListContainer/OrderListContainer';
 
 const Order = () => {
   return (

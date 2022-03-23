@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { useAppDispatch, useAppSelector } from '../../../__mocks__/react-redux';
-import OrderListContainer from '../OrderListContainer';
+import { useDispatch, useSelector } from '../../../__mocks__/react-redux';
+import { useAppDispatch, useAppSelector } from '../../../store';
+import OrderListContainer from './OrderListContainer';
 
 describe('<OrderListContainer />', () => {
   beforeEach(() => {

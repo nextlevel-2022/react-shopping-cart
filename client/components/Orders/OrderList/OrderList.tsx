@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { getTotalOrderAmount, getTotalOrderItemNumber } from '../../service/ordersService';
-import { OrderItem } from '../../shared/types';
-import Spinner from '../Spinner/Spinner';
-import OrderListItem from './OrderListItem';
+import { getTotalOrderAmount, getTotalOrderItemNumber } from '../../../service/ordersService';
+import { OrderItem } from '../../../shared/types';
+import Spinner from '../../Spinner/Spinner';
+import OrderListItem from '../OrderListItem/OrderListItem';
 
 export interface Props {
   orders: OrderItem[];
