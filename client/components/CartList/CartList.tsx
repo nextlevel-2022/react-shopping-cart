@@ -65,13 +65,8 @@ const CartList = ({ carts, isLoading }: Props) => {
   };
 
   const orderSelectedCartItem = () => {
-    const isCartItemSelected = selectedCartItems.length > 0;
-
-    if (!isCartItemSelected) return alert('선택된 아이템이 없습니다.');
-
-    const isPaymentConfirmTrue = confirm('결제 하시겠습니까?');
-
-    if (!isPaymentConfirmTrue) return;
+    if (selectedCartItems.length === 0) return alert('선택된 아이템이 없습니다.');
+    if (!confirm('결제 하시겠습니까?')) return;
 
     deleteSelectedCartItem();
     ordersRequest.addOrderItem(selectedCartItems);
