@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { URL } from '../../shared/constants/url';
 import { Product } from '../../shared/types';
+import Button from '../@atom/Button/Button';
 
 export interface Props {
   /** 상품을 나타냅니다 */
@@ -22,7 +23,7 @@ const ProductItem = ({ product, onClickAddCartButton }: Props) => {
       <InformationContainer>
         <Name>{name}</Name>
         <Price>{price} 원</Price>
-        <AddCartButton onClick={onClickAddCartButton}>담기</AddCartButton>
+        <Button onClick={onClickAddCartButton}>담기</Button>
       </InformationContainer>
     </Container>
   );
