@@ -11,9 +11,9 @@ const OrderListContainer = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <OrderList orders={orders} isLoading={isLoadingOrders} />
-    </div>
+    </>
   );
 };
 

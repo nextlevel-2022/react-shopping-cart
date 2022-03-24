@@ -21,9 +21,7 @@ const ProductDetailPage = ({ product }: ServerSideProps) => {
       <ProductImage src={imageUrl} alt={'product image'} />
       <ProductName>{name}</ProductName>
       <div>금액: {price}원</div>
-      <ButtonContainer>
-        <Button onClick={() => setIsOpenAddCartModal(true)}>장바구니 담기</Button>
-      </ButtonContainer>
+      <Button onClick={() => setIsOpenAddCartModal(true)}>장바구니 담기</Button>
       <BottomUpModal onClose={() => setIsOpenAddCartModal(false)} isOpen={isOpenAddCartsModal}>
         <ConfirmAddCartsModal productToBeAdded={product} closeModal={() => setIsOpenAddCartModal(false)} />
       </BottomUpModal>
@@ -45,8 +43,10 @@ export async function getServerSideProps(context: any) {
 const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 3rem;
 `;
 const ProductImage = styled.img`
   width: 20rem;

@@ -9,7 +9,7 @@ import { BUTTON_SIZE, COLOR } from '../../../shared/constants/css';
 import { URL } from '../../../shared/constants/url';
 import { CartItem } from '../../../shared/types';
 import Button from '../../@atom/Button/Button';
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../../@atom/Spinner/Spinner';
 import CartListItem from '../CartListItem/CartListItem';
 
 export interface Props {

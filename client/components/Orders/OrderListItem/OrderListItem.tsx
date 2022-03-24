@@ -16,7 +16,7 @@ const OrderListItem = ({ orderItem: { id, orderDetails } }: Props) => {
       </OrderIdContainer>
       <ProductItemContainer>
         {orderDetails.map(({ product, quantity }) => (
-          <OrderedProduct product={product} quantity={quantity} />
+          <OrderedProduct key={`order-item-${id}-${product.id}`} product={product} quantity={quantity} />
         ))}
       </ProductItemContainer>
     </Container>

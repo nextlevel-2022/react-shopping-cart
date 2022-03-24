@@ -42,6 +42,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 const Image = styled.img`
   width: 17.625rem;
