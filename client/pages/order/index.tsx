@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import OrderListContainer from '../../components/Orders/OrderListContainer/OrderListContainer';
 
-const Order = () => {
+const OrderPage = () => {
   return (
     <Container>
       <Header>주문 목록</Header>
@@ -22,4 +22,4 @@ const Header = styled.div`
   margin: 1rem;
 `;
 
-export default Order;
+export default OrderPage;
