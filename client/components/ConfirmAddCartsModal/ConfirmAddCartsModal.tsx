@@ -4,8 +4,10 @@ import useCarts from '../../hooks/service/useCarts';
 import { Product } from '../../shared/types';
 import Button from '../@atom/Button/Button';
 
-interface Props {
+export interface Props {
+  /** 장바구니에 추가될 상품 */
   productToBeAdded: Product;
+  /** 모달을 닫는 함수 */
   closeModal: () => void;
 }
 

@@ -81,11 +81,6 @@ describe('', () => {
 const renderCartList = ({ carts, isLoading }: { carts: CartItem[]; isLoading: boolean }) => {
   const { getByText, getByLabelText } = render(<CartList carts={carts} isLoading={isLoading} />);
 
-  const onClickDeleteCartItemButton = jest.fn();
-  const onClickOrderButtonWithQuantity = jest.fn();
-  const onClickSelectAllCartItemButton = jest.fn();
-  const onClickSelectCartItemButton = jest.fn();
-
   const ProductName = () => getByText('[리뉴얼]젓가락(종이)-정성을 담아');
   const ProductPrice = () => getByText('21800원');
   const ProductQuantity = () => getByText('20개');

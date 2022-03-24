@@ -6,9 +6,12 @@ import { BUTTON_SIZE } from '../../../shared/constants/css';
 import { CartItem } from '../../../shared/types';
 import Button from '../../@atom/Button/Button';
 
-interface Props {
+export interface Props {
+  /** 장바구니에 담긴 상품 */
   cartItem: CartItem;
+  /** 유저가 장바구니 내 상품을 클릭했을 때 핸들러 */
   onClickCartItemSelectButton: ({ target }: MouseEvent<HTMLInputElement>, cartItemBeMutated: CartItem) => void;
+  /** 유저가 장바구니에서 선택한 상품들의 배열 */
   selectedCartItems: CartItem[];
 }
 

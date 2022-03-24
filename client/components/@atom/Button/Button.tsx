@@ -7,7 +7,7 @@ import { ButtonSize, Color } from '../../../shared/types';
 const SIZES = {
   [BUTTON_SIZE.SMALL]: css`
     font-size: 0.875rem;
-    --button-padding: 8px 12px;
+    padding: 8px 12px;
   `,
   [BUTTON_SIZE.MEDIUM]: css`
     font-size: 1rem;
@@ -19,11 +19,16 @@ const SIZES = {
   `,
 };
 
-interface Props {
+export interface Props {
+  /** 버튼 안에 넣어줄 string 값 */
   children: string;
+  /** 버튼 클릭했을 때 핸들러 */
   onClick: MouseEventHandler<HTMLButtonElement>;
+  /** 버튼의 크기를 결정하는 요소 */
   size?: ButtonSize;
+  /** 버튼 뒤의 배경 색상을 결정 */
   backgroundColor?: Color;
+  /** 버튼 안 텍스트의 컬러 */
   textColor?: Color;
 }
 
@@ -49,7 +54,6 @@ const ButtonStyled = styled.button<{
   textColor: Color;
 }>`
   ${({ sizeStyle }) => sizeStyle};
-  width: 100%;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
   border: none;

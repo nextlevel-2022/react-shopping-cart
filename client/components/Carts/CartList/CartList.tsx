@@ -12,8 +12,10 @@ import Button from '../../@atom/Button/Button';
 import Spinner from '../../Spinner/Spinner';
 import CartListItem from '../CartListItem/CartListItem';
 
-interface Props {
+export interface Props {
+  /** 장바구니에 담긴 상품들의 배열 */
   carts: CartItem[];
+  /** 로딩중인지 아닌지를 알려주는 값 */
   isLoading: boolean;
 }
 
@@ -77,6 +79,19 @@ const CartList = ({ carts, isLoading }: Props) => {
     router.push(URL.ORDER());
   };
 
+  const renderCartItems = () => {
+    if (carts.length === 0) return <div>장바구니가 비어있습니다.</div>;
+
+    return carts.map((cartItem, index) => (
+      <CartListItem
+        key={`cart-item-${index}`}
+        cartItem={cartItem}
+        onClickCartItemSelectButton={mutateSelectedCartItems}
+        selectedCartItems={selectedCartItems}
+      />
+    ));
+  };
+
   if (isLoading) return <Spinner>로딩중</Spinner>;
 
   return (
@@ -100,16 +115,7 @@ const CartList = ({ carts, isLoading }: Props) => {
       </TMP>
       <CartsTotalNumber>든든 배송 상품 ({carts.length}개)</CartsTotalNumber>
       <CartsInformationContainer>
-        <CartsLeftSection>
-          {carts.map((cartItem, index) => (
-            <CartListItem
-              key={`cart-item-${index}`}
-              cartItem={cartItem}
-              onClickCartItemSelectButton={mutateSelectedCartItems}
-              selectedCartItems={selectedCartItems}
-            />
-          ))}
-        </CartsLeftSection>
+        <CartsLeftSection>{renderCartItems()}</CartsLeftSection>
         <CartsRightSection>
           <TotalAmount>결제 예상 금액</TotalAmount>
           <TotalAmount>{calculateExpectedPrice(selectedCartItems)} 원</TotalAmount>
