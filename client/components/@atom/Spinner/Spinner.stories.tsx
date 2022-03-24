@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 
+import { COLOR } from '../../../shared/constants/css';
 import Spinner, { Props } from './Spinner';
-import { COLOR } from '../../shared/constants/css';
 
 export default {
   component: Spinner,

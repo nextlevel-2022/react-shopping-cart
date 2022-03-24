@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Color } from '../../shared/types';
-import { COLOR } from '../../shared/constants/css';
+
+import { COLOR } from '../../../shared/constants/css';
+import { Color } from '../../../shared/types';
 
 export interface Props {
   /**Spinner 아래 위치하는 children*/
