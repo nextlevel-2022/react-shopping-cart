@@ -1,13 +1,15 @@
 <p align="middle" >
-  <img src="https://techcourse-storage.s3.ap-northeast-2.amazonaws.com/3e6c6f30b11d4b098b5a3e81be19ce3a" width="400">
+  <img src="https://techcourse-storage.s3.ap-northeast-2.amazonaws.com/3e6c6f30b11d4b098b5a3e81be19ce3a" width="300">
 </p>
 <h2 align="middle">장바구니 - 조기문</h2>
 <p align="middle">React & Redux 데스크탑 장바구니 애플리케이션</p>
 </p>
 
-## 웹 VS CODE 환경
+# Storybook
+[바로가기](https://623c9c9a55d9c0003a6be039-clmhogfiqe.chromatic.com/?path=/story/button--default)
 
-[바로가기](https://github.dev/guymoon/react-shopping-cart/tree/guymoon-step3)
+# 웹 VSCODE
+[바로가기](https://github.dev/guymoon/react-shopping-cart)
 
 # 고민 + 시도 이야기
 
@@ -35,6 +37,91 @@
 - [🎯 next.js + jest + testing-library 환경설정](https://www.notion.so/g1moon/jest-next-08c42b9b86034ccba3be8ca9f28025ec)
 - [🎯 useDispatch 과 useSelector 의 typed versions!](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/useDispatch%C2%A0%EA%B3%BC%C2%A0useSelector%20%20%EC%9D%98%20typed%20versions%20!.md)
 - [🎯 에러핸들링](https://github.com/guymoon/react-shopping-cart/blob/guymoon-step1/docs/%EC%97%90%EB%9F%AC%ED%95%B8%EB%93%A4%EB%A7%81.md)
+
+
+# Test Coverage
+File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------------------------------------|---------|----------|---------|---------|--------------------------------------
+All files                                 |   83.56 |    54.74 |   65.78 |   85.23 |
+ components/@atom/BottomUpModal           |      75 |    41.66 |   66.66 |   77.77 |
+  BottomUpModal.tsx                       |      75 |    41.66 |   66.66 |   77.77 | 18-23
+ components/@atom/Button                  |   62.96 |    31.57 |     100 |   62.96 |
+  Button.tsx                              |   62.96 |    31.57 |     100 |   62.96 | 13-27
+ components/@atom/ScrollBottomObserver    |   72.22 |        0 |      50 |   72.22 |
+  ScrollBottomObserver.tsx                |   72.22 |        0 |      50 |   72.22 | 11-13,16-17
+ components/@atom/Spinner                 |   62.96 |    23.52 |     100 |   62.96 |
+  Spinner.tsx                             |   62.96 |    23.52 |     100 |   62.96 | 13-27
+ components/Carts/CartList                |   61.64 |     37.5 |   23.52 |   68.25 |
+  CartList.tsx                            |   61.64 |     37.5 |   23.52 |   68.25 | 28,35,40-47,51,55,58,63-65,68-72,100
+ components/Carts/CartListContainer       |     100 |       75 |     100 |     100 |
+  CartListContainer.tsx                   |     100 |       75 |     100 |     100 | 11
+ components/Carts/CartListItem            |      96 |       75 |   83.33 |      96 |
+  CartListItem.tsx                        |      96 |       75 |   83.33 |      96 | 31
+ components/ConfirmAddCartsModal          |     100 |       75 |     100 |     100 |
+  ConfirmAddCartsModal.tsx                |     100 |       75 |     100 |     100 | 11
+ components/GNB                           |     100 |       75 |     100 |     100 |
+  GNB.tsx                                 |     100 |       75 |     100 |     100 | 12
+ components/Orders/OrderList              |     100 |     87.5 |     100 |     100 |
+  OrderList.tsx                           |     100 |     87.5 |     100 |     100 | 12
+ components/Orders/OrderListContainer     |     100 |       75 |     100 |     100 |
+  OrderListContainer.tsx                  |     100 |       75 |     100 |     100 | 11
+ components/Orders/OrderListItem          |     100 |       75 |     100 |     100 |
+  OrderListItem.tsx                       |     100 |       75 |     100 |     100 | 11
+ components/Orders/OrderedProduct         |      88 |       75 |      40 |      88 |
+  OrderedProduct.tsx                      |      88 |       75 |      40 |      88 | 25-59
+ components/Products/ProductItem          |     100 |       75 |     100 |     100 |
+  ProductItem.tsx                         |     100 |       75 |     100 |     100 | 12
+ components/Products/ProductList          |   90.62 |    83.33 |   57.14 |   93.33 |
+  ProductList.tsx                         |   90.62 |    83.33 |   57.14 |   93.33 | 24,50
+ components/Products/ProductListContainer |     100 |       75 |     100 |     100 |
+  ProductListContainer.tsx                |     100 |       75 |     100 |     100 | 12
+ hooks/service                            |    88.6 |    83.33 |   52.94 |   95.89 |
+  useCarts.ts                             |   88.88 |    83.33 |    62.5 |   94.11 | 25,49
+  useOrders.ts                            |   86.95 |      100 |      40 |   95.23 | 24
+  useProducts.ts                          |      90 |      100 |      50 |     100 |
+ service                                  |   97.72 |      100 |   94.44 |     100 |
+  cartsService.ts                         |   95.65 |      100 |    87.5 |     100 |
+  ordersService.ts                        |     100 |      100 |     100 |     100 |
+ service/apis                             |   56.41 |      100 |       0 |   56.41 |
+  carts.ts                                |   53.84 |      100 |       0 |   53.84 | 10-19
+  orders.ts                               |   53.33 |      100 |       0 |   53.33 | 11-23
+  products.ts                             |   63.63 |      100 |       0 |   63.63 | 10-15
+ shared/constants                         |   64.28 |      100 |   28.57 |   64.28 |
+  css.ts                                  |     100 |      100 |     100 |     100 |
+  url.ts                                  |   54.54 |      100 |   28.57 |   54.54 | 19-64
+ shared/fixtures                          |     100 |      100 |     100 |     100 |
+  cartItem.ts                             |     100 |      100 |     100 |     100 |
+  carts.ts                                |     100 |      100 |     100 |     100 |
+  cartsFromServer.ts                      |     100 |      100 |     100 |     100 |
+  cartsReducerInitialState.ts             |     100 |      100 |     100 |     100 |
+  cartsWithQuantity.ts                    |     100 |      100 |     100 |     100 |
+  orderItem.ts                            |     100 |      100 |     100 |     100 |
+  orders.ts                               |     100 |      100 |     100 |     100 |
+  product.ts                              |     100 |      100 |     100 |     100 |
+ shared/utils                             |      80 |     62.5 |   66.66 |   78.26 |
+  createMockRouter.ts                     |     100 |      100 |     100 |     100 |
+  fetcher.ts                              |      60 |       50 |      50 |      60 | 16-23
+  redux.ts                                |   83.33 |      100 |      60 |   81.81 | 9-15
+  test-utils.ts                           |     100 |      100 |     100 |     100 |
+ store                                    |   96.87 |    66.66 |     100 |   96.77 |
+  index.ts                                |   96.87 |    66.66 |     100 |   96.77 | 25
+ store/modules                            |   96.42 |    66.66 |     100 |   96.42 |
+  index.ts                                |   96.42 |    66.66 |     100 |   96.42 | 36
+ store/modules/carts                      |   80.24 |       50 |   72.72 |   83.56 |
+  saga.ts                                 |   82.14 |       50 |      80 |   82.14 | 46-53
+  slice.ts                                |   77.55 |       50 |   70.58 |   82.92 | 55-65,89-90
+  types.ts                                |     100 |      100 |     100 |     100 |
+ store/modules/orders                     |   66.66 |     37.5 |   42.85 |   66.66 |
+  saga.ts                                 |   47.36 |     37.5 |      50 |   47.36 | 15-36
+  slice.ts                                |   78.94 |      100 |   33.33 |   78.94 | 28-32
+  types.ts                                |     100 |      100 |     100 |     100 |
+ store/modules/products                   |     100 |    66.66 |     100 |     100 |
+  saga.ts                                 |     100 |    66.66 |     100 |     100 | 10-21
+  slice.ts                                |     100 |      100 |     100 |     100 |
+  types.ts                                |     100 |      100 |     100 |     100 |
+
+
+
 
 ## 🕋 Server 실행 방법
 
