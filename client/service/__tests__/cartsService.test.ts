@@ -8,32 +8,28 @@ import {
 
 describe('isMaxCartItemQuantity - 장바구니 아이템 수량이 유효한지 확인하는 함수(최대 수량 확인)', () => {
   it('수량이 최대라면 true를 리턴한다.', () => {
-    const MAX_QUANTITY = 20;
-
-    expect(isMaxCartItemQuantity(MAX_QUANTITY)).toEqual(true);
+    expect(isMaxCartItemQuantity(MAX_CART_ITEM_QUANTITY, MAX_CART_ITEM_QUANTITY)).toEqual(true);
   });
 
   it('수량이 최대가 아니라면(유효한 수량이라면) false를 리턴한다.', () => {
     const validQuantities = [1, 5, 10];
 
     validQuantities.forEach((validQuantity) => {
-      expect(isMaxCartItemQuantity(validQuantity)).toEqual(false);
+      expect(isMaxCartItemQuantity(validQuantity, MAX_CART_ITEM_QUANTITY)).toEqual(false);
     });
   });
 });
 
 describe('isMinCartItemQuantity - 장바구니 아이템 수량이 유효한지 확인하는 함수(최소 수량 확인)', () => {
   it('수량이 최소라면 true를 리턴한다.', () => {
-    const MIN_QUANTITY = 1;
-
-    expect(isMinCartItemQuantity(MIN_QUANTITY)).toEqual(true);
+    expect(isMinCartItemQuantity(MIN_CART_ITEM_QUANTITY, MIN_CART_ITEM_QUANTITY)).toEqual(true);
   });
 
   it('수량이 최소가 아니라면 false를 리턴한다', () => {
     const validQuantities = [3, 5, 10];
 
     validQuantities.forEach((validQuantity) => {
-      expect(isMinCartItemQuantity(validQuantity)).toEqual(false);
+      expect(isMinCartItemQuantity(validQuantity, MIN_CART_ITEM_QUANTITY)).toEqual(false);
     });
   });
 });

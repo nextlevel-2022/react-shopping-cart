@@ -3,13 +3,18 @@ import { CartItem, OrderDetail, Product } from '../shared/types';
 export const isMaxCartItemQuantity = (currentQuantity: CartItem['quantity']): boolean => {
   const MAX_CART_ITEM_QUANTITY = 20;
 
-  return MAX_CART_ITEM_QUANTITY === currentQuantity;
+export const isMaxCartItemQuantity = (
+  currentQuantity: CartItem['quantity'],
+  maxCartItemQuantity: CartItem['quantity'],
+): boolean => {
+  return maxCartItemQuantity === currentQuantity;
 };
 
-export const isMinCartItemQuantity = (currentQuantity: CartItem['quantity']): boolean => {
-  const MIN_CART_ITEM_QUANTITY = 1;
-
-  return MIN_CART_ITEM_QUANTITY === currentQuantity;
+export const isMinCartItemQuantity = (
+  currentQuantity: CartItem['quantity'],
+  minCartItemQuantity: CartItem['quantity'],
+): boolean => {
+  return minCartItemQuantity === currentQuantity;
 };
 
 export const hasSameProductInCarts = (carts: CartItem[], newProduct: Product): boolean => {

@@ -1,6 +1,12 @@
 import { createSelector } from 'reselect';
 
-import { hasSameProductInCarts, isMaxCartItemQuantity, isMinCartItemQuantity } from '../../service/cartsService';
+import {
+  hasSameProductInCarts,
+  isMaxCartItemQuantity,
+  isMinCartItemQuantity,
+  MAX_CART_ITEM_QUANTITY,
+  MIN_CART_ITEM_QUANTITY,
+} from '../../service/cartsService';
 import { ALERT_MESSAGE } from '../../shared/constants/message';
 import { BaseRequestReducerState, CartItem, Product, RootState } from '../../shared/types';
 import { createModelAttributeObject, createModelAttributeSelector } from '../../shared/utils/redux';
@@ -37,7 +43,7 @@ const useCarts = () => {
   };
 
   const increaseCartItemQuantityById = (cartItemId: CartItem['id'], currentQuantity: CartItem['quantity']) => {
-    if (isMaxCartItemQuantity(currentQuantity)) {
+    if (isMaxCartItemQuantity(currentQuantity, MAX_CART_ITEM_QUANTITY)) {
       return alert(ALERT_MESSAGE.MAX_CART_ITEM_QUANTITY);
     }
 
@@ -45,7 +51,7 @@ const useCarts = () => {
   };
 
   const decreaseCartItemQuantityById = (cartItemId: CartItem['id'], currentQuantity: CartItem['quantity']) => {
-    if (isMinCartItemQuantity(currentQuantity)) {
+    if (isMinCartItemQuantity(currentQuantity, MIN_CART_ITEM_QUANTITY)) {
       return alert(ALERT_MESSAGE.MIN_CART_ITEM_QUANTITY);
     }
 
