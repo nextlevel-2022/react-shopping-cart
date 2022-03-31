@@ -3,6 +3,8 @@ import {
   hasSameProductInCarts,
   isMaxCartItemQuantity,
   isMinCartItemQuantity,
+  MAX_CART_ITEM_QUANTITY,
+  MIN_CART_ITEM_QUANTITY,
   transformOrderDetailFromCartItem,
 } from '../cartsService';
 
@@ -12,7 +14,7 @@ describe('isMaxCartItemQuantity - 장바구니 아이템 수량이 유효한지 
   });
 
   it('수량이 최대가 아니라면(유효한 수량이라면) false를 리턴한다.', () => {
-    const validQuantities = [1, 5, 10];
+    const validQuantities = [MAX_CART_ITEM_QUANTITY - 1, MAX_CART_ITEM_QUANTITY - 5, MAX_CART_ITEM_QUANTITY - 10];
 
     validQuantities.forEach((validQuantity) => {
       expect(isMaxCartItemQuantity(validQuantity, MAX_CART_ITEM_QUANTITY)).toEqual(false);
@@ -26,7 +28,7 @@ describe('isMinCartItemQuantity - 장바구니 아이템 수량이 유효한지 
   });
 
   it('수량이 최소가 아니라면 false를 리턴한다', () => {
-    const validQuantities = [3, 5, 10];
+    const validQuantities = [MIN_CART_ITEM_QUANTITY + 3, MIN_CART_ITEM_QUANTITY + 5, MIN_CART_ITEM_QUANTITY + 10];
 
     validQuantities.forEach((validQuantity) => {
       expect(isMinCartItemQuantity(validQuantity, MIN_CART_ITEM_QUANTITY)).toEqual(false);

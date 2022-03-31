@@ -1,7 +1,7 @@
 import { CartItem, OrderDetail, Product } from '../shared/types';
 
-export const isMaxCartItemQuantity = (currentQuantity: CartItem['quantity']): boolean => {
-  const MAX_CART_ITEM_QUANTITY = 20;
+export const MAX_CART_ITEM_QUANTITY = 20;
+export const MIN_CART_ITEM_QUANTITY = 1;
 
 export const isMaxCartItemQuantity = (
   currentQuantity: CartItem['quantity'],
