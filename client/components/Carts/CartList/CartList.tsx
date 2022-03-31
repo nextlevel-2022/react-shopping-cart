@@ -6,6 +6,7 @@ import useCarts from '../../../hooks/service/useCarts';
 import ordersRequest from '../../../service/apis/orders';
 import { calculateExpectedPrice } from '../../../service/cartsService';
 import { BUTTON_SIZE, COLOR } from '../../../shared/constants/css';
+import { ALERT_MESSAGE, CONFIRM_MESSAGE } from '../../../shared/constants/message';
 import { URL } from '../../../shared/constants/url';
 import { CartItem } from '../../../shared/types';
 import Button from '../../@atom/Button/Button';
@@ -70,8 +71,8 @@ const CartList = ({ carts, isLoading }: Props) => {
   };
 
   const orderSelectedCartItem = () => {
-    if (selectedCartItems.length === 0) return alert('선택된 아이템이 없습니다.');
-    if (!confirm('결제 하시겠습니까?')) return;
+    if (selectedCartItems.length === 0) return alert(ALERT_MESSAGE.EMPTY_SELECTED_CART_ITEM);
+    if (!confirm(CONFIRM_MESSAGE.CONFIRM_PAY_IN_CARTS)) return;
 
     deleteSelectedCartItem();
     ordersRequest.addOrderItem(selectedCartItems);
