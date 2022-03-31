@@ -11,7 +11,8 @@
     "watch:silent": "jest --watchAll --silent",
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 ./public",
-    "build-storybook": "build-storybook  public"
+    "build-storybook": "build-storybook  public",
+    "chromatic": "npx chromatic --project-token=eca084ea8efc"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
