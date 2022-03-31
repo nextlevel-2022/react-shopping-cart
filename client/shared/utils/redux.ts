@@ -18,7 +18,7 @@ export const createModelAttributeObject = <ValueType>(attributeSelector: any): B
   error: useAppSelector(attributeSelector.error),
 });
 
-export const createRequestReducer = <RequestPayload>(model: MODELS) => {
+export const createRequestReducer = (model: MODELS) => {
   return (state: RootState) => {
     state[model].isLoading = true;
   };

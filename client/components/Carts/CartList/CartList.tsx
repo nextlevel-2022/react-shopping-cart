@@ -98,7 +98,7 @@ const CartList = ({ carts, isLoading }: Props) => {
   return (
     <Container>
       <Header>장바구니</Header>
-      <TMP>
+      <SelectedInformation>
         <div>
           <input id="selectAllButton" type={'checkbox'} onClick={(event) => onClickSelectAllButton(event)} />
           <label htmlFor="selectAllButton">전체선택</label>
@@ -113,7 +113,7 @@ const CartList = ({ carts, isLoading }: Props) => {
             선택된 상품 삭제
           </Button>
         </DeleteCartItemContainer>
-      </TMP>
+      </SelectedInformation>
       <CartsTotalNumber>든든 배송 상품 ({carts.length}개)</CartsTotalNumber>
       <CartsInformationContainer>
         <CartsLeftSection>{renderCartItems()}</CartsLeftSection>
@@ -138,7 +138,7 @@ const DeleteCartItemContainer = styled.div`
   width: 15%;
 `;
 
-const TMP = styled.div`
+const SelectedInformation = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

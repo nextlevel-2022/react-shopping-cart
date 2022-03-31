@@ -20,7 +20,9 @@ const ordersRequest = {
       return { ...product, quantity };
     });
 
-    return await fetcher(method, url, { orderDetails });
+    await fetcher(method, url, { orderDetails });
+
+    return;
   },
 };
 
