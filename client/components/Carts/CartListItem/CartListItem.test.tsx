@@ -38,37 +38,31 @@ describe('<CartListItem />', () => {
   });
 
   it('장바구니 수량이 20개 미만 일때 버튼(+)을 누르면 액션이 dispatch 된다.', async () => {
-    const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
+    const { clickIncreaseQuantityButton, calledDispatch } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickIncreaseQuantityButton();
-
-    expect(useDispatch).toHaveBeenCalledTimes(2);
+    calledDispatch();
   });
 
   it('장바구니 수량이 20개인 경우 버튼(+)을 누르면 액션이 dispatch 되지 않는다.', async () => {
-    const { clickIncreaseQuantityButton } = renderCartListItem(cartItemHasMaxQuantity, carts);
-
-    console.log(cartItemHasMaxQuantity);
+    const { clickIncreaseQuantityButton, notCalledDispatch } = renderCartListItem(cartItemHasMaxQuantity, carts);
 
     clickIncreaseQuantityButton();
-
-    expect(useDispatch).toHaveBeenCalledTimes(1);
+    notCalledDispatch();
   });
 
   it('장바구니 수량이 1개를 초과하는 경우 버튼(-)을 누르면 액션이 dispatch 된다.', () => {
-    const { clickDecreaseQuantityButton } = renderCartListItem(cartItemHasValidQuantity, carts);
+    const { clickDecreaseQuantityButton, calledDispatch } = renderCartListItem(cartItemHasValidQuantity, carts);
 
     clickDecreaseQuantityButton();
-
-    expect(useDispatch).toHaveBeenCalledTimes(2);
+    calledDispatch();
   });
 
   it('장바구니 수량이 1개인 경우 버튼(-)을 누르면 액션이 dispatch 되지 않는다.', async () => {
-    const { clickDecreaseQuantityButton } = renderCartListItem(cartItemHasMinQuantity, carts);
+    const { clickDecreaseQuantityButton, notCalledDispatch } = renderCartListItem(cartItemHasMinQuantity, carts);
 
     clickDecreaseQuantityButton();
-
-    expect(useDispatch).toHaveBeenCalledTimes(1);
+    notCalledDispatch();
   });
 });
 
@@ -102,6 +96,18 @@ const renderCartListItem = (cartItem: CartItem, selectedCartItems: CartItem[]) =
     userEvent.click(DecreaseQuantityButton());
   };
 
+  const notCalledDispatch = () => {
+    const NOT_CALLED_DISPATCH_COUNT = 1;
+
+    expect(useDispatch).toBeCalledTimes(NOT_CALLED_DISPATCH_COUNT);
+  };
+
+  const calledDispatch = () => {
+    const CALLED_DISPATCH_COUNT = 2;
+
+    expect(useDispatch).toBeCalledTimes(CALLED_DISPATCH_COUNT);
+  };
+
   return {
     result,
 
@@ -118,5 +124,9 @@ const renderCartListItem = (cartItem: CartItem, selectedCartItems: CartItem[]) =
 
     /** mockedHandler */
     onClickCartItemSelectButton,
+
+    /** check dispatch is called or not */
+    notCalledDispatch,
+    calledDispatch,
   };
 };
