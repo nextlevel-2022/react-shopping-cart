@@ -1,20 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncAction } from 'typesafe-actions';
 
-import { Product } from '../../../shared/types';
-import {
-  GetProductsErrorType,
-  GetProductsResponseType,
-  PRODUCTS,
-  ProductsReducerState,
-} from './types';
+import { BaseRequestFailure } from '../../../shared/types';
+import { createFailureReducer, createRequestReducer } from '../../../shared/utils/redux';
+import { GetProductsResponseType, PRODUCTS, ProductsReducerState } from './types';
 
 const productsAsyncActions = {
   getProductsAsyncAction: createAsyncAction(
     `${PRODUCTS}/GET_${PRODUCTS}`,
     `${PRODUCTS}/GET_${PRODUCTS}_SUCCESS`,
     `${PRODUCTS}/GET_${PRODUCTS}_FAILURE`,
-  )<void, GetProductsResponseType, GetProductsErrorType>(),
+  )<void, GetProductsResponseType, BaseRequestFailure>(),
 };
 
 export const productsSlice = createSlice({
@@ -32,20 +28,15 @@ export const productsSlice = createSlice({
     const { getProductsAsyncAction } = productsActions;
 
     builder
-      .addCase(`${getProductsAsyncAction.request}`, (state, _) => {
-        state.products.isLoading = true;
-      })
+      .addCase(`${getProductsAsyncAction.request}`, createRequestReducer(PRODUCTS))
+      .addCase(`${getProductsAsyncAction.failure}`, createFailureReducer(PRODUCTS))
       .addCase(
         `${getProductsAsyncAction.success}`,
-        (state, { payload }: PayloadAction<{ products: Product[] }>) => {
+        (state, { payload: { products } }: PayloadAction<GetProductsResponseType>) => {
           state.products.isLoading = false;
-          state.products.value = payload.products;
+          state.products.value = products;
         },
-      )
-      .addCase(`${getProductsAsyncAction.failure}`, (state, _) => {
-        state.products.isLoading = false;
-        state.products.hasError = true;
-      });
+      );
   },
 });
 

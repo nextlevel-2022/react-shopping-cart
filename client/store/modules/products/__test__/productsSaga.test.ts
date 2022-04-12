@@ -1,9 +1,12 @@
 import { call } from '@redux-saga/core/effects';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { expectSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import productsService from '../../../../apis/products';
+import { useDispatch, useSelector } from '../../../../__mocks__/react-redux';
+import productsRequest from '../../../../service/apis/products';
 import db from '../../../../shared/fixtures/db.json';
+import { useAppDispatch, useAppSelector } from '../../../index';
 import productsSaga from '../saga';
 import { productsActions, productsReducer } from '../slice';
 import { PRODUCTS } from '../types';
@@ -20,18 +23,22 @@ const ProductsReducerInitialState = {
 };
 
 describe('productsSaga', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    (useDispatch as jest.Mock).mockImplementation(() => useAppDispatch);
+    (useSelector as jest.Mock).mockImplementation(() => useAppSelector);
+  });
+
   it('store의 state는 초깃값을 가지고 있다.', () => {
-    return expectSaga(productsSaga)
-      .withReducer(productsReducer)
-      .hasFinalState(ProductsReducerInitialState)
-      .silentRun();
+    return expectSaga(productsSaga).withReducer(productsReducer).hasFinalState(ProductsReducerInitialState).silentRun();
   });
 
   it('getProducts success.', () => {
     return expectSaga(productsSaga)
       .withReducer(productsReducer)
       .dispatch(productsActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), productsFixture]])
+      .provide([[call(productsRequest.getProducts), productsFixture]])
       .put(productsActions.getProductsAsyncAction.success({ [PRODUCTS]: productsFixture }))
       .silentRun();
   });
@@ -42,7 +49,7 @@ describe('productsSaga', () => {
     return expectSaga(productsSaga)
       .withReducer(productsReducer)
       .dispatch(productsActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), throwError(error)]])
+      .provide([[call(productsRequest.getProducts), throwError(error)]])
       .put(productsActions.getProductsAsyncAction.failure({ error }))
       .silentRun();
   });
@@ -55,7 +62,7 @@ describe('productsSaga', () => {
     return expectSaga(productsSaga)
       .withReducer(productsReducer)
       .dispatch(productsActions.getProductsAsyncAction.request())
-      .provide([[call(productsService.getProducts), productsFixture]])
+      .provide([[call(productsRequest.getProducts), productsFixture]])
       .hasFinalState(expectedResult)
       .silentRun();
   });

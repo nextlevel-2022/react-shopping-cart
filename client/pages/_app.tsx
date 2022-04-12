@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
+          <div id="root-portal" />
           <GlobalStyle />
           <GNB />
           <Component {...pageProps} />

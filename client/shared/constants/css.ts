@@ -26,3 +26,9 @@ export const COLOR = {
   CYAN_300: '#94DACD',
   GNB: '#2ac1bc',
 } as const;
+
+export const BUTTON_SIZE = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+} as const;

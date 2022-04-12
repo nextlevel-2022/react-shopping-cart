@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import ProductListContainer from '../components/ProductList/ProductListContainer';
+import ProductListContainer from '../components/Products/ProductListContainer/ProductListContainer';
 
 const Home: NextPage = () => {
   return <ProductListContainer />;
