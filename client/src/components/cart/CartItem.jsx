@@ -1,7 +1,7 @@
 import React from "react";
 import TrashSvg from "../../assets/svgs/trash.svg";
 
-const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecrease }) => {
+const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecrease, onToggle }) => {
   const { name, price, imageUrl } = product;
   const { quantity, isChecked } = cartItem;
   const totalPrice = price * quantity;
@@ -10,7 +10,7 @@ const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecre
     <>
       <div className="cart-container">
         <div className="flex gap-15 mt-10">
-          <input className="checkbox" name="checkbox" type="checkbox" />
+          <input className="checkbox" name="checkbox" type="checkbox" onChange={() => onToggle(cartId)} checked={isChecked} />
           <img className="w-144 h-144" src={imageUrl} alt={name} />
           <span className="cart-name">{name}</span>
         </div>
@@ -19,10 +19,10 @@ const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecre
           <div className="number-input-container">
             <input type="number" className="number-input" value={quantity} readOnly />
             <div>
-              <button className="number-input-button" onClick={() => onIncrease(cartId)}>
+              <button className="number-input-button" onClick={() => quantity < 20 && onIncrease(cartId)}>
                 ▲
               </button>
-              <button className="number-input-button" onClick={() => onDecrease(cartId)}>
+              <button className="number-input-button" onClick={() => quantity > 1 && onDecrease(cartId)}>
                 ▼
               </button>
             </div>

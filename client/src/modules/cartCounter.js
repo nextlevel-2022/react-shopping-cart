@@ -16,9 +16,9 @@ const cartCounterSlice = createSlice({
   initialState,
   reducers: {
     increase: (state, { payload }) => {
-      console.log("before", current(state));
+      // console.log("before", current(state));
       state[payload].quantity++;
-      console.log("after", current(state));
+      // console.log("after", current(state));
     },
     decrease(state, { payload }) {
       state[payload].quantity--;
