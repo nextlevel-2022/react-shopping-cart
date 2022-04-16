@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import TrashSvg from "../../assets/svgs/trash.svg";
 import CartItem from "./CartItem";
 
 const CartListBlock = styled.div`
@@ -146,35 +145,7 @@ const CartListBlock = styled.div`
   }
 `;
 
-// const CartItem = ({item:{ id: cartId, product }}) => {
-//   const { name, price, imageUrl, id } = product;
-
-//   return (
-//     <>
-//       <div className="cart-container">
-//         <div className="flex gap-15 mt-10">
-//           <input className="checkbox" name="checkbox" type="checkbox" checked="true" />
-//           <img className="w-144 h-144" src={imageUrl} alt={name} />
-//           <span className="cart-name">{name}</span>
-//         </div>
-//         <div className="flex-col-center justify-end gap-15">
-//           <img className="cart-trash-svg" src={TrashSvg} alt="삭제" />
-//           <div className="number-input-container">
-//             <input type="number" className="number-input" value="1" />
-//             <div>
-//               <button className="number-input-button">▲</button>
-//               <button className="number-input-button">▼</button>
-//             </div>
-//           </div>
-//           <span className="cart-price">{price.toLocaleString()}원</span>
-//         </div>
-//       </div>
-//       <hr className="divide-line-thin mt-10" />
-//     </>
-//   );
-// };
-
-const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease }) => {
+const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle }) => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -183,11 +154,21 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
     return <span>Error: {error.message}</span>;
   }
 
-  let totalCount = 0;
-  const totalPrice = data.reduce((acc, { id, product: { price } }, idx) => {
-    totalCount++;
-    return acc + price;
-  }, 0);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    let calculateCount = 0;
+    const calculatePrice = data.reduce((acc, { id, product: { price } }, idx) => {
+      calculateCount++;
+      const { isChecked, quantity } = cartState[id];
+      const eachPrice = isChecked ? price*quantity : 0;
+    return acc + eachPrice;
+    }, 0);
+
+    setTotalCount(calculateCount);
+    setTotalPrice(calculatePrice);
+  }, [cartState])
 
   return (
     <CartListBlock>
@@ -208,7 +189,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
             </div>
             <h3 className="cart-title">든든배송 상품({totalCount}개)</h3>
             <hr className="divide-line-gray mt-10" />
-            {data.map((item) => {
+            {data.map(item => {
               return (
                 <CartItem
                   key={item.id}
@@ -216,6 +197,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
                   cartItem={cartState[String(item.id)]}
                   onIncrease={onIncrease}
                   onDecrease={onDecrease}
+                  onToggle={onToggle}
                 />
               );
             })}
@@ -228,7 +210,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
             <div className="cart-right-section__bottom">
               <div className="flex justify-between p-20 mt-20">
                 <span className="highlight-text">결제예상금액</span>
-                <span className="highlight-text">{totalPrice}원</span>
+                <span className="highlight-text">{totalPrice.toLocaleString()}원</span>
               </div>
               <div className="flex-center mt-30 mx-10">
                 <button className="primary-button flex-center">주문하기({totalCount}개)</button>
