@@ -25,13 +25,16 @@ const cartCounterSlice = createSlice({
     },
     toggle(state, { payload }) {
       state[payload].isChecked = !state[payload].isChecked;
-    }
+    },
+    toggleAll(state, { payload }) {
+      Object.keys(state).map((key) => state[key].isChecked = payload)
+    },
     // insert(state, action) {
 
     // },
   },
 });
 
-export const { increase, decrease, toggle } = cartCounterSlice.actions;
+export const { increase, decrease, toggle, toggleAll } = cartCounterSlice.actions;
 const cartReducer = cartCounterSlice.reducer;
 export default cartReducer;

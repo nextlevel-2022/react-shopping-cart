@@ -145,7 +145,7 @@ const CartListBlock = styled.div`
   }
 `;
 
-const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle }) => {
+const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle, onToggleAll }) => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -182,7 +182,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
           <section className="cart-left-section">
             <div className="flex justify-between items-center">
               <div className="checkbox-container">
-                <input className="checkbox" name="checkbox" type="checkbox" />
+                <input className="checkbox" name="checkbox" type="checkbox" onClick={({target: {checked}})=> onToggleAll(checked)} />
                 <label className="checkbox-label">모두선택</label>
               </div>
               <button className="delete-button">상품삭제</button>

@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import CartList from "../../components/cart/CartList";
 import apiHandler from "../../lib/api/main";
-import { decrease, increase, toggle } from "../../modules/cartCounter";
+import { decrease, increase, toggle, toggleAll } from "../../modules/cartCounter";
 
 const CartListContainer = () => {
   const { isLoading, isError, data, error } = useQuery(["carts"], () => apiHandler.getCarts());
@@ -27,6 +27,11 @@ const CartListContainer = () => {
       dispatch(toggle(String(id)))
     }
   )
+  const onToggleAll = useCallback(
+    isChecked => {
+      dispatch(toggleAll(isChecked))
+    }
+  )
 
   return (
     <div>
@@ -39,6 +44,7 @@ const CartListContainer = () => {
         onIncrease={onIncrease}
         onDecrease={onDecrease}
         onToggle={onToggle}
+        onToggleAll={onToggleAll}
       />
     </div>
   );
