@@ -1,31 +1,31 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import "./OrderPaymentPage.sass";
 import API from '../../API';
 import { useNavigate } from 'react-router-dom';
-// #### 주문/결제
-// ​
-// - [x] 주문할 상품들의 정보가 보여진다.
-// - [x] 총 결제금액을 보여준다.
-// - [x] 결제하기 버튼을 클릭하면, confirm 메시지가 보여진다.
-//   - [x] 확인 버튼을 누르면, 주문 목록페이지로 이동한다.
+import { removeFromCart } from '../CartPage/cartSlicer.js';
+
 const OrderPaymentPage = () => {
-  const store = useSelector(state => state.cartReducer.cart);
+  const store = useSelector(state => state.cart.cart);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(store)
-  let sum = 0;
-  store.forEach(product => sum += product.price);
+  let sum = store.reduce((acc, cur) => acc + cur.price, 0);
+  
   sum = sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  // reduce 처리 안되는 이유 모르겠음
+  
   const clickHander = (e) => {
     const result = window.confirm("선택한 상품들을 모두 구매하시겠습니까?")
     if (result) {
       const orderDetails = [...store];
       API.postProduct("/orders", {orderDetails})
         .then(res => console.log(res));
+      store.forEach(({id}) => {
+        dispatch(removeFromCart(id));
+      });
       navigate("/orders");
     }
   }
+
   return (
     <section className="order-section">
         <header className="order-section-header">
@@ -57,7 +57,7 @@ const OrderPaymentPage = () => {
           
                   <hr className="divide-line-thin mt-10" />
                   </li>
-                )
+                );
               }
             })}
           </section>

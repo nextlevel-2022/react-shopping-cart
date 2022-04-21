@@ -7,12 +7,7 @@ import "./OrderListPage.sass";
 const OrderListPage = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
-  const [active, setActive] = useState(false)
-  useEffect(async() => {
-    await API.getProduct("/orders")
-    .then(res => res.data)
-    .then(data => setOrders(data));
-  }, [])
+  const [active, setActive] = useState(false);
   
   const clickCart = async (product) => {
     setActive(true);
@@ -25,6 +20,12 @@ const OrderListPage = () => {
   const clickDetail = (id) => {
     navigate(`/orders/${id}`)
   }
+
+  useEffect(async() => {
+    await API.getProduct("/orders")
+    .then(res => res.data)
+    .then(data => setOrders(data));
+  }, []);
 
   return (
     <>
@@ -75,4 +76,3 @@ const OrderListPage = () => {
 };
 
 export default OrderListPage;
-
