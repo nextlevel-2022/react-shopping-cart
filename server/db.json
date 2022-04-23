@@ -459,6 +459,19 @@
           "checked": true
         }
       ]
+    },
+    {
+      "id": 1650696170124,
+      "orderDetails": [
+        {
+          "id": 1650696129944,
+          "price": 83700,
+          "name": "냉면용기(대)",
+          "imageUrl": "https://cdn-mart.baemin.com/goods/2/1556008840639m0.jpg",
+          "quantity": 1,
+          "checked": true
+        }
+      ]
     }
   ]
 }
