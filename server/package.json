@@ -6,10 +6,10 @@
   "license": "MIT",
   "devDependencies": {
     "json-server": "^0.17.0",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "nodemon": "^2.0.15"
   },
   "scripts": {
-    "server": "node server.js"
-  },
-  "dependencies": {}
+    "server": "nodemon server.js"
+  }
 }

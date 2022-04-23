@@ -1,0 +1,66 @@
+.product-container
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 20px
+  padding: 50px 20px
+  max-width: 1000px
+  min-height: calc(100vh - 176px)
+  margin: 0 auto
+  li 
+    list-style: none
+  .product-img
+      img
+        width: 100%
+        height: 100%
+  .product-footer
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    .product-info
+      display: flex
+      flex-direction: column
+
+@media screen and (max-width: 800px) and (min-width: 501px)
+  .product-container
+    grid-template-columns: repeat(3, 1fr)
+
+@media screen and (max-width: 500px)
+  .product-container
+    grid-template-columns: repeat(2, 1fr)
+
+.product-detail-container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  .product-detail-img
+    width: 25rem
+    height: 25rem
+    margin: 1rem
+    img
+      width: 100%
+      height: 100%
+  .product-detail-name
+    width: 30rem
+    font-size: 2rem
+    border-bottom: 3px solid black
+    margin: 1rem
+    padding: .5rem
+    text-align: center
+  .product-detail-price
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    width: 25rem
+    margin: 1rem
+    font-size: 1.5rem
+  .product-detail-button
+    border-style: none
+    width: 30rem
+    height: 3.5rem
+    color: white
+    background: #73675C
+    cursor: pointer
+    transition: all .5s ease
+  .product-detail-button:hover
+    transform: scale(1.1)
