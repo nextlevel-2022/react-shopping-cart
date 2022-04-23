@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import API from '../../API';
 import './CartPage.sass'
-import { addToCart } from '../../redux/cartSlicer';
+import { addToCart,removeFromCart } from './cartSlicer.js';
 // 카트페이지 담긴것들만 이동해서 payment로 이동시키도록, redux를 이용해보자
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
-  const addCart = (products) => dispatch(addToCart(products));
+  const dispatch = useDispatch();
   const updateCart = async() => {
     API.getProduct("/carts")
       .then(res => res.data)
@@ -22,14 +21,12 @@ const CartPage = () => {
           quantity: 1,
           checked: true
         }
+
         return information;
       }))
       .then(informations => setCart([...informations]))
       .catch(err => console.log(err));
   }
-  useEffect(() => {
-    updateCart();
-  }, [])
   
   const deleteHandler = (e) => {
     const result = window.confirm("해당 상품을 장바구니에서 삭제하시겠습니까?")
@@ -37,7 +34,6 @@ const CartPage = () => {
       API.deleteProduct(`/carts/${e.target.id}`)
       .then(res => console.log(res))
     }
-    updateCart();
   }
 
   const quantityHandler = (e) => {
@@ -124,8 +120,6 @@ const CartPage = () => {
         }
       })
     }
-    
-    updateCart();
   }
   const orderHandler = async (e) => {
     if (!totalCount()) return; // click deactive
@@ -143,18 +137,16 @@ const CartPage = () => {
 
           return modified;
         }
-      })
-      addCart(modifiedCart);
-      totalDeleteHandler();
-      API.getProduct("/carts")
-        .then(res => {
-          if (res.data.length === 0) {
-            navigate("/payment")
-          }
-        })
-      
+      });
+      dispatch(addToCart(modifiedCart));
+      await totalDeleteHandler();
+      navigate("/payment");
     }
   }
+
+  useEffect(() => {
+    updateCart();
+  }, [cart.length]);
 
   return (
     <section>
