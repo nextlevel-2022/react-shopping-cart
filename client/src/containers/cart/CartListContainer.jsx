@@ -48,9 +48,27 @@ const CartListContainer = () => {
       if (isConfirm) {
         mutate(id, {
           onSuccess: () => {
-            setTimeout(() => dispatch(deleteItem(id)), 1000);
+            setTimeout(() => dispatch(deleteItem(id)), 500);
           },
         });
+      }
+    }
+  )
+
+  const onDeleteSelectedItems = useCallback(
+    (cartObject) => {
+      const isConfirm = confirm("삭제하시겠습니까?");
+      if (isConfirm) {
+        for (const [key, { isChecked }] of Object.entries(cartObject)) {
+          if (isChecked) {
+            mutate(key, {
+              onSuccess: () => {
+                setTimeout(() => dispatch(deleteItem(key)), 500);
+              }
+            }
+            );
+          }
+        }
       }
     }
   )
@@ -68,6 +86,7 @@ const CartListContainer = () => {
         onToggle={onToggle}
         onToggleAll={onToggleAll}
         onDelete={onDelete}
+        onDeleteSelectedItems={onDeleteSelectedItems}
       />
     </div>
   );

@@ -145,7 +145,7 @@ const CartListBlock = styled.div`
   }
 `;
 
-const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle, onToggleAll, onDelete }) => {
+const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle, onToggleAll, onDelete, onDeleteSelectedItems }) => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -186,7 +186,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
                 <input className="checkbox" name="checkbox" type="checkbox" onClick={({target: {checked}})=> onToggleAll(checked)} />
                 <label className="checkbox-label">모두선택</label>
               </div>
-              <button className="delete-button">상품삭제</button>
+              <button className="delete-button" onClick={() => onDeleteSelectedItems(cartState)}>상품삭제</button>
             </div>
             <h3 className="cart-title">든든배송 상품({totalCount}개)</h3>
             <hr className="divide-line-gray mt-10" />
