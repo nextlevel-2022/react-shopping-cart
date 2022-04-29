@@ -1,8 +1,10 @@
 import React from "react";
 import TrashSvg from "../../assets/svgs/trash.svg";
 
-const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecrease, onToggle }) => {
+const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecrease, onToggle, onDelete }) => {
   const { name, price, imageUrl } = product;
+  console.log(cartItem)
+  if(cartItem === undefined) return <span></span>
   const { quantity, isChecked } = cartItem;
   const totalPrice = price * quantity;
 
@@ -15,7 +17,7 @@ const CartItem = ({ item: { id: cartId, product }, cartItem, onIncrease, onDecre
           <span className="cart-name">{name}</span>
         </div>
         <div className="flex-col-center justify-end gap-15">
-          <img className="cart-trash-svg" src={TrashSvg} alt="삭제" />
+          <img className="cart-trash-svg" src={TrashSvg} alt="삭제" onClick={() => onDelete(cartId)} />
           <div className="number-input-container">
             <input type="number" className="number-input" value={quantity} readOnly />
             <div>

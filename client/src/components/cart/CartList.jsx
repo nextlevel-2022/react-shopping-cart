@@ -145,7 +145,7 @@ const CartListBlock = styled.div`
   }
 `;
 
-const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle, onToggleAll }) => {
+const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDecrease, onToggle, onToggleAll, onDelete }) => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -160,15 +160,16 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
   useEffect(() => {
     let calculateCount = 0;
     const calculatePrice = data.reduce((acc, { id, product: { price } }, idx) => {
-      calculateCount++;
       const { isChecked, quantity } = cartState[id];
-      const eachPrice = isChecked ? price*quantity : 0;
+      if(isChecked) calculateCount++
+      const eachPrice = isChecked ? price * quantity : 0;
+      
     return acc + eachPrice;
     }, 0);
 
     setTotalCount(calculateCount);
     setTotalPrice(calculatePrice);
-  }, [cartState])
+  }, [data, cartState])
 
   return (
     <CartListBlock>
@@ -198,6 +199,7 @@ const CartList = ({ isError, isLoading, data, error, cartState, onIncrease, onDe
                   onIncrease={onIncrease}
                   onDecrease={onDecrease}
                   onToggle={onToggle}
+                  onDelete={onDelete}
                 />
               );
             })}

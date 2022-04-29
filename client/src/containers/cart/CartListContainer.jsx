@@ -1,15 +1,25 @@
 import React, { useCallback } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import CartList from "../../components/cart/CartList";
 import apiHandler from "../../lib/api/main";
-import { decrease, increase, toggle, toggleAll } from "../../modules/cartCounter";
+import { decrease, increase, toggle, toggleAll, deleteItem } from "../../modules/cartCounter";
 
 const CartListContainer = () => {
+  const queryClient = useQueryClient();
   const { isLoading, isError, data, error } = useQuery(["carts"], () => apiHandler.getCarts());
 
+  const { mutate, mutateAsync, error: mutateError } = useMutation(id => {
+      return apiHandler.deleteCart({id});
+  }, {
+      onSuccess: () => {
+      queryClient.invalidateQueries(["carts"]);
+    }
+  });
+  
   const cartState = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  
   const onIncrease = useCallback(
     id => {
       dispatch(increase(String(id)));
@@ -32,6 +42,18 @@ const CartListContainer = () => {
       dispatch(toggleAll(isChecked))
     }
   )
+  const onDelete = useCallback(
+    (id) => {
+      const isConfirm = confirm('삭제하시겠습니까?')
+      if (isConfirm) {
+        mutate(id, {
+          onSuccess: () => {
+            setTimeout(() => dispatch(deleteItem(id)), 1000);
+          },
+        });
+      }
+    }
+  )
 
   return (
     <div>
@@ -45,6 +67,7 @@ const CartListContainer = () => {
         onDecrease={onDecrease}
         onToggle={onToggle}
         onToggleAll={onToggleAll}
+        onDelete={onDelete}
       />
     </div>
   );

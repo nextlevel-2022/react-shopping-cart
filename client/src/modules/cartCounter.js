@@ -29,12 +29,15 @@ const cartCounterSlice = createSlice({
     toggleAll(state, { payload }) {
       Object.keys(state).map((key) => state[key].isChecked = payload)
     },
+    deleteItem(state, { payload }) {
+      delete state[payload]
+    },
     // insert(state, action) {
 
     // },
   },
 });
 
-export const { increase, decrease, toggle, toggleAll } = cartCounterSlice.actions;
+export const { increase, decrease, toggle, toggleAll, deleteItem } = cartCounterSlice.actions;
 const cartReducer = cartCounterSlice.reducer;
 export default cartReducer;
